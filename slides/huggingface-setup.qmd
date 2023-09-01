@@ -33,7 +33,9 @@ format:
     footer: Jan Kirenz
 ---
 
-# What is Hugging Face?
+# Introduction
+
+## What is Hugging Face?
 
 ![](https://huggingface.co/front/assets/huggingface_logo-noborder.svg)
 
@@ -41,7 +43,11 @@ format:
   - Tools to easily build, train and deploy ML models 
   - Community to share ideas and models 
 
-# Pipeline
+## 
+
+# Pipelines
+
+
 
 # Hugging Face 🤗 Setup
 
