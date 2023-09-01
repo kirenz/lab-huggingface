@@ -1,0 +1,107 @@
+---
+title: "Text Summarization"
+lang: en
+subtitle: "Using Hugging Face 🤗 Pipeline"
+author: Jan Kirenz
+execute:
+  eval: false
+  echo: true
+highlight-style: github
+format:
+  revealjs: 
+    toc: true
+    toc-depth: 2
+    embed-resources: false
+    theme: [dark, ../custom.scss]  
+    incremental: true
+    transition: slide
+    transition-speed: slow
+    background-transition: fade
+    code-copy: true
+    code-line-numbers: true
+    smaller: false
+    scrollable: true
+    slide-number: c
+    preview-links: auto
+    chalkboard: 
+      buttons: false
+    #logo: images/logo.png
+    footer: "Source: [Hugging Face](https://huggingface.co/) | Jan Kirenz"
+---
+
+## Python setup
+
+- You need Anaconda or Miniconda
+
+- Install this virtual environment [env-transformers.yml](https://github.com/kirenz/environments) 
+
+. . .
+
+
+```{python}
+from transformers import pipeline
+```
+
+
+# Intuition
+
+- Summarization creates a shorter version of a text from a longer one while trying to preserve most of the meaning of the original document. 
+
+- Summarization is a sequence-to-sequence task
+
+
+## Use Cases
+
+- Help readers quickly understand the main points. 
+
+- Legislative bills, legal and financial documents, patents, and scientific papers ...
+
+## Two types of summarization:
+
+- *extractive*: identify and extract the most important sentences from the original text.
+
+- *abstractive*: generate the target summary (which may include new words not in the input document) from the original text
+
+
+# Pipeline example 
+
+## Create pipeline
+
+```{python}
+# | code-line-numbers: "|1|3|4|6"
+
+summarizer = pipeline(task="summarization")
+
+```
+
+# Provide text
+
+- Paragraph about observational studies and experiments from [Introduction to Modern Statistics](https://openintro-ims.netlify.app/data-hello.html#observational-studies-and-experiments)
+
+. . .
+
+```{python}
+
+my_text = "When researchers want to evaluate the effect of particular traits, treatments, or conditions, they conduct an experiment. For instance, we may suspect drinking a high-calorie energy drink will improve performance in a race. To check if there really is a causal relationship between the explanatory variable (whether the runner drank an energy drink or not) and the response variable (the race time), researchers identify a sample of individuals and split them into groups. The individuals in each group are assigned a treatment. When individuals are randomly assigned to a group, the experiment is called a randomized experiment. Random assignment organizes the participants in a study into groups that are roughly equal on all aspects, thus allowing us to control for any confounding variables that might affect the outcome (e.g., fitness level, racing experience, etc.). For example, each runner in the experiment could be randomly assigned, perhaps by flipping a coin, into one of two groups: the first group receives a placebo (fake treatment, in this case a no-calorie drink) and the second group receives the high-calorie energy drink. See the case study in Section 1.1 for another example of an experiment, though that study did not employ a placebo. Researchers perform an observational study when they collect data in a way that does not directly interfere with how the data arise. For instance, researchers may collect information via surveys, review medical or company records, or follow a cohort of many similar individuals to form hypotheses about why certain diseases might develop. In each of these situations, researchers merely observe the data that arise. In general, observational studies can provide evidence of a naturally occurring association between variables, but they cannot by themselves show a causal connection as they do not offer a mechanism for controlling for confounding variables."
+
+
+```
+
+
+## Apply model to text
+
+```{python}
+summarizer(my_text, min_length=20, max_length=80)
+
+```
+
+## Output
+
+- Output:
+
+. . . 
+
+```{bash}
+[{'summary_text': ' When researchers want to evaluate the effect of particular traits, treatments, or conditions, they conduct an experiment . For example, we may suspect drinking a high-calorie energy drink will improve performance in a race . Researchers perform an observational study when they collect data in a way that does not directly interfere with how the data arise .'}]
+```
+
