@@ -1,0 +1,264 @@
+---
+title: Build and Host Machine Learning Demos 
+title-slide-attributes:
+  data-background-image: ../images/logo.png
+  data-background-size: contain
+  data-background-opacity: "0.5"
+lang: en
+subtitle: with HuggingFace and Gradio
+author: Jan Kirenz
+execute:
+  eval: false
+  echo: true
+highlight-style: github
+format:
+  revealjs: 
+    toc: true
+    toc-depth: 1
+    embed-resources: false
+    theme: [dark, ../custom.scss]  
+    incremental: true
+    transition: slide
+    background-transition: fade
+    transition-speed: slow
+    code-copy: true
+    code-line-numbers: true
+    smaller: false
+    scrollable: true
+    slide-number: c
+    preview-links: auto
+    chalkboard: 
+      buttons: false
+   # logo: ../images/logo.png
+    footer: Jan Kirenz
+---
+
+# Build and Host Machine Learning Demos with Gradio ⚡ & Hugging Face
+
+# Introduction
+
+## Why Demos?
+
+![](../images/gradio-website.png)
+
+
+- Developers can easily **present** their work to a wide audience
+
+- Increase **reproducibility** of machine learning research
+
+- Easily **identify and debug** failure points of models
+
+
+## Learning goals
+
+Learn how to:
+
+:::{.callout-tip}
+1. Build a quick demo for your machine learning model in Python using the `gradio` library
+2. Host the demos for free with Hugging Face Spaces
+3. Add your demo to the Hugging Face org for your class
+:::
+
+
+## Keras Org on Hugging Face
+
+- As a quick example of what we would like to build, check out the [Keras Org on Hugging Face](https://huggingface.co/keras-io)
+
+
+- Open any **Space** in your browser to use the model immediately
+
+
+# Gradio Basics
+
+`gradio` is a Python library that lets you build web demos simply by specifying the list of input and output **components** expected by your machine learning model. 
+
+## Gradio components
+
+- Gradio comes with a bunch of predefined components for different kinds of machine learning models. 
+
+- For an **image classifier**, the expected input type is an `Image` and the output type is a `Label`.
+
+- For a **speech recognition model**, the expected input component is an `Microphone` (which lets users record from the browser) or `Audio` (which lets users drag-and-drop audio files), while the output type is `Text`. 
+
+- For a **question answering model**, we expect **2 inputs**: [`Text`, `Text`], one textbox for the paragraph and one for the question, and the output type is a single `Text` corresponding to the answer. 
+
+- For all of the supported components, [see the docs](https://gradio.app/docs/)
+
+## Gradio prediction function
+
+- In addition to the input and output types, Gradio expects a third parameter, which is the prediction function itself. 
+
+- This parameter can be ***any* regular Python function** that takes in parameter(s) corresponding to the input component(s) and returns value(s) corresponding to the output component(s)
+
+# Python setup
+
+```{python}
+from IPython.display import IFrame
+import numpy as np
+import gradio as gr
+```
+
+
+# Image App
+
+## Custom Python function
+
+- Let's create a simple Python function
+
+. . .
+
+```{python}
+
+
+def sepia(image):
+    sepia_filter = np.array(
+        [[0.393, 0.769, 0.189],
+         [0.349, 0.686, 0.168],
+         [0.272, 0.534, 0.131]]
+    )
+    sepia_img = image.dot(sepia_filter.T)
+    sepia_img /= sepia_img.max()
+    return sepia_img
+
+
+```
+
+## Gradio Image App 
+
+```{python}
+gr.Interface(  # <1>
+    fn=sepia,  # <2>
+    inputs="image",  # <3>
+    outputs="image"  # <4>
+).launch()  # <5>
+```
+
+1. We define an Gradio `Interface` using:
+2. a function `fn`
+3. Input component: `inputs` image
+4. Output component: `outputs` image
+5. ... and `launch` the app
+
+# Gradio Sound App 
+
+Create an app that generates a musical tone when provided a few different parameters.
+
+## Gradio App {.smaller}
+
+```{python}
+
+
+def generate_tone(note, octave, duration):
+    sampling_rate = 48000
+    a4_freq, tones_from_a4 = 440, 12 * (octave - 4) + (note - 9)
+    frequency = a4_freq * 2 ** (tones_from_a4 / 12)
+    audio = np.linspace(0, int(duration), int(duration) * sampling_rate)
+    audio = (20000 * np.sin(audio * (2 * np.pi * frequency))).astype(np.int16)
+    return sampling_rate, audio
+
+
+gr.Interface(
+    generate_tone,  # function
+    [
+        gr.Dropdown(["C", "C#", "D", "D#", "E", "F", "F#",
+                    "G", "G#", "A", "A#", "B"], type="index"),
+        gr.Slider(4, 6, step=1),
+        gr.Number(value=1, label="Duration in seconds"),
+    ],
+    "audio",
+    title="Generate a Musical Tone!"
+).launch()
+```
+
+
+# Text-to-Speech App
+
+It is especially easy to demo a `transformers` model from Hugging Face's Model Hub, using the special `gr.Interface.load` method. 
+
+Text-to-speech model built by Facebook:
+
+
+```{python}
+gr.Interface.load("huggingface/facebook/fastspeech2-en-ljspeech").launch()
+```
+
+# GPT-J App
+
+Demo for [GPT-J](https://huggingface.co/EleutherAI/gpt-j-6B), a large language model & add a couple of examples inputs:
+
+
+```{python}
+
+examples = [["A student at HdM Stuttgart is"],
+            ["In Stuttgart you can "]]
+
+gr.Interface.load("huggingface/EleutherAI/gpt-j-6B",
+                  examples=examples).launch()
+```
+
+# Build your own App
+
+- You can go to the [Hugging Face Model Hub](https://huggingface.co/models) and pick any model that performs one of the tasks supported in the `transformers` library
+
+- Create a Gradio demo for that model using `gr.Interface.load`.
+
+# Host the Demo
+
+Host the Demo (for free) on Hugging Face Spaces
+
+## Workflow {.smaller}
+
+- Here are the steps to that (also see GIF in the next slid):
+
+A. First, create a Hugging Face account if you do not already have one, by visiting <https://huggingface.co/> and clicking "Sign Up"
+
+B. Once you are logged in, click on your profile picture and then click on "New Space" underneath it to get to this page: <https://huggingface.co/new-space>
+
+C. Give your Space a name and a license. Select "Gradio" as the Space SDK, and then choose "Public" if you are fine with everyone accessing your Space and the underlying code
+
+D. Then you will find a page that provides you instructions on how to upload your files into the Git repository for that Space. You may also need to add a `requirements.txt` file to specify any Python package dependencies.
+
+E. Once you have pushed your files, that's it! Spaces will automatically build your Gradio demo allowing you to share it with anyone, anywhere!
+
+## Workflow in a GIF
+
+![GIF](https://huggingface.co/blog/assets/28_gradio-spaces/spaces-demo-finalized.gif)
+
+
+## Share your demo
+
+- You can embed your Gradio demo on any website -- in a blog, a portfolio page, or even in a colab notebook, 
+
+- Example: Pictionary sketch recognition model below:
+
+```{python}
+
+IFrame(src='https://hf.space/gradioiframe/abidlabs/Draw/+', width=1000, height=800)
+```
+
+
+# Add Demo to our Hugging Face organization
+
+## Workflow
+
+A. You find the link to our organization (HdM-...) in [Moodle](https://moodle.hdm-stuttgart.de/login/index.php) 
+
+B. Visit the organization page and click "Request to join this org" button, if you are not yet part of the org.
+
+C. Then, once you have been approved to join the organization (and built your Gradio Demo and uploaded it to Spaces -- see Sections above): 
+  - Go to your Space and go to `Settings > Rename or transfer this space`
+  - select the organization name under `New owner`. 
+  - Click the button and the Space will now be added to our organization
+
+
+# Acknowledgments
+
+*The slides are mainly based on a toolkit provided by Abubakar Abid from HuggingFace*
+
+
+# What's next? {background-image="../images/logo.png" background-opacity="0.5"}
+
+**Congratulations! You have completed this tutorial** 👍
+
+**Next, you may want to go back to the [lab's website](https://kirenz.github.io/lab-huggingface/)**
+
