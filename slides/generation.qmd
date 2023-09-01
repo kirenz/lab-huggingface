@@ -1,0 +1,114 @@
+---
+title: Text generation
+title-slide-attributes:
+  data-background-image: ../images/logo.png
+  data-background-size: contain
+  data-background-opacity: "0.5"
+lang: en
+subtitle: with HuggingFace
+author: Jan Kirenz
+execute:
+  eval: false
+  echo: true
+highlight-style: github
+format:
+  revealjs: 
+    toc: true
+    toc-depth: 1
+    embed-resources: false
+    theme: [dark, ../custom.scss]  
+    incremental: true
+    transition: slide
+    background-transition: fade
+    transition-speed: slow
+    code-copy: true
+    code-line-numbers: true
+    smaller: false
+    scrollable: true
+    slide-number: c
+    preview-links: auto
+    chalkboard: 
+      buttons: false
+   # logo: ../images/logo.png
+    footer: Jan Kirenz
+---
+
+# Text generation
+
+# Setup
+
+
+```{python}
+from transformers import pipeline
+```
+
+
+# Intuition
+
+![](../image/text-generation.png)
+
+
+## Use Cases
+
+- Stories Generation
+
+- Code Generation: can help programmers in their repetitive coding tasks.
+
+## Task Variants
+
+- Completion Generation Models
+  - Given an incomplete sentence, complete it.
+  - Continue a story given the first sentences.
+  - Provided a code description, generate the code.
+
+- Text-to-Text Generation Models
+  - Translation
+  - Summarization
+  - Text classification
+
+- Inference
+  -  takes an incomplete text and returns multiple outputs with which the text can be completed.
+
+# Pipeline example 
+
+## Create pipeline with GPT-2
+
+```{python}
+
+generator = pipeline('text-generation', model='gpt2')
+
+```
+
+## Provide text
+
+```{python}
+
+my_text = "Hello, I study online media management"
+
+```
+
+## Make inference
+
+```{python}
+
+generator(my_text, max_length=30, num_return_sequences=3)
+
+```
+
+## Output
+
+
+```{python}
+[{'generated_text': 'Hello, I study online media management, and while most of my courses focus on the business, I specialize in online development.\n\nIf you know'},
+ {'generated_text': 'Hello, I study online media management at a computer-focused high school. One of my favorite exercises is watching and reading my students write things.\n'},
+ {'generated_text': 'Hello, I study online media management, so I know that it\'s not the best idea to be a part of the digital environment yourself."\n\n'}]
+
+```
+
+
+# What's next? {background-image="../images/logo.png" background-opacity="0.5"}
+
+**Congratulations! You have completed this tutorial** 👍
+
+**Next, you may want to go back to the [lab's website](https://kirenz.github.io/lab-huggingface/)**
+
