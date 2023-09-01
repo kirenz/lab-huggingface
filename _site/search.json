@@ -1,0 +1,100 @@
+[
+  {
+    "objectID": "slides/01_huggingface-hub-tour.html#what-is-the-model-card",
+    "href": "slides/01_huggingface-hub-tour.html#what-is-the-model-card",
+    "title": "A Tour through the Hugging Face Hub 🤗",
+    "section": "What is the Model Card?",
+    "text": "What is the Model Card?\nA model card is a tool that documents models, providing helpful information about the models and being essential for discoverability and reproducibility."
+  },
+  {
+    "objectID": "slides/01_huggingface-hub-tour.html#tags",
+    "href": "slides/01_huggingface-hub-tour.html#tags",
+    "title": "A Tour through the Hugging Face Hub 🤗",
+    "section": "Tags",
+    "text": "Tags\n\n\nAt the top, you can find different tags for things such as the task (text generation, image classification, etc.), frameworks (PyTorch, TensorFlow, etc.), the model’s language (English, Arabic, etc.), and license (e.g. MIT)."
+  },
+  {
+    "objectID": "slides/01_huggingface-hub-tour.html#inference-api",
+    "href": "slides/01_huggingface-hub-tour.html#inference-api",
+    "title": "A Tour through the Hugging Face Hub 🤗",
+    "section": "Inference API",
+    "text": "Inference API\n\n\nAt the right column, you can play with the model directly in the browser using the Inference API. GPT2 is a text generation model, so it will generate additional text given an initial input. Try typing something like, “It was a bright and sunny day.”"
+  },
+  {
+    "objectID": "slides/01_huggingface-hub-tour.html#model-card-content",
+    "href": "slides/01_huggingface-hub-tour.html#model-card-content",
+    "title": "A Tour through the Hugging Face Hub 🤗",
+    "section": "Model Card Content",
+    "text": "Model Card Content\n\n\nIn the middle, you can go through the model card content. It has sections such as Intended uses & limitations, Training procedure, and Citation Info."
+  },
+  {
+    "objectID": "slides/01_huggingface-hub-tour.html#where-does-the-data-come-from",
+    "href": "slides/01_huggingface-hub-tour.html#where-does-the-data-come-from",
+    "title": "A Tour through the Hugging Face Hub 🤗",
+    "section": "Where does the data come from?",
+    "text": "Where does the data come from?\n\n\nAt Hugging Face, everything is based in Git repositories and is open-sourced.\nYou can click the “Files and Versions” tab, which will allow you to see all the repository files, including the model weights. The model card is a markdown file (README.md) which on top of the content contains metadata such as the tags.\nSince all models are Git-based repositories, you get version control out of the box.\nJust as with GitHub, you can do things such as Git cloning, adding, committing, branching, and pushing."
+  },
+  {
+    "objectID": "slides/01_huggingface-hub-tour.html#task",
+    "href": "slides/01_huggingface-hub-tour.html#task",
+    "title": "A Tour through the Hugging Face Hub 🤗",
+    "section": "Task",
+    "text": "Task\n\nOpen the config.json file of the GPT2 repository.\nThe config file contains hyperparameters as well as useful information for loading the model.\nFrom this file, answer:\n\nWhich is the activation function?\nWhat is the vocabulary size?"
+  },
+  {
+    "objectID": "slides/01_huggingface-hub-tour.html#filter",
+    "href": "slides/01_huggingface-hub-tour.html#filter",
+    "title": "A Tour through the Hugging Face Hub 🤗",
+    "section": "Filter",
+    "text": "Filter\n\n\nAt the left of https://huggingface.co/models, you can filter for different things:\nTasks: There is support for dozens of tasks in different domains: Computer Vision, Natural Language Processing, Audio, and more. You can click the +13 to see all available tasks.\nLibraries: Although the Hub was originally for transformers models, the Hub has integration with dozens of libraries. You can find models of Keras, spaCy, allenNLP, and more.\nDatasets: The Hub also hosts thousands of datasets, as you’ll find more about later.\nLanguages: Many of the models on the Hub are NLP-related. You can find models for hundreds of languages, including low-resource languages."
+  },
+  {
+    "objectID": "slides/01_huggingface-hub-tour.html#workflow",
+    "href": "slides/01_huggingface-hub-tour.html#workflow",
+    "title": "A Tour through the Hugging Face Hub 🤗",
+    "section": "Workflow",
+    "text": "Workflow\n\nGo to huggingface.co/new to create a new model repository. The repositories you make can be either public or private.\nYou start with a public repo that has a model card. You can upload your model either by using the Web UI or by doing it with Git. You can click Add File and drag and drop the files you want to add."
+  },
+  {
+    "objectID": "slides/01_huggingface-hub-tour.html#basics",
+    "href": "slides/01_huggingface-hub-tour.html#basics",
+    "title": "A Tour through the Hugging Face Hub 🤗",
+    "section": "Basics",
+    "text": "Basics\n\nWith ML pipelines, you usually have a dataset to train the model.\nThe Hub hosts around 3000 datasets that are open-sourced and free to use in multiple domains.\nOn top of it, the open-source datasets library allows the easy use of these datasets, including huge ones, using very convenient features such as streaming. This lab won’t go through the library, but it does explain how to explore them.\nSimilar to models, you can head to https://hf.co/datasets. At the left, you can find different filters based on the task, license, and size of the dataset."
+  },
+  {
+    "objectID": "slides/01_huggingface-hub-tour.html#glue-datset",
+    "href": "slides/01_huggingface-hub-tour.html#glue-datset",
+    "title": "A Tour through the Hugging Face Hub 🤗",
+    "section": "GLUE datset",
+    "text": "GLUE datset\n\n\nLet’s explore the GLUE dataset, which is a famous dataset used to test the performance of NLP models.\nSimilar to model repositories, you have a dataset card that documents the dataset. If you scroll down a bit, you will find things such as the summary, the structure, and more."
+  },
+  {
+    "objectID": "slides/01_huggingface-hub-tour.html#dataset-slices",
+    "href": "slides/01_huggingface-hub-tour.html#dataset-slices",
+    "title": "A Tour through the Hugging Face Hub 🤗",
+    "section": "Dataset slices",
+    "text": "Dataset slices\n\n\nAt the top, you can explore a slice of the dataset directly in the browser.\nThe GLUE dataset is divided into multiple sub-datasets (or subsets) that you can select, such as COLA and QNLI."
+  },
+  {
+    "objectID": "slides/01_huggingface-hub-tour.html#models-trained-on-the-dataset",
+    "href": "slides/01_huggingface-hub-tour.html#models-trained-on-the-dataset",
+    "title": "A Tour through the Hugging Face Hub 🤗",
+    "section": "Models trained on the dataset",
+    "text": "Models trained on the dataset\n\n\nAt the right of the dataset card, you can see a list of models trained on this dataset."
+  },
+  {
+    "objectID": "slides/01_huggingface-hub-tour.html#basics-1",
+    "href": "slides/01_huggingface-hub-tour.html#basics-1",
+    "title": "A Tour through the Hugging Face Hub 🤗",
+    "section": "Basics",
+    "text": "Basics\n\nDemos of models are an increasingly important part of the ecosystem.\n\n\n\n\n\n\n\nDemos allow:\n\n\n\nmodel developers to easily present their work to a wide audience\nto increase reproducibility in machine learning by lowering the barrier to test a model\nto share with a non-technical audience the impact of a model\nbuild a machine learning portfolio"
+  },
+  {
+    "objectID": "slides/01_huggingface-hub-tour.html#frameworks",
+    "href": "slides/01_huggingface-hub-tour.html#frameworks",
+    "title": "A Tour through the Hugging Face Hub 🤗",
+    "section": "Frameworks",
+    "text": "Frameworks\n\nThere are Open-Source Python frameworks such as Gradio and Streamlit that allow building these demos very easily,\nTools such as Hugging Face Spaces allow to host and share them.\n\nAs a follow-up lab, we recommend doing the Build and Host Machine Learning Demos with Gradio & Hugging Face tutorial.\n\nIn this tutorial, you get to:\n\nExplore ML demos created by the community.\nBuild a quick demo for your machine learning model in Python using the gradio library\nHost the demos for free with Hugging Face Spaces\nAdd your demo to the Hugging Face org for your class or conference\n\nDuration: 20-40 minutes\n👉 click here to access the tutorial"
+  }
+]
