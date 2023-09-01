@@ -1041,5 +1041,47 @@
     "title": "Sentiment Analyis",
     "section": "Pipeline example with specific model",
     "text": "Pipeline example with specific model\n\nspecific_model = pipeline(\n    model=\"finiteautomata/bertweet-base-sentiment-analysis\")\n\n\n\nspecific_model(data)\n\n\nOutput:\n\n\n\n[{'label': 'POS', 'score': 0.9916695356369019},\n {'label': 'NEG', 'score': 0.9806600213050842}]"
+  },
+  {
+    "objectID": "slides/generation.html#use-cases",
+    "href": "slides/generation.html#use-cases",
+    "title": "Text generation",
+    "section": "Use Cases",
+    "text": "Use Cases\n\nStories Generation\nCode Generation: can help programmers in their repetitive coding tasks."
+  },
+  {
+    "objectID": "slides/generation.html#task-variants",
+    "href": "slides/generation.html#task-variants",
+    "title": "Text generation",
+    "section": "Task Variants",
+    "text": "Task Variants\n\nCompletion Generation Models\n\nGiven an incomplete sentence, complete it.\nContinue a story given the first sentences.\nProvided a code description, generate the code.\n\nText-to-Text Generation Models\n\nTranslation\nSummarization\nText classification\n\nInference\n\ntakes an incomplete text and returns multiple outputs with which the text can be completed."
+  },
+  {
+    "objectID": "slides/generation.html#create-pipeline-with-gpt-2",
+    "href": "slides/generation.html#create-pipeline-with-gpt-2",
+    "title": "Text generation",
+    "section": "Create pipeline with GPT-2",
+    "text": "Create pipeline with GPT-2\n\ngenerator = pipeline('text-generation', model='gpt2')"
+  },
+  {
+    "objectID": "slides/generation.html#provide-text",
+    "href": "slides/generation.html#provide-text",
+    "title": "Text generation",
+    "section": "Provide text",
+    "text": "Provide text\n\nmy_text = \"Hello, I study online media management\""
+  },
+  {
+    "objectID": "slides/generation.html#make-inference",
+    "href": "slides/generation.html#make-inference",
+    "title": "Text generation",
+    "section": "Make inference",
+    "text": "Make inference\n\ngenerator(my_text, max_length=30, num_return_sequences=3)"
+  },
+  {
+    "objectID": "slides/generation.html#output",
+    "href": "slides/generation.html#output",
+    "title": "Text generation",
+    "section": "Output",
+    "text": "Output\n\n[{'generated_text': 'Hello, I study online media management, and while most of my courses focus on the business, I specialize in online development.\\n\\nIf you know'},\n {'generated_text': 'Hello, I study online media management at a computer-focused high school. One of my favorite exercises is watching and reading my students write things.\\n'},\n {'generated_text': 'Hello, I study online media management, so I know that it\\'s not the best idea to be a part of the digital environment yourself.\"\\n\\n'}]"
   }
 ]
