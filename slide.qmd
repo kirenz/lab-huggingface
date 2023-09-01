@@ -3,9 +3,8 @@ title: "Slides"
 number-sections: true
 ---
 
-*The following tutorials are mainly based on [""]() provided by*
+*The following tutorials are mainly based on material provided by Hugging Face*
 
-Txt
 
 ::: {.callout-note appearance="simple"}
 Take a look at the [slides tutorial](https://kirenz.github.io/lab-toolkit/slides/slides.html#/title-slide) to learn how to use all slide options. 
@@ -14,11 +13,69 @@ To download Jupyter Notebooks: Go to the Colab menu and choose "File" > "Downloa
 :::
 
 
-## Txt
+## Hugging Face Hub
 
-In this tutorial, you'll learn:
+In this tutorial, you'll get to know the [Hugging Face Hub](http://hf.co):
 
 ::: {.callout-tip appearance="simple" icon=false}
-- [🖥️ Presentation]()
+- [🖥️ Presentation](/slides/hub.qmd)
+- [💻 Jupyter Notebook]()
+:::
+
+## Build and Host Machine Learning Demos 
+
+In this tutorial, you'll learn how to build and host Machine Learning Demos with Gradio ⚡ & Hugging Face:
+
+
+::: {.callout-tip appearance="simple" icon=false}
+- [🖥️ Presentation](/slides/gradio.qmd)
+- [💻 Jupyter Notebook]()
+:::
+
+## Getting Started with Transformers
+
+Learn how to use transformers in Hugging Face: 
+
+
+::: {.callout-tip appearance="simple" icon=false}
+- [🖥️ Presentation](/slides/transformers.qmd)
+- [💻 Jupyter Notebook]()
+:::
+
+## Sentiment Analysis
+
+Learn how to perform sentiment analysis: 
+
+::: {.callout-tip appearance="simple" icon=false}
+- [🖥️ Presentation](/slides/sentiment.qmd)
+- [💻 Jupyter Notebook]()
+:::
+
+
+## Summarization
+
+Learn how to perform text summarization: 
+
+::: {.callout-tip appearance="simple" icon=false}
+- [🖥️ Presentation](/slides/summarization.qmd)
+- [💻 Jupyter Notebook]()
+:::
+
+
+## Question and Answering
+
+Qestion answering tasks return an answer given a question:
+
+::: {.callout-tip appearance="simple" icon=false}
+- [🖥️ Presentation](/slides/qa.qmd)
+- [💻 Jupyter Notebook]()
+:::
+
+## Transformers intuition
+
+Learn some basics about transformers models:
+
+::: {.callout-tip appearance="simple" icon=false}
+- [🖥️ Presentation](/slides/transformer_intuition.qmd.qmd)
 - [💻 Jupyter Notebook]()
 :::
