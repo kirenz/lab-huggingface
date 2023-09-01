@@ -71,6 +71,17 @@ Qestion answering tasks return an answer given a question:
 - [💻 Jupyter Notebook]()
 :::
 
+## Text generation
+
+Text generation models:
+
+::: {.callout-tip appearance="simple" icon=false}
+- [🖥️ Presentation](/slides/generation.qmd)
+- [💻 Jupyter Notebook]()
+:::
+
+
+
 ## Transformers intuition
 
 Learn some basics about transformers models:
