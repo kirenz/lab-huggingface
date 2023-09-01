@@ -96,5 +96,264 @@
     "title": "A Tour through the Hugging Face Hub 🤗",
     "section": "Frameworks",
     "text": "Frameworks\n\nThere are Open-Source Python frameworks such as Gradio and Streamlit that allow building these demos very easily,\nTools such as Hugging Face Spaces allow to host and share them.\n\nAs a follow-up lab, we recommend doing the Build and Host Machine Learning Demos with Gradio & Hugging Face tutorial.\n\nIn this tutorial, you get to:\n\nExplore ML demos created by the community.\nBuild a quick demo for your machine learning model in Python using the gradio library\nHost the demos for free with Hugging Face Spaces\nAdd your demo to the Hugging Face org for your class or conference\n\nDuration: 20-40 minutes\n👉 click here to access the tutorial"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#transformers",
+    "href": "slides/03_getting-started-with-transformers.html#transformers",
+    "title": "Getting Started with Transformers",
+    "section": "Transformers",
+    "text": "Transformers"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#why-transformers",
+    "href": "slides/03_getting-started-with-transformers.html#why-transformers",
+    "title": "Getting Started with Transformers",
+    "section": "Why Transformers?",
+    "text": "Why Transformers?\n\nDeep learning is currently undergoing a period of rapid progress across a wide variety of domains, including:\n📖 Natural language processing\n👀 Computer vision\n🔊 Audio\nand many more!\nThe main driver of these breakthroughs is the Transformer – a novel neural network developed by Google researchers in 2017."
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#transformers-examples",
+    "href": "slides/03_getting-started-with-transformers.html#transformers-examples",
+    "title": "Getting Started with Transformers",
+    "section": "Transformers examples",
+    "text": "Transformers examples\n\n💻 They can generate code as in products like GitHub Copilot, which is based on OpenAI’s family of GPT models.\n❓ They can be used for improve search engines, like Google did with a Transformer called BERT.\n🗣️ They can process speech in multiple languages to perform speech recognition, speech translation, and language identification. For example, Facebook’s XLS-R model can automatically transcribe audio in one language to another!"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#transfer-learning",
+    "href": "slides/03_getting-started-with-transformers.html#transfer-learning",
+    "title": "Getting Started with Transformers",
+    "section": "Transfer learning",
+    "text": "Transfer learning\n\nTraining Transformer models from scratch involves a lot of resources (compute, data, and days to train)\nWith transfer learning, it is possible to adapt a model that has been trained from scratch (usually called a pretrained model) for a new, but similar task."
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#fine-tuning",
+    "href": "slides/03_getting-started-with-transformers.html#fine-tuning",
+    "title": "Getting Started with Transformers",
+    "section": "Fine tuning",
+    "text": "Fine tuning\n\nFine-tuning can be used as a special case of transfer learning where you use new data to continue training the model on the new task.\nThe models that we’ll be looking at in this tutorial are all examples of fine-tuned models\nYou can learn more about the transfer learning process in the video below:"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#basics",
+    "href": "slides/03_getting-started-with-transformers.html#basics",
+    "title": "Getting Started with Transformers",
+    "section": "Basics",
+    "text": "Basics\n\nThe Hugging Face Transformers library provides a unified API across dozens of Transformer architectures, as well as the means to train models and run inference with them.\nSo to get started, let’s install the library with the following command:\n\n\n!pip install transformers[sentencepiece]\n\nNow that we’ve installed the library, let’s take a look at some applications!"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#pipelines-for-transformers",
+    "href": "slides/03_getting-started-with-transformers.html#pipelines-for-transformers",
+    "title": "Getting Started with Transformers",
+    "section": "Pipelines for Transformers",
+    "text": "Pipelines for Transformers\n\nThe fastest way to learn what Transformers can do is via the pipeline() function.\nThis function loads a model from the Hugging Face Hub and takes care of all the preprocessing and postprocessing steps that are needed to convert inputs into predictions:"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#what-happens-inside-the-pipeline-function",
+    "href": "slides/03_getting-started-with-transformers.html#what-happens-inside-the-pipeline-function",
+    "title": "Getting Started with Transformers",
+    "section": "What happens inside the pipeline function?",
+    "text": "What happens inside the pipeline function?"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#python",
+    "href": "slides/03_getting-started-with-transformers.html#python",
+    "title": "Getting Started with Transformers",
+    "section": "Python",
+    "text": "Python\n\nImport the pipeline\n\n\nfrom transformers import pipeline"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#text-input",
+    "href": "slides/03_getting-started-with-transformers.html#text-input",
+    "title": "Getting Started with Transformers",
+    "section": "Text input",
+    "text": "Text input\n\nWe need a snippet of text for our models to analyze, so let’s use the following (fictious!) customer feedback about a certain online order:\n\n\n\ntext = \"\"\"Dear Amazon, last week I ordered an Optimus Prime action figure \\\nfrom your online store in Germany. Unfortunately, when I opened the package, \\\nI discovered to my horror that I had been sent an action figure of Megatron \\\ninstead! As a lifelong enemy of the Decepticons, I hope you can understand my \\\ndilemma. To resolve the issue, I demand an exchange of Megatron for the \\\nOptimus Prime figure I ordered. Enclosed are copies of my records concerning \\\nthis purchase. I expect to hear from you soon. Sincerely, Bumblebee.\"\"\""
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#create-text-wrapper",
+    "href": "slides/03_getting-started-with-transformers.html#create-text-wrapper",
+    "title": "Getting Started with Transformers",
+    "section": "Create text wrapper",
+    "text": "Create text wrapper\n\nlet’s create a simple wrapper so that we can pretty print out texts:\n\n\n\nimport textwrap\n\nwrapper = textwrap.TextWrapper(width=80, break_long_words=False, break_on_hyphens=False)\n\nprint(wrapper.fill(text))"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#analyze-sentiment",
+    "href": "slides/03_getting-started-with-transformers.html#analyze-sentiment",
+    "title": "Getting Started with Transformers",
+    "section": "Analyze sentiment",
+    "text": "Analyze sentiment\n\nNow suppose that we’d like to predict the sentiment of this text, i.e. whether the feedback is positive or negative.\nThis is a special type of text classification that is often used in industry to aggregate customer feedback across products or services.\nThe example below shows how a Transformer like BERT converts the inputs into atomic chunks called tokens which are then fed through the network to produce a single prediction:"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#pipeline",
+    "href": "slides/03_getting-started-with-transformers.html#pipeline",
+    "title": "Getting Started with Transformers",
+    "section": "Pipeline",
+    "text": "Pipeline\n\nWe need to specify the task in the pipeline() function as follows;\n\n\n\nsentiment_pipeline = pipeline('text-classification')\n\n\nWhen you run this code, you’ll see a message about which Hub model is being used by default.\nIn this case, the pipeline() function loads the distilbert-base-uncased-finetuned-sst-2-english model, which is a small BERT variant trained on SST-2 which is a sentiment analysis dataset.\n\n\n\n\n\n\n\nNote\n\n\n💡 The first time you execute the code, the model will be automatically downloaded from the Hub and cached for later use!"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#run-pipeline",
+    "href": "slides/03_getting-started-with-transformers.html#run-pipeline",
+    "title": "Getting Started with Transformers",
+    "section": "Run pipeline",
+    "text": "Run pipeline\n\nNow we are ready to run our example through pipeline and look at some predictions:\n\n\n\nsentiment_pipeline(text)\n\n\nOutput: [{‘label’: ‘NEGATIVE’, ‘score’: 0.9015464186668396}]\nThe model predicts negative sentiment with a high confidence which makes sense given that we have a disgruntled customer.\nYou can also see that the pipeline returns a list of Python dictionaries with the predictions.\nWe can also pass several texts at the same time in which case we would get several dicts in the list for each text one."
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#basics-1",
+    "href": "slides/03_getting-started-with-transformers.html#basics-1",
+    "title": "Getting Started with Transformers",
+    "section": "Basics",
+    "text": "Basics\n\nInstead of just finding the overall sentiment, let’s see if we can extract entities such as organizations, locations, or individuals from the text.\nThis task is called named entity recognition, or NER for short.\nInstead of predicting just a class for the whole text a class is predicted for each token, as shown in the example below:"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#pipeline-1",
+    "href": "slides/03_getting-started-with-transformers.html#pipeline-1",
+    "title": "Getting Started with Transformers",
+    "section": "Pipeline",
+    "text": "Pipeline\n\nWe just load a pipeline for NER without specifying a model.\nThis will load a default BERT model that has been trained on the CoNLL-2003 dataset:\n\n\n\nner_pipeline = pipeline('ner')"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#merge-entities",
+    "href": "slides/03_getting-started-with-transformers.html#merge-entities",
+    "title": "Getting Started with Transformers",
+    "section": "Merge entities",
+    "text": "Merge entities\n\nWhen we pass our text through the model, we now get a long list of Python dictionaries, where each dictionary corresponds to one detected entity.\nSince multiple tokens can correspond to a a single entity, we can apply an aggregation strategy that merges entities if the same class appears in consequtive tokens:\n\n\n\nentities = ner_pipeline(text, aggregation_strategy=\"simple\")\nprint(entities)\n\n\nOutput: [{‘entity_group’: ‘ORG’, ‘score’: 0.87900954, ‘word’: ‘Amazon’, ‘start’: 5, ‘end’: 11}, {‘entity_group’: ‘MISC’, ‘score’: 0.9908588, ‘word’: ‘Optimus Prime’, ‘start’: 36, ‘end’: 49}, {‘entity_group’: ‘LOC’, ‘score’: 0.9997547, ‘word’: ‘Germany’, ‘start’: 90, ‘end’: 97}, {‘entity_group’: ‘MISC’, ‘score’: 0.55656713, ‘word’: ‘Mega’, ‘start’: 208, ‘end’: 212}, {‘entity_group’: ‘PER’, ‘score’: 0.5902563, ‘word’: ‘##tron’, ‘start’: 212, ‘end’: 216}, {‘entity_group’: ‘ORG’, ‘score’: 0.6696913, ‘word’: ‘Decept’, ‘start’: 253, ‘end’: 259}, {‘entity_group’: ‘MISC’, ‘score’: 0.4983487, ‘word’: ‘##icons’, ‘start’: 259, ‘end’: 264}, {‘entity_group’: ‘MISC’, ‘score’: 0.77536064, ‘word’: ‘Megatron’, ‘start’: 350, ‘end’: 358}, {‘entity_group’: ‘MISC’, ‘score’: 0.987854, ‘word’: ‘Optimus Prime’, ‘start’: 367, ‘end’: 380}, {‘entity_group’: ‘PER’, ‘score’: 0.81209683, ‘word’: ‘Bumblebee’, ‘start’: 502, ‘end’: 511}]"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#clean-the-output",
+    "href": "slides/03_getting-started-with-transformers.html#clean-the-output",
+    "title": "Getting Started with Transformers",
+    "section": "Clean the output",
+    "text": "Clean the output\n\nThis isn’t very easy to read, so let’s clean up the outputs a bit:\n\n\n\nfor entity in entities:\n    print(f\"{entity['word']}: {entity['entity_group']} ({entity['score']:.2f})\")\n\nAmazon: ORG (0.88)  \nOptimus Prime: MISC (0.99)  \nGermany: LOC (1.00)  \nMega: MISC (0.56)  \n##tron: PER (0.59)  \nDecept: ORG (0.67)  \n##icons: MISC (0.50)  \nMegatron: MISC (0.78)  \nOptimus Prime: MISC (0.99)  \nBumblebee: PER (0.81)"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#findings",
+    "href": "slides/03_getting-started-with-transformers.html#findings",
+    "title": "Getting Started with Transformers",
+    "section": "Findings",
+    "text": "Findings\n\nIt seems that the model found most of the named entities but was confused about “Megatron” andn “Decepticons”, which are characters in the transformers franchise.\nThis is no surprise since the original dataset probably did not contain many transformer characters. For this reason it makes sense to further fine-tune a model on your on dataset!"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#basics-2",
+    "href": "slides/03_getting-started-with-transformers.html#basics-2",
+    "title": "Getting Started with Transformers",
+    "section": "Basics",
+    "text": "Basics\n\nIn this task, the model is given a question and a context and needs to find the answer to the question within the context.\nThis problem can be rephrased as a classification problem: For each token the model needs to predict whether it is the start or the end of the answer.\nIn the end we can extract the answer by looking at the span between the token with the highest start probability and highest end probability:"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#pipeline-2",
+    "href": "slides/03_getting-started-with-transformers.html#pipeline-2",
+    "title": "Getting Started with Transformers",
+    "section": "Pipeline",
+    "text": "Pipeline\n\nwe load the model by specifying the task in the pipeline() function:\n\n\n\nqa_pipeline = pipeline(\"question-answering\")\n\n\nThis default model is trained on the famous SQuAD dataset."
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#ask-question",
+    "href": "slides/03_getting-started-with-transformers.html#ask-question",
+    "title": "Getting Started with Transformers",
+    "section": "Ask question",
+    "text": "Ask question\n\nLet’s see if we can ask it what the customer wants:\n\n\n\nquestion = \"What does the customer want?\"\n\noutputs = qa_pipeline(question=question, context=text)\noutputs\n\n\n\n{'score': 0.6312916874885559,\n 'start': 335,\n 'end': 358,\n 'answer': 'an exchange of Megatron'}"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#basics-3",
+    "href": "slides/03_getting-started-with-transformers.html#basics-3",
+    "title": "Getting Started with Transformers",
+    "section": "Basics",
+    "text": "Basics\n\nWhere BERT excels and delve into the generative domain.\nNote that generation is much more computationally demanding since we usually generate one token at a time and need to run this several times.\nAn example for how this process works is shown below:"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#pipeline-3",
+    "href": "slides/03_getting-started-with-transformers.html#pipeline-3",
+    "title": "Getting Started with Transformers",
+    "section": "Pipeline",
+    "text": "Pipeline\n\nA popular task involving generation is summarization\n\n\n\nsummarization_pipeline = pipeline(\"summarization\")\n\n\nThis model was trained on the CNN/Dailymail dataset to summarize news articles."
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#output",
+    "href": "slides/03_getting-started-with-transformers.html#output",
+    "title": "Getting Started with Transformers",
+    "section": "Output",
+    "text": "Output\n\noutputs = summarization_pipeline(text, max_length=80, clean_up_tokenization_spaces=True)\n\nprint(wrapper.fill(outputs[0]['summary_text']))\n\n\nOutput: Bumblebee ordered an Optimus Prime action figure from your online store in Germany. Unfortunately, when I opened the package, I discovered to my horror that I had been sent an action figure of Megatron instead. As a lifelong enemy of the Decepticons, I hope you can understand my dilemma."
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#basics-4",
+    "href": "slides/03_getting-started-with-transformers.html#basics-4",
+    "title": "Getting Started with Transformers",
+    "section": "Basics",
+    "text": "Basics\n\nBut what if there is no model in the language of my data?\nYou can still try to translate the text.\nThe Helsinki NLP team has provided over 1,000 language pair models for translation."
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#pipeline-4",
+    "href": "slides/03_getting-started-with-transformers.html#pipeline-4",
+    "title": "Getting Started with Transformers",
+    "section": "Pipeline",
+    "text": "Pipeline\n\nTranslate English to German:\n\n\n\ntranslator = pipeline(\"translation_en_to_de\", model=\"Helsinki-NLP/opus-mt-en-de\")"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#output-1",
+    "href": "slides/03_getting-started-with-transformers.html#output-1",
+    "title": "Getting Started with Transformers",
+    "section": "Output",
+    "text": "Output\n\nLet’s translate our text to German:\n\n\n\noutputs = translator(text, clean_up_tokenization_spaces=True, min_length=100)\n\nprint(wrapper.fill(outputs[0]['translation_text']))\n\n\nOutput: Sehr geehrter Amazon, letzte Woche habe ich eine Optimus Prime Action Figur aus Ihrem Online-Shop in Deutschland bestellt. Leider, als ich das Paket öffnete, entdeckte ich zu meinem Entsetzen, dass ich stattdessen eine Action Figur von Megatron geschickt worden war! Als lebenslanger Feind der Decepticons, Ich hoffe, Sie können mein Dilemma verstehen. Um das Problem zu lösen, Ich fordere einen Austausch von Megatron für die Optimus Prime Figur habe ich bestellt. Eingeschlossen sind Kopien meiner Aufzeichnungen über diesen Kauf. Ich erwarte, von Ihnen bald zu hören. Aufrichtig, Bumblebee."
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#findings-1",
+    "href": "slides/03_getting-started-with-transformers.html#findings-1",
+    "title": "Getting Started with Transformers",
+    "section": "Findings",
+    "text": "Findings\n\nWe can see that the text is clearly not perfectly translated, but the core meaning stays the same.\nAnother application of translation models is data augmentation via backtranslation"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#basics-5",
+    "href": "slides/03_getting-started-with-transformers.html#basics-5",
+    "title": "Getting Started with Transformers",
+    "section": "Basics",
+    "text": "Basics\n\nIn zero-shot classification the model receives a text and a list of candidate labels and determines which labels are compatible with the text.\nInstead of having fixed classes this allows for flexible classification without any labelled data!\nUsually this is a good first baseline!"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#pipeline-5",
+    "href": "slides/03_getting-started-with-transformers.html#pipeline-5",
+    "title": "Getting Started with Transformers",
+    "section": "Pipeline",
+    "text": "Pipeline\n\nzero_shot_classifier = pipeline(\"zero-shot-classification\",\n                                model=\"vicgalle/xlm-roberta-large-xnli-anli\")"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#text-input-1",
+    "href": "slides/03_getting-started-with-transformers.html#text-input-1",
+    "title": "Getting Started with Transformers",
+    "section": "Text input",
+    "text": "Text input\nLet’s have a look at an example:\n\ntext = 'Dieses Tutorial ist großartig! Ich hoffe, dass jemand von Hugging Face meine Hochschule besuchen wird :)'\n\nclasses = ['Treffen', 'Arbeit', 'Digital', 'Reisen']"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#pipeline-6",
+    "href": "slides/03_getting-started-with-transformers.html#pipeline-6",
+    "title": "Getting Started with Transformers",
+    "section": "Pipeline",
+    "text": "Pipeline\n\nzero_shot_classifier(text, classes, multi_label=True)\n\n{'sequence': 'Dieses Tutorial ist großartig! Ich hoffe, dass jemand von Hugging Face meine Hochschule besuchen wird :)',\n 'labels': ['Digital', 'Arbeit', 'Treffen', 'Reisen'],\n 'scores': [0.7426563501358032,\n  0.6590237021446228,\n  0.517701268196106,\n  0.011237525381147861]}\n\nFor longer and more domain specific examples this approach might suffer."
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#basics-6",
+    "href": "slides/03_getting-started-with-transformers.html#basics-6",
+    "title": "Getting Started with Transformers",
+    "section": "Basics",
+    "text": "Basics\n\nTransformers can also be used for domains other than NLP!\nFor these domains, there are many more pipelines that you can experiment with. Look at the following list for an overview:\n\n\nfrom transformers import pipelines\nfor task in pipelines.SUPPORTED_TASKS:\n    print(task)\n\naudio-classification\nautomatic-speech-recognition\nfeature-extraction\ntext-classification\ntoken-classification\nquestion-answering\ntable-question-answering\nvisual-question-answering\ndocument-question-answering\nfill-mask\nsummarization\ntranslation\ntext2text-generation\ntext-generation\nzero-shot-classification\nzero-shot-image-classification\nzero-shot-audio-classification\nconversational\nimage-classification\nimage-segmentation\nimage-to-text\nobject-detection\nzero-shot-object-detection\ndepth-estimation\nvideo-classification\nmask-generation"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#computer-vision",
+    "href": "slides/03_getting-started-with-transformers.html#computer-vision",
+    "title": "Getting Started with Transformers",
+    "section": "Computer vision",
+    "text": "Computer vision\n\nTransformer models have also entered computer vision. Check out the DETR model on the Hub:"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#audio",
+    "href": "slides/03_getting-started-with-transformers.html#audio",
+    "title": "Getting Started with Transformers",
+    "section": "Audio",
+    "text": "Audio\n\nAnother promising area is audio processing.\nEspecially Speech2Text there have been some promising advancements recently.\nSee for example the wav2vec2 model:"
+  },
+  {
+    "objectID": "slides/03_getting-started-with-transformers.html#table-qa",
+    "href": "slides/03_getting-started-with-transformers.html#table-qa",
+    "title": "Getting Started with Transformers",
+    "section": "Table QA",
+    "text": "Table QA\n\nFinally, a lot of real world data is still in form of tables.\nBeing able to query tables is very useful and with TAPAS you can do tabular question-answering:"
   }
 ]
