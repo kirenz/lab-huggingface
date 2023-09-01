@@ -18,4 +18,4 @@ What you will learn in this lab:
 - you'll get to know the [Hugging Face Hub](http://hf.co)
 - learn how to build and host Machine Learning Demos with Gradio ⚡ & Hugging Face
 - how to use transformers in Hugging Face
-- how to perform sentiment analysis, text summarization, question and answering & more
+- how to perform sentiment analysis, text summarization, question and answering, text generation & more
