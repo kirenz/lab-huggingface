@@ -45,7 +45,7 @@ from transformers import pipeline
 
 # Intuition
 
-![](../image/text-generation.png)
+![](../images/text-generation.png)
 
 
 ## Use Cases
@@ -54,7 +54,7 @@ from transformers import pipeline
 
 - Code Generation: can help programmers in their repetitive coding tasks.
 
-## Task Variants
+## Task Variants {.smaller}
 
 - Completion Generation Models
   - Given an incomplete sentence, complete it.
@@ -100,7 +100,9 @@ generator(my_text, max_length=30, num_return_sequences=3)
 
 ```{python}
 [{'generated_text': 'Hello, I study online media management, and while most of my courses focus on the business, I specialize in online development.\n\nIf you know'},
+
  {'generated_text': 'Hello, I study online media management at a computer-focused high school. One of my favorite exercises is watching and reading my students write things.\n'},
+
  {'generated_text': 'Hello, I study online media management, so I know that it\'s not the best idea to be a part of the digital environment yourself."\n\n'}]
 
 ```

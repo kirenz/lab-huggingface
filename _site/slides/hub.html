@@ -415,7 +415,6 @@ Jan Kirenz
 <li class="fragment"><a href="#/adding-a-model" id="/toc-adding-a-model">Adding a model</a></li>
 <li class="fragment"><a href="#/datasets" id="/toc-datasets">Datasets</a></li>
 <li class="fragment"><a href="#/ml-demos" id="/toc-ml-demos">ML Demos</a></li>
-<li class="fragment"><a href="#/acknowledgments" id="/toc-acknowledgments">Acknowledgments</a></li>
 <li class="fragment"><a href="#/whats-next" id="/toc-whats-next">What’s next?</a></li>
 <li class="fragment"><a href="#/appendix-git-approach" id="/toc-appendix-git-approach">Appendix: Git approach</a></li>
 </ul>
@@ -439,7 +438,7 @@ Jan Kirenz
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Tip</strong></p>
+<p><strong>Hugging Face</strong></p>
 </div>
 <div class="callout-content">
 <ul>
@@ -460,7 +459,7 @@ Jan Kirenz
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Tip</strong></p>
+<p><strong>Learning Goals</strong></p>
 </div>
 <div class="callout-content">
 <ul>
@@ -677,15 +676,11 @@ Jan Kirenz
 <li class="fragment"><p>Tools such as Hugging Face <a href="http://hf.co/spaces/launch">Spaces</a> allow to host and share them.</p></li>
 </ul>
 </section></section>
-<section id="acknowledgments" class="title-slide slide level1 center">
-<h1>Acknowledgments</h1>
-<p><em>The slides are mainly based on a toolkit provided by HuggingFace</em></p>
-</section>
-
 <section id="whats-next" class="title-slide slide level1 center" data-background-image="../images/logo.png" data-background-opacity="0.5">
 <h1>What’s next?</h1>
 <p><strong>Congratulations! You have completed this tutorial</strong> 👍</p>
 <p><strong>Next, you may want to go back to the <a href="https://kirenz.github.io/lab-huggingface/">lab’s website</a></strong></p>
+<p><em>Acknowledgments: The slides are mainly based on a toolkit provided by HuggingFace</em></p>
 </section>
 
 <section>
@@ -693,30 +688,41 @@ Jan Kirenz
 <h1>Appendix: Git approach</h1>
 
 </section>
-<section id="sec-git" class="slide level2">
+<section id="sec-git" class="slide level2 smaller">
 <h2>Git approach</h2>
 <p>If you want to understand the complete workflow how to upload models, let’s go with the Git approach.</p>
 <ol type="1">
-<li class="fragment"><p>Install both git and git-lfs on your system. 1. Git: <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a> 2. Git-lfs: <a href="https://git-lfs.github.com/">https://git-lfs.github.com/</a>. Large files need to be uploaded with Git LFS. Git does not work well once your files are above a few megabytes, which is frequent in ML. ML models can be up to gigabytes or terabytes!</p></li>
-<li class="fragment"><p>Clone the repository you just created</p>
-<pre><code> ```python
- git clone https://huggingface.co/&lt;your-username&gt;/&lt;your-model-id&gt;
- ```</code></pre></li>
-<li class="fragment"><p>Go to the directory and initialize Git LFS</p></li>
+<li class="fragment">Install both git and git-lfs on your system.</li>
+</ol>
+<ul>
+<li class="fragment">Git: <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a></li>
+<li class="fragment">Git-lfs: <a href="https://git-lfs.github.com/">https://git-lfs.github.com/</a>. Large files need to be uploaded with Git LFS. Git does not work well once your files are above a few megabytes, which is frequent in ML. ML models can be up to gigabytes or terabytes!</li>
+</ul>
+<ol start="2" type="1">
+<li class="fragment">Clone the repository you just created</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>git clone https:<span class="op">//</span>huggingface.co<span class="op">/&lt;</span>your<span class="op">-</span>username<span class="op">&gt;/&lt;</span>your<span class="op">-</span>model<span class="op">-</span><span class="bu">id</span><span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li class="fragment">Go to the directory and initialize Git LFS</li>
 </ol>
 </section>
 <section id="git-approach-optional" class="slide level2">
 <h2>Git approach (optional)</h2>
 <p>HuggingFace already provides a list of common file extensions for the large files in <code>.gitattributes</code></p>
-<p>If the files you want to upload are not included in the <code>.gitattributes</code> file, you might need as shown here: You can do so with</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>git lfs track <span class="st">"*.your_extension"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>git lfs install</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If the files you want to upload are not included in the <code>.gitattributes</code> file, you might need as shown here: You can do so with:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">git</span> lfs track <span class="st">"*.your_extension"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">git</span> lfs install</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="git-approach" class="slide level2">
+<section id="git-approach" class="slide level2 smaller">
 <h2>Git approach</h2>
 <ol start="4" type="1">
-<li class="fragment">Add your files to the repository. The files depend on the framework/libraries you’re using. Overall, what is important is that you provide all artifacts required to load the model. For example: 1. For TensorFlow, you might want to upload a SavedModel or <code>h5</code> file. 2. For PyTorch, usually, it’s a <code>pytorch_model.bin</code>. 3. For Scikit-Learn, it’s usually a <code>joblib</code> file.</li>
+<li class="fragment">Add your files to the repository. The files depend on the framework/libraries you’re using. Overall, what is important is that you provide all artifacts required to load the model. For example:</li>
 </ol>
+<ul>
+<li class="fragment">For TensorFlow, you might want to upload a SavedModel or <code>h5</code> file.</li>
+<li class="fragment">For PyTorch, usually, it’s a <code>pytorch_model.bin</code>.</li>
+<li class="fragment">For Scikit-Learn, it’s usually a <code>joblib</code> file.</li>
+</ul>
 <p>Here is an example in Python saving a Scikit-Learn model file.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">from</span> sklearn <span class="im">import</span> linear_model</span>
 <span id="cb4-2"><a href="#cb4-2"></a>reg <span class="op">=</span> linear_model.LinearRegression()</span>
@@ -724,7 +730,7 @@ Jan Kirenz
 <span id="cb4-4"><a href="#cb4-4"></a><span class="im">from</span> joblib <span class="im">import</span> dump, load</span>
 <span id="cb4-5"><a href="#cb4-5"></a>dump(reg, <span class="st">'model.joblib'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="git-approach-1" class="slide level2">
+<section id="git-approach-1" class="slide level2 smaller">
 <h2>Git approach</h2>
 <ol start="5" type="1">
 <li class="fragment">Commit and push your files. (make sure the saved file is within the repository). Use GitHub Desktop or:</li>
@@ -733,8 +739,8 @@ Jan Kirenz
 <span id="cb5-2"><a href="#cb5-2"></a>git commit <span class="op">-</span>m <span class="st">"First model version"</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a>git push</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>And we’re done! You can check your repository with all the recently added files!</p>
-<p>. . . <img data-src="../images/model_card_updated_repo.png"></p>
-<p>The UI allows you to explore the model files and commits and to see the diff introduced by each commit.</p>
+
+<img data-src="../images/model_card_updated_repo.png" class="r-stretch"><p>The UI allows you to explore the model files and commits and to see the diff introduced by each commit.</p>
 
 <div class="footer footer-default">
 <p>Jan Kirenz</p>

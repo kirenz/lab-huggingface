@@ -33,9 +33,8 @@ format:
     footer: Jan Kirenz
 ---
 
-# Build and Host Machine Learning Demos with Gradio ⚡ & Hugging Face
+# Build and Host Machine Learning Demos with Gradio & Hugging Face
 
-# Introduction
 
 ## Why Demos?
 
@@ -51,13 +50,13 @@ format:
 
 ## Learning goals
 
+
 Learn how to:
 
-:::{.callout-tip}
 1. Build a quick demo for your machine learning model in Python using the `gradio` library
 2. Host the demos for free with Hugging Face Spaces
 3. Add your demo to the Hugging Face org for your class
-:::
+
 
 
 ## Keras Org on Hugging Face
@@ -72,7 +71,7 @@ Learn how to:
 
 `gradio` is a Python library that lets you build web demos simply by specifying the list of input and output **components** expected by your machine learning model. 
 
-## Gradio components
+## Gradio components {.smaller}
 
 - Gradio comes with a bunch of predefined components for different kinds of machine learning models. 
 
@@ -139,11 +138,16 @@ gr.Interface(  # <1>
 4. Output component: `outputs` image
 5. ... and `launch` the app
 
+## Gradio Image App Interface
+
+![](../images/gradio_image_app.png)
+
+
 # Gradio Sound App 
 
 Create an app that generates a musical tone when provided a few different parameters.
 
-## Gradio App {.smaller}
+## Gradio Sound App {.smaller}
 
 ```{python}
 
@@ -170,22 +174,31 @@ gr.Interface(
 ).launch()
 ```
 
+## Gradio Sound App Interface
+
+![](../images/gradio_music_app.png)
 
 # Text-to-Speech App
 
-It is especially easy to demo a `transformers` model from Hugging Face's Model Hub, using the special `gr.Interface.load` method. 
+- It is especially easy to demo a `transformers` model from Hugging Face's Model Hub, using the special `gr.Interface.load` method. 
 
-Text-to-speech model built by Facebook:
+- Text-to-speech model built by Facebook:
 
+. . .
 
 ```{python}
 gr.Interface.load("huggingface/facebook/fastspeech2-en-ljspeech").launch()
 ```
 
+## Gradio Text to Speech App Interface
+
+![](../images/gradio_txt_sp.png)
+
 # GPT-J App
 
-Demo for [GPT-J](https://huggingface.co/EleutherAI/gpt-j-6B), a large language model & add a couple of examples inputs:
+- Demo for [GPT-J](https://huggingface.co/EleutherAI/gpt-j-6B), a large language model & add a couple of examples inputs:
 
+. . .
 
 ```{python}
 
@@ -195,6 +208,10 @@ examples = [["A student at HdM Stuttgart is"],
 gr.Interface.load("huggingface/EleutherAI/gpt-j-6B",
                   examples=examples).launch()
 ```
+
+## Gradio GP-J App Interface
+
+![](../images/gradio_gp_j.png)
 
 # Build your own App
 
@@ -206,23 +223,26 @@ gr.Interface.load("huggingface/EleutherAI/gpt-j-6B",
 
 Host the Demo (for free) on Hugging Face Spaces
 
-## Workflow {.smaller}
+## Workflow, 1 {.smaller}
 
-- Here are the steps to that (also see GIF in the next slid):
+- Here are the steps to that (also see GIF in the next slide):
 
-A. First, create a Hugging Face account if you do not already have one, by visiting <https://huggingface.co/> and clicking "Sign Up"
+1. First, create a Hugging Face account if you do not already have one, by visiting <https://huggingface.co/> and clicking "Sign Up"
 
-B. Once you are logged in, click on your profile picture and then click on "New Space" underneath it to get to this page: <https://huggingface.co/new-space>
+2. Once you are logged in, click on your profile picture and then click on "New Space" underneath it to get to this page: <https://huggingface.co/new-space>
 
-C. Give your Space a name and a license. Select "Gradio" as the Space SDK, and then choose "Public" if you are fine with everyone accessing your Space and the underlying code
 
-D. Then you will find a page that provides you instructions on how to upload your files into the Git repository for that Space. You may also need to add a `requirements.txt` file to specify any Python package dependencies.
+3. Give your Space a name and a license. Select "Gradio" as the Space SDK, and then choose "Public" if you are fine with everyone accessing your Space and the underlying code
 
-E. Once you have pushed your files, that's it! Spaces will automatically build your Gradio demo allowing you to share it with anyone, anywhere!
+4. Then you will find a page that provides you instructions on how to upload your files into the Git repository for that Space. You may also need to add a `requirements.txt` file to specify any Python package dependencies.
+
+5. Once you have pushed your files, that's it! Spaces will automatically build your Gradio demo allowing you to share it with anyone, anywhere!
 
 ## Workflow in a GIF
 
-![GIF](https://huggingface.co/blog/assets/28_gradio-spaces/spaces-demo-finalized.gif)
+- You may also choose "public" instead of "private" when you create your space
+
+![](https://huggingface.co/blog/assets/28_gradio-spaces/spaces-demo-finalized.gif)
 
 
 ## Share your demo
@@ -231,30 +251,27 @@ E. Once you have pushed your files, that's it! Spaces will automatically build y
 
 - Example: Pictionary sketch recognition model below:
 
+. . .
+
 ```{python}
 
 IFrame(src='https://hf.space/gradioiframe/abidlabs/Draw/+', width=1000, height=800)
 ```
 
+![](../images/gradio_recognition.png)
 
-# Add Demo to our Hugging Face organization
+# Add Demo to Hugging Face organization (classroom)
 
 ## Workflow
 
-A. You find the link to our organization (HdM-...) in [Moodle](https://moodle.hdm-stuttgart.de/login/index.php) 
+1. You find the link to our organization (HdM-...) in [Moodle](https://moodle.hdm-stuttgart.de/login/index.php) 
 
-B. Visit the organization page and click "Request to join this org" button, if you are not yet part of the org.
+2. Visit the organization page and click "Request to join this org" button, if you are not yet part of the org.
 
-C. Then, once you have been approved to join the organization (and built your Gradio Demo and uploaded it to Spaces -- see Sections above): 
+3. Then, once you have been approved to join the organization (and built your Gradio Demo and uploaded it to Spaces -- see Sections above): 
   - Go to your Space and go to `Settings > Rename or transfer this space`
   - select the organization name under `New owner`. 
   - Click the button and the Space will now be added to our organization
-
-
-# Acknowledgments
-
-*The slides are mainly based on a toolkit provided by Abubakar Abid from HuggingFace*
-
 
 # What's next? {background-image="../images/logo.png" background-opacity="0.5"}
 
@@ -262,3 +279,5 @@ C. Then, once you have been approved to join the organization (and built your Gr
 
 **Next, you may want to go back to the [lab's website](https://kirenz.github.io/lab-huggingface/)**
 
+
+*Acknowledgments: The slides are mainly based on a toolkit provided by Abubakar Abid from HuggingFace*

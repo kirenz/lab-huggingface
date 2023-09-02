@@ -409,8 +409,7 @@ Jan Kirenz
 <nav role="doc-toc"> 
 <h2 id="toc-title">Table of contents</h2>
 <ul>
-<li class="fragment"><a href="#/build-and-host-machine-learning-demos-with-gradio-hugging-face" id="/toc-build-and-host-machine-learning-demos-with-gradio-hugging-face">Build and Host Machine Learning Demos with Gradio ⚡ &amp; Hugging Face</a></li>
-<li class="fragment"><a href="#/introduction" id="/toc-introduction">Introduction</a></li>
+<li class="fragment"><a href="#/build-and-host-machine-learning-demos-with-gradio-hugging-face" id="/toc-build-and-host-machine-learning-demos-with-gradio-hugging-face">Build and Host Machine Learning Demos with Gradio &amp; Hugging Face</a></li>
 <li class="fragment"><a href="#/gradio-basics" id="/toc-gradio-basics">Gradio Basics</a></li>
 <li class="fragment"><a href="#/python-setup" id="/toc-python-setup">Python setup</a></li>
 <li class="fragment"><a href="#/image-app" id="/toc-image-app">Image App</a></li>
@@ -419,20 +418,14 @@ Jan Kirenz
 <li class="fragment"><a href="#/gpt-j-app" id="/toc-gpt-j-app">GPT-J App</a></li>
 <li class="fragment"><a href="#/build-your-own-app" id="/toc-build-your-own-app">Build your own App</a></li>
 <li class="fragment"><a href="#/host-the-demo" id="/toc-host-the-demo">Host the Demo</a></li>
-<li class="fragment"><a href="#/add-demo-to-our-hugging-face-organization" id="/toc-add-demo-to-our-hugging-face-organization">Add Demo to our Hugging Face organization</a></li>
-<li class="fragment"><a href="#/acknowledgments" id="/toc-acknowledgments">Acknowledgments</a></li>
+<li class="fragment"><a href="#/add-demo-to-hugging-face-organization-classroom" id="/toc-add-demo-to-hugging-face-organization-classroom">Add Demo to Hugging Face organization (classroom)</a></li>
 <li class="fragment"><a href="#/whats-next" id="/toc-whats-next">What’s next?</a></li>
 </ul>
 </nav>
 </section>
-<section id="build-and-host-machine-learning-demos-with-gradio-hugging-face" class="title-slide slide level1 center">
-<h1>Build and Host Machine Learning Demos with Gradio ⚡ &amp; Hugging Face</h1>
-
-</section>
-
 <section>
-<section id="introduction" class="title-slide slide level1 center">
-<h1>Introduction</h1>
+<section id="build-and-host-machine-learning-demos-with-gradio-hugging-face" class="title-slide slide level1 center">
+<h1>Build and Host Machine Learning Demos with Gradio &amp; Hugging Face</h1>
 
 </section>
 <section id="why-demos" class="slide level2">
@@ -447,23 +440,11 @@ Jan Kirenz
 <section id="learning-goals" class="slide level2">
 <h2>Learning goals</h2>
 <p>Learn how to:</p>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tip</strong></p>
-</div>
-<div class="callout-content">
 <ol type="1">
 <li class="fragment">Build a quick demo for your machine learning model in Python using the <code>gradio</code> library</li>
 <li class="fragment">Host the demos for free with Hugging Face Spaces</li>
 <li class="fragment">Add your demo to the Hugging Face org for your class</li>
 </ol>
-</div>
-</div>
-</div>
 </section>
 <section id="keras-org-on-hugging-face" class="slide level2">
 <h2>Keras Org on Hugging Face</h2>
@@ -477,7 +458,7 @@ Jan Kirenz
 <h1>Gradio Basics</h1>
 <p><code>gradio</code> is a Python library that lets you build web demos simply by specifying the list of input and output <strong>components</strong> expected by your machine learning model.</p>
 </section>
-<section id="gradio-components" class="slide level2">
+<section id="gradio-components" class="slide level2 smaller">
 <h2>Gradio components</h2>
 <ul>
 <li class="fragment"><p>Gradio comes with a bunch of predefined components for different kinds of machine learning models.</p></li>
@@ -539,35 +520,39 @@ Jan Kirenz
 <dl class="code-annotation-container-grid">
 <dt class="fragment" data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-3" data-code-lines="1" data-code-annotation="1">We define an Gradio <code>Interface</code> using:</span>
+<span data-code-annotation="1" data-code-lines="1" data-code-cell="annotated-cell-3">We define an Gradio <code>Interface</code> using:</span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-3" data-code-lines="2" data-code-annotation="2">a function <code>fn</code></span>
+<span data-code-annotation="2" data-code-lines="2" data-code-cell="annotated-cell-3">a function <code>fn</code></span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-3" data-code-lines="3" data-code-annotation="3">Input component: <code>inputs</code> image</span>
+<span data-code-annotation="3" data-code-lines="3" data-code-cell="annotated-cell-3">Input component: <code>inputs</code> image</span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-3" data-target-annotation="4">4</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-3" data-code-lines="4" data-code-annotation="4">Output component: <code>outputs</code> image</span>
+<span data-code-annotation="4" data-code-lines="4" data-code-cell="annotated-cell-3">Output component: <code>outputs</code> image</span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-3" data-target-annotation="5">5</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-3" data-code-lines="5" data-code-annotation="5">… and <code>launch</code> the app</span>
+<span data-code-annotation="5" data-code-lines="5" data-code-cell="annotated-cell-3">… and <code>launch</code> the app</span>
 </dd>
 </dl>
 </div>
 </div>
-</section></section>
+</section>
+<section id="gradio-image-app-interface" class="slide level2">
+<h2>Gradio Image App Interface</h2>
+
+<img data-src="../images/gradio_image_app.png" class="r-stretch"></section></section>
 <section>
 <section id="gradio-sound-app" class="title-slide slide level1 center">
 <h1>Gradio Sound App</h1>
 <p>Create an app that generates a musical tone when provided a few different parameters.</p>
 </section>
-<section id="gradio-app" class="slide level2 smaller">
-<h2>Gradio App</h2>
+<section id="gradio-sound-app-1" class="slide level2 smaller">
+<h2>Gradio Sound App</h2>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> generate_tone(note, octave, duration):</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    sampling_rate <span class="op">=</span> <span class="dv">48000</span></span>
@@ -590,19 +575,35 @@ Jan Kirenz
 <span id="cb3-19"><a href="#cb3-19"></a>    title<span class="op">=</span><span class="st">"Generate a Musical Tone!"</span></span>
 <span id="cb3-20"><a href="#cb3-20"></a>).launch()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section>
+</section>
+<section id="gradio-sound-app-interface" class="slide level2">
+<h2>Gradio Sound App Interface</h2>
+
+<img data-src="../images/gradio_music_app.png" class="r-stretch"></section></section>
+<section>
 <section id="text-to-speech-app" class="title-slide slide level1 center">
 <h1>Text-to-Speech App</h1>
-<p>It is especially easy to demo a <code>transformers</code> model from Hugging Face’s Model Hub, using the special <code>gr.Interface.load</code> method.</p>
-<p>Text-to-speech model built by Facebook:</p>
+<ul>
+<li class="fragment"><p>It is especially easy to demo a <code>transformers</code> model from Hugging Face’s Model Hub, using the special <code>gr.Interface.load</code> method.</p></li>
+<li class="fragment"><p>Text-to-speech model built by Facebook:</p></li>
+</ul>
+<div class="fragment">
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>gr.Interface.load(<span class="st">"huggingface/facebook/fastspeech2-en-ljspeech"</span>).launch()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
 </section>
+<section id="gradio-text-to-speech-app-interface" class="slide level2">
+<h2>Gradio Text to Speech App Interface</h2>
 
+<img data-src="../images/gradio_txt_sp.png" class="r-stretch"></section></section>
+<section>
 <section id="gpt-j-app" class="title-slide slide level1 center">
 <h1>GPT-J App</h1>
-<p>Demo for <a href="https://huggingface.co/EleutherAI/gpt-j-6B">GPT-J</a>, a large language model &amp; add a couple of examples inputs:</p>
+<ul>
+<li class="fragment">Demo for <a href="https://huggingface.co/EleutherAI/gpt-j-6B">GPT-J</a>, a large language model &amp; add a couple of examples inputs:</li>
+</ul>
+<div class="fragment">
 <div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>examples <span class="op">=</span> [[<span class="st">"A student at HdM Stuttgart is"</span>],</span>
 <span id="cb5-2"><a href="#cb5-2"></a>            [<span class="st">"In Stuttgart you can "</span>]]</span>
@@ -610,8 +611,12 @@ Jan Kirenz
 <span id="cb5-4"><a href="#cb5-4"></a>gr.Interface.load(<span class="st">"huggingface/EleutherAI/gpt-j-6B"</span>,</span>
 <span id="cb5-5"><a href="#cb5-5"></a>                  examples<span class="op">=</span>examples).launch()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
 </section>
+<section id="gradio-gp-j-app-interface" class="slide level2">
+<h2>Gradio GP-J App Interface</h2>
 
+<img data-src="../images/gradio_gp_j.png" class="r-stretch"></section></section>
 <section id="build-your-own-app" class="title-slide slide level1 center">
 <h1>Build your own App</h1>
 <ul>
@@ -625,51 +630,62 @@ Jan Kirenz
 <h1>Host the Demo</h1>
 <p>Host the Demo (for free) on Hugging Face Spaces</p>
 </section>
-<section id="workflow" class="slide level2 smaller">
-<h2>Workflow</h2>
+<section id="workflow-1" class="slide level2 smaller">
+<h2>Workflow, 1</h2>
 <ul>
-<li class="fragment">Here are the steps to that (also see GIF in the next slid):</li>
+<li class="fragment">Here are the steps to that (also see GIF in the next slide):</li>
 </ul>
-<p>A. First, create a Hugging Face account if you do not already have one, by visiting <a href="https://huggingface.co/" class="uri">https://huggingface.co/</a> and clicking “Sign Up”</p>
-<p>B. Once you are logged in, click on your profile picture and then click on “New Space” underneath it to get to this page: <a href="https://huggingface.co/new-space" class="uri">https://huggingface.co/new-space</a></p>
-<p>C. Give your Space a name and a license. Select “Gradio” as the Space SDK, and then choose “Public” if you are fine with everyone accessing your Space and the underlying code</p>
-<p>D. Then you will find a page that provides you instructions on how to upload your files into the Git repository for that Space. You may also need to add a <code>requirements.txt</code> file to specify any Python package dependencies.</p>
-<p>E. Once you have pushed your files, that’s it! Spaces will automatically build your Gradio demo allowing you to share it with anyone, anywhere!</p>
+<ol type="1">
+<li class="fragment"><p>First, create a Hugging Face account if you do not already have one, by visiting <a href="https://huggingface.co/" class="uri">https://huggingface.co/</a> and clicking “Sign Up”</p></li>
+<li class="fragment"><p>Once you are logged in, click on your profile picture and then click on “New Space” underneath it to get to this page: <a href="https://huggingface.co/new-space" class="uri">https://huggingface.co/new-space</a></p></li>
+<li class="fragment"><p>Give your Space a name and a license. Select “Gradio” as the Space SDK, and then choose “Public” if you are fine with everyone accessing your Space and the underlying code</p></li>
+<li class="fragment"><p>Then you will find a page that provides you instructions on how to upload your files into the Git repository for that Space. You may also need to add a <code>requirements.txt</code> file to specify any Python package dependencies.</p></li>
+<li class="fragment"><p>Once you have pushed your files, that’s it! Spaces will automatically build your Gradio demo allowing you to share it with anyone, anywhere!</p></li>
+</ol>
 </section>
 <section id="workflow-in-a-gif" class="slide level2">
 <h2>Workflow in a GIF</h2>
+<ul>
+<li class="fragment">You may also choose “public” instead of “private” when you create your space</li>
+</ul>
 
-<img data-src="https://huggingface.co/blog/assets/28_gradio-spaces/spaces-demo-finalized.gif" class="r-stretch quarto-figure-center"><p class="caption">GIF</p></section>
+<img data-src="https://huggingface.co/blog/assets/28_gradio-spaces/spaces-demo-finalized.gif" class="r-stretch"></section>
 <section id="share-your-demo" class="slide level2">
 <h2>Share your demo</h2>
 <ul>
 <li class="fragment"><p>You can embed your Gradio demo on any website – in a blog, a portfolio page, or even in a colab notebook,</p></li>
 <li class="fragment"><p>Example: Pictionary sketch recognition model below:</p></li>
 </ul>
+<div class="fragment">
 <div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>IFrame(src<span class="op">=</span><span class="st">'https://hf.space/gradioiframe/abidlabs/Draw/+'</span>, width<span class="op">=</span><span class="dv">1000</span>, height<span class="op">=</span><span class="dv">800</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><img data-src="../images/gradio_recognition.png"></p>
+</div>
 </section></section>
 <section>
-<section id="add-demo-to-our-hugging-face-organization" class="title-slide slide level1 center">
-<h1>Add Demo to our Hugging Face organization</h1>
+<section id="add-demo-to-hugging-face-organization-classroom" class="title-slide slide level1 center">
+<h1>Add Demo to Hugging Face organization (classroom)</h1>
 
 </section>
-<section id="workflow-1" class="slide level2">
+<section id="workflow" class="slide level2">
 <h2>Workflow</h2>
-<p>A. You find the link to our organization (HdM-…) in <a href="https://moodle.hdm-stuttgart.de/login/index.php">Moodle</a></p>
-<p>B. Visit the organization page and click “Request to join this org” button, if you are not yet part of the org.</p>
-<p>C. Then, once you have been approved to join the organization (and built your Gradio Demo and uploaded it to Spaces – see Sections above): - Go to your Space and go to <code>Settings &gt; Rename or transfer this space</code> - select the organization name under <code>New owner</code>. - Click the button and the Space will now be added to our organization</p>
+<ol type="1">
+<li class="fragment"><p>You find the link to our organization (HdM-…) in <a href="https://moodle.hdm-stuttgart.de/login/index.php">Moodle</a></p></li>
+<li class="fragment"><p>Visit the organization page and click “Request to join this org” button, if you are not yet part of the org.</p></li>
+<li class="fragment"><p>Then, once you have been approved to join the organization (and built your Gradio Demo and uploaded it to Spaces – see Sections above):</p></li>
+</ol>
+<ul>
+<li class="fragment">Go to your Space and go to <code>Settings &gt; Rename or transfer this space</code></li>
+<li class="fragment">select the organization name under <code>New owner</code>.</li>
+<li class="fragment">Click the button and the Space will now be added to our organization</li>
+</ul>
 </section></section>
-<section id="acknowledgments" class="title-slide slide level1 center">
-<h1>Acknowledgments</h1>
-<p><em>The slides are mainly based on a toolkit provided by Abubakar Abid from HuggingFace</em></p>
-</section>
-
 <section id="whats-next" class="title-slide slide level1 center" data-background-image="../images/logo.png" data-background-opacity="0.5">
 <h1>What’s next?</h1>
 <p><strong>Congratulations! You have completed this tutorial</strong> 👍</p>
 <p><strong>Next, you may want to go back to the <a href="https://kirenz.github.io/lab-huggingface/">lab’s website</a></strong></p>
+<p><em>Acknowledgments: The slides are mainly based on a toolkit provided by Abubakar Abid from HuggingFace</em></p>
 
 <div class="footer footer-default">
 <p>Jan Kirenz</p>

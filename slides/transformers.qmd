@@ -34,18 +34,16 @@ format:
 ---
 
 
-# Getting Started with Transformers
+# Transformers intro
 
-# Learning goals
+## Learning goals
 
-:::{.callout-tip}
+
 1. Transformer neural networks can be used to tackle a wide range of tasks in natural language processing and beyond.
-3. Transfer learning allows one to adapt Transformers to specific tasks.
-2. The `pipeline()` function from the `transformers` library can be used to run inference with models from the [Hugging Face Hub](https://huggingface.co/models).
-:::
+2. Transfer learning allows one to adapt Transformers to specific tasks.
+3. The `pipeline()` function from the `transformers` library can be used to run inference with models from the [Hugging Face Hub](https://huggingface.co/models).
 
 
-## Transformers
 
 ## Why Transformers?
 
@@ -78,25 +76,28 @@ format:
 
 - The models that we'll be looking at in this tutorial are all examples of fine-tuned models
 
-- You can learn more about the transfer learning process in the video below:
 
-. . .
+## Transfer learning 
+
+You can learn more about the transfer learning process in the video below:
+
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/BqqfQnyjmgg?si=P09F30TBQvBttyXC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 # Hugging Face Transformers
 
-## Basics
+The [Hugging Face Transformers library](https://github.com/huggingface/transformers) provides a unified API across dozens of Transformer architectures, as well as the means to train models and run inference with them. 
 
-- The [Hugging Face Transformers library](https://github.com/huggingface/transformers) provides a unified API across dozens of Transformer architectures, as well as the means to train models and run inference with them. 
-
+<!---
+ 
 - So to get started, let's install the library with the following command:
 
 ```{python}
 !pip install transformers[sentencepiece]
 ```
 
-Now that we've installed the library, let's take a look at some applications!
+Now that we've installed the library, let's take a look at some applications! 
+--->
 
 ## Pipelines for Transformers
 
@@ -104,9 +105,12 @@ Now that we've installed the library, let's take a look at some applications!
 
 - This function loads a model from the Hugging Face Hub and takes care of all the preprocessing and postprocessing steps that are needed to convert inputs into predictions:
 
+. . .
+
 <img src="https://github.com/huggingface/workshops/blob/main/nlp-zurich/images/pipeline.png?raw=1" alt="Alt text that describes the graphic" title="Title text" width=800>
 
 ## What happens inside the pipeline function? 
+
 
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/1pedAIvTWXk?si=WhdZ1fe6iQokgH2X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -114,9 +118,7 @@ Now that we've installed the library, let's take a look at some applications!
 
 # Setup
 
-## Python
-
-- Import the pipeline
+Import the pipeline:
 
 ```{python}
 from transformers import pipeline
@@ -142,16 +144,18 @@ this purchase. I expect to hear from you soon. Sincerely, Bumblebee."""
 
 ## Create text wrapper
 
-- let's create a simple wrapper so that we can pretty print out texts:
+- Let's create a simple wrapper so that we can pretty print out texts:
 
 . . .
 
 ```{python}
 import textwrap
 
-wrapper = textwrap.TextWrapper(width=80, break_long_words=False, break_on_hyphens=False)
-
-print(wrapper.fill(text))
+wrapper = textwrap.TextWrapper(
+            width=80, 
+            break_long_words=False, 
+            break_on_hyphens=False
+          )
 ```
 
 
@@ -166,11 +170,14 @@ Let's start with one of the most common tasks in NLP: text classification
 
 - This is a special type of text classification that is often used in industry to aggregate customer feedback across products or services. 
 
+
+## Tokens
+
 - The example below shows how a Transformer like BERT converts the inputs into atomic chunks called **tokens** which are then fed through the network to produce a single prediction:
 
 <img src="https://github.com/huggingface/workshops/blob/main/nlp-zurich/images/clf_arch.png?raw=1" alt="Alt text that describes the graphic" title="Title text" width=600>
 
-## Pipeline
+## Pipeline  {.smaller}
 
 - We need to specify the task in the `pipeline()` function as follows;
 
@@ -188,7 +195,7 @@ sentiment_pipeline = pipeline('text-classification')
 💡 The first time you execute the code, the model will be automatically downloaded from the Hub and cached for later use! 
 :::
 
-## Run pipeline
+## Run pipeline {.smaller}
 
 - Now we are ready to run our example through pipeline and look at some predictions:
 
@@ -213,6 +220,8 @@ sentiment_pipeline(text)
 - Instead of just finding the overall sentiment, let's see if we can extract **entities** such as organizations, locations, or individuals from the text. 
 
 - This task is called named entity recognition, or NER for short. 
+
+## Predict class for echa token
 
 - Instead of predicting just a class for the whole text **a class is predicted for each token**, as shown in the example below:
 
@@ -259,7 +268,7 @@ for entity in entities:
     print(f"{entity['word']}: {entity['entity_group']} ({entity['score']:.2f})")
 ```
 
-```markdown
+```json
 Amazon: ORG (0.88)  
 Optimus Prime: MISC (0.99)  
 Germany: LOC (1.00)  
@@ -286,6 +295,8 @@ Bumblebee: PER (0.81)
 - In this task, the model is given a **question** and a **context** and needs to find the answer to the question within the context. 
 
 - This problem can be rephrased as a classification problem: For each token the model needs to predict whether it is the start or the end of the answer. 
+
+## Basics
 
 - In the end we can extract the answer by looking at the span between the token with the highest start probability and highest end probability:
 
@@ -330,11 +341,9 @@ outputs
 
 # Text summarization
 
-## Basics
+## Basics {background-color="white"}
 
-- Where BERT excels and delve into the generative domain. 
-
-- Note that generation is much more computationally demanding since we usually generate one token at a time and need to run this several times. 
+- Generation is much more computationally demanding since we usually generate one token at a time and need to run this several times. 
 
 - An example for how this process works is shown below:
 
@@ -386,7 +395,7 @@ of the Decepticons, I hope you can understand my dilemma.
 translator = pipeline("translation_en_to_de", model="Helsinki-NLP/opus-mt-en-de")
 ```
 
-## Output
+## Output {.smaller}
 
 - Let's translate our text to German:
 
@@ -457,11 +466,11 @@ zero_shot_classifier(text, classes, multi_label=True)
 
 # Going beyond text
 
-## Basics
+Transformers can also be used for domains other than NLP! 
 
-- Transformers can also be used for domains other than NLP! 
+## Basics {.smaller}
 
-- For these domains, there are many more pipelines that you can experiment with. Look at the following list for an overview:
+There are many more pipelines that you can experiment with
 
 ```{python}
 from transformers import pipelines
@@ -508,9 +517,7 @@ mask-generation
 
 ## Audio
 
-- Another promising area is audio processing. 
-
-- Especially Speech2Text there have been some promising advancements recently. 
+- Another promising area is audio processing (especially Speech2Text) 
 
 - See for example the [wav2vec2 model](https://huggingface.co/facebook/wav2vec2-base-960h):
 
@@ -529,14 +536,11 @@ mask-generation
 <img src="https://github.com/huggingface/workshops/blob/main/nlp-zurich/images/tapas.png?raw=1" alt="Alt text that describes the graphic" title="Title text" width=400>
 
 
-# Acknowledgments
-
-
-*The slides are mainly based on a toolkit provided by Hugging Face's Lewis Tunstall and the book [_Natural Language Processing with Transformers_](https://transformersbook.com/).
-
 
 # What's next? {background-image="../images/logo.png" background-opacity="0.5"}
 
 **Congratulations! You have completed this tutorial** 👍
 
 **Next, you may want to go back to the [lab's website](https://kirenz.github.io/lab-huggingface/)**
+
+*The slides are mainly based on a toolkit provided by Hugging Face's Lewis Tunstall and the book [_Natural Language Processing with Transformers_](https://transformersbook.com/).*
