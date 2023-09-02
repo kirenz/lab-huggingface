@@ -535,6 +535,11 @@ mask-generation
 
 <img src="https://github.com/huggingface/workshops/blob/main/nlp-zurich/images/tapas.png?raw=1" alt="Alt text that describes the graphic" title="Title text" width=400>
 
+# Resources
+
+👉 [click here to access hands-on Transformers exercices](https://github.com/NielsRogge/Transformers-Tutorials)
+
+
 
 
 # What's next? {background-image="../images/logo.png" background-opacity="0.5"}
