@@ -1,0 +1,105 @@
+---
+title: Diffusion models
+title-slide-attributes:
+  data-background-image: ../images/logo.png
+  data-background-size: contain
+  data-background-opacity: "0.5"
+lang: en
+subtitle: with Hugging Face Pipelines
+author: Jan Kirenz
+execute:
+  eval: false
+  echo: true
+highlight-style: github
+format:
+  revealjs: 
+    toc: true
+    toc-depth: 1
+    embed-resources: false
+    theme: [dark, ../custom.scss]  
+    incremental: true
+    transition: slide
+    background-transition: fade
+    transition-speed: slow
+    code-copy: true
+    code-line-numbers: true
+    smaller: false
+    scrollable: true
+    slide-number: c
+    preview-links: auto
+    chalkboard: 
+      buttons: false
+   # logo: ../images/logo.png
+    footer: Jan Kirenz
+---
+
+# 🧨 Diffusers
+
+# Setup
+
+```{python}
+from diffusers import StableDiffusionPipeline
+```
+
+
+## Basics
+
+- [diffusers](https://github.com/huggingface/diffusers): A Python library maintained at 🤗 
+
+- Providing open and responsible access to pre-trained diffusion models. 
+
+- Democratizing the ecosystem of diffusion models by making them easy to use.
+
+# Text-to-image with 🧨 diffusers
+
+Note that there are differences between Mac silicon and Windows. 
+
+## Diffusers (Mac silicon) {.smaller}
+
+
+```{python}
+model_id = "runwayml/stable-diffusion-v1-5"
+
+pipeline = StableDiffusionPipeline.from_pretrained(model_id)
+
+pipeline = pipeline.to('mps')
+
+# Recommended if your computer has < 64 GB of RAM
+pipeline.enable_attention_slicing()
+
+image = pipeline(
+    "An astronaut floating through space while plying the guitar").images[0]
+
+image.save("../images/diffusion_astronaut.png")
+```
+
+## Output
+
+![](/images/diffusion_astronaut.png)
+
+
+## Diffusers on Windows and Mac Intel
+
+```{python}
+model_id = "runwayml/stable-diffusion-v1-5"
+
+pipeline = StableDiffusionPipeline.from_pretrained(model_id)
+
+pipeline = pipeline.to("cuda")
+
+image = pipeline("An astronaut riding a tiger").images[0]
+
+image.save("image.png")
+```
+
+# Resources
+
+- [Yaramesh, A. (2022). How DALL·E 2 Works. Blog post.](http://adityaramesh.com/posts/dalle2/dalle2.html)
+
+[Xiao, Z., Kreis, K. & Arash, A. (2022). Tackling the Generative Learning Trilemma with Denoising Diffusion GANs. International Conference on Learning Representations (ICLR)](https://nvlabs.github.io/denoising-diffusion-gan/)
+
+# What's next? {background-image="../images/logo.png" background-opacity="0.5"}
+
+**Congratulations! You have completed this tutorial** 👍
+
+**Next, you may want to go back to the [lab's website](https://kirenz.github.io/lab-huggingface/)**
