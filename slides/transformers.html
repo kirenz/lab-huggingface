@@ -409,8 +409,7 @@ Jan Kirenz
 <nav role="doc-toc"> 
 <h2 id="toc-title">Table of contents</h2>
 <ul>
-<li class="fragment"><a href="#/getting-started-with-transformers" id="/toc-getting-started-with-transformers">Getting Started with Transformers</a></li>
-<li class="fragment"><a href="#/learning-goals" id="/toc-learning-goals">Learning goals</a></li>
+<li class="fragment"><a href="#/transformers-intro" id="/toc-transformers-intro">Transformers intro</a></li>
 <li class="fragment"><a href="#/hugging-face-transformers" id="/toc-hugging-face-transformers">Hugging Face Transformers</a></li>
 <li class="fragment"><a href="#/setup" id="/toc-setup">Setup</a></li>
 <li class="fragment"><a href="#/text-classification" id="/toc-text-classification">Text classification</a></li>
@@ -420,39 +419,22 @@ Jan Kirenz
 <li class="fragment"><a href="#/translation" id="/toc-translation">Translation</a></li>
 <li class="fragment"><a href="#/zero-shot-classification" id="/toc-zero-shot-classification">Zero-shot classification</a></li>
 <li class="fragment"><a href="#/going-beyond-text" id="/toc-going-beyond-text">Going beyond text</a></li>
-<li class="fragment"><a href="#/acknowledgments" id="/toc-acknowledgments">Acknowledgments</a></li>
 <li class="fragment"><a href="#/whats-next" id="/toc-whats-next">What’s next?</a></li>
 </ul>
 </nav>
 </section>
-<section id="getting-started-with-transformers" class="title-slide slide level1 center">
-<h1>Getting Started with Transformers</h1>
+<section>
+<section id="transformers-intro" class="title-slide slide level1 center">
+<h1>Transformers intro</h1>
 
 </section>
-
-<section>
-<section id="learning-goals" class="title-slide slide level1 center">
-<h1>Learning goals</h1>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tip</strong></p>
-</div>
-<div class="callout-content">
+<section id="learning-goals" class="slide level2">
+<h2>Learning goals</h2>
 <ol type="1">
 <li class="fragment">Transformer neural networks can be used to tackle a wide range of tasks in natural language processing and beyond.</li>
 <li class="fragment">Transfer learning allows one to adapt Transformers to specific tasks.</li>
 <li class="fragment">The <code>pipeline()</code> function from the <code>transformers</code> library can be used to run inference with models from the <a href="https://huggingface.co/models">Hugging Face Hub</a>.</li>
 </ol>
-</div>
-</div>
-</div>
-</section>
-<section id="transformers" class="slide level2">
-<h2>Transformers</h2>
 </section>
 <section id="why-transformers" class="slide level2">
 <h2>Why Transformers?</h2>
@@ -485,28 +467,31 @@ Jan Kirenz
 <ul>
 <li class="fragment"><p>Fine-tuning can be used as a special case of transfer learning where you use new data to continue training the model on the new task.</p></li>
 <li class="fragment"><p>The models that we’ll be looking at in this tutorial are all examples of fine-tuned models</p></li>
-<li class="fragment"><p>You can learn more about the transfer learning process in the video below:</p></li>
 </ul>
-<div class="fragment">
+</section>
+<section id="transfer-learning-1" class="slide level2">
+<h2>Transfer learning</h2>
+<p>You can learn more about the transfer learning process in the video below:</p>
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/BqqfQnyjmgg?si=P09F30TBQvBttyXC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
 </iframe>
-</div>
 </section></section>
 <section>
 <section id="hugging-face-transformers" class="title-slide slide level1 center">
 <h1>Hugging Face Transformers</h1>
+<p>The <a href="https://github.com/huggingface/transformers">Hugging Face Transformers library</a> provides a unified API across dozens of Transformer architectures, as well as the means to train models and run inference with them.</p>
+<!---
+ 
+- So to get started, let's install the library with the following command:
 
-</section>
-<section id="basics" class="slide level2">
-<h2>Basics</h2>
-<ul>
-<li class="fragment"><p>The <a href="https://github.com/huggingface/transformers">Hugging Face Transformers library</a> provides a unified API across dozens of Transformer architectures, as well as the means to train models and run inference with them.</p></li>
-<li class="fragment"><p>So to get started, let’s install the library with the following command:</p></li>
-</ul>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">!</span>pip install transformers[sentencepiece]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Now that we’ve installed the library, let’s take a look at some applications!</p>
+::: {.cell execution_count=1}
+``` {.python .cell-code}
+!pip install transformers[sentencepiece]
+```
+:::
+
+
+Now that we've installed the library, let's take a look at some applications! 
+--->
 </section>
 <section id="pipelines-for-transformers" class="slide level2">
 <h2>Pipelines for Transformers</h2>
@@ -514,8 +499,10 @@ Jan Kirenz
 <li class="fragment"><p>The fastest way to learn what Transformers can do is via the <code>pipeline()</code> function.</p></li>
 <li class="fragment"><p>This function loads a model from the Hugging Face Hub and takes care of all the preprocessing and postprocessing steps that are needed to convert inputs into predictions:</p></li>
 </ul>
-
-<img src="https://github.com/huggingface/workshops/blob/main/nlp-zurich/images/pipeline.png?raw=1" alt="Alt text that describes the graphic" title="Title text" width="800" class="r-stretch"></section>
+<div class="fragment">
+<p><img src="https://github.com/huggingface/workshops/blob/main/nlp-zurich/images/pipeline.png?raw=1" alt="Alt text that describes the graphic" title="Title text" width="800"></p>
+</div>
+</section>
 <section id="what-happens-inside-the-pipeline-function" class="slide level2">
 <h2>What happens inside the pipeline function?</h2>
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/1pedAIvTWXk?si=WhdZ1fe6iQokgH2X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
@@ -524,15 +511,9 @@ Jan Kirenz
 <section>
 <section id="setup" class="title-slide slide level1 center">
 <h1>Setup</h1>
-
-</section>
-<section id="python" class="slide level2">
-<h2>Python</h2>
-<ul>
-<li class="fragment">Import the pipeline</li>
-</ul>
+<p>Import the pipeline:</p>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">from</span> transformers <span class="im">import</span> pipeline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> transformers <span class="im">import</span> pipeline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="text-input" class="slide level2">
@@ -542,28 +523,30 @@ Jan Kirenz
 </ul>
 <div class="fragment">
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>text <span class="op">=</span> <span class="st">"""Dear Amazon, last week I ordered an Optimus Prime action figure </span><span class="ch">\</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="st">from your online store in Germany. Unfortunately, when I opened the package, </span><span class="ch">\</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="st">I discovered to my horror that I had been sent an action figure of Megatron </span><span class="ch">\</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="st">instead! As a lifelong enemy of the Decepticons, I hope you can understand my </span><span class="ch">\</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="st">dilemma. To resolve the issue, I demand an exchange of Megatron for the </span><span class="ch">\</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="st">Optimus Prime figure I ordered. Enclosed are copies of my records concerning </span><span class="ch">\</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="st">this purchase. I expect to hear from you soon. Sincerely, Bumblebee."""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>text <span class="op">=</span> <span class="st">"""Dear Amazon, last week I ordered an Optimus Prime action figure </span><span class="ch">\</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="st">from your online store in Germany. Unfortunately, when I opened the package, </span><span class="ch">\</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="st">I discovered to my horror that I had been sent an action figure of Megatron </span><span class="ch">\</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="st">instead! As a lifelong enemy of the Decepticons, I hope you can understand my </span><span class="ch">\</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="st">dilemma. To resolve the issue, I demand an exchange of Megatron for the </span><span class="ch">\</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="st">Optimus Prime figure I ordered. Enclosed are copies of my records concerning </span><span class="ch">\</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="st">this purchase. I expect to hear from you soon. Sincerely, Bumblebee."""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
 <section id="create-text-wrapper" class="slide level2">
 <h2>Create text wrapper</h2>
 <ul>
-<li class="fragment">let’s create a simple wrapper so that we can pretty print out texts:</li>
+<li class="fragment">Let’s create a simple wrapper so that we can pretty print out texts:</li>
 </ul>
 <div class="fragment">
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> textwrap</span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a>wrapper <span class="op">=</span> textwrap.TextWrapper(width<span class="op">=</span><span class="dv">80</span>, break_long_words<span class="op">=</span><span class="va">False</span>, break_on_hyphens<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="bu">print</span>(wrapper.fill(text))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> textwrap</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a>wrapper <span class="op">=</span> textwrap.TextWrapper(</span>
+<span id="cb3-4"><a href="#cb3-4"></a>            width<span class="op">=</span><span class="dv">80</span>, </span>
+<span id="cb3-5"><a href="#cb3-5"></a>            break_long_words<span class="op">=</span><span class="va">False</span>, </span>
+<span id="cb3-6"><a href="#cb3-6"></a>            break_on_hyphens<span class="op">=</span><span class="va">False</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>          )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section></section>
@@ -577,18 +560,23 @@ Jan Kirenz
 <ul>
 <li class="fragment"><p>Now suppose that we’d like to predict the <em>sentiment</em> of this text, i.e.&nbsp;whether the feedback is positive or negative.</p></li>
 <li class="fragment"><p>This is a special type of text classification that is often used in industry to aggregate customer feedback across products or services.</p></li>
-<li class="fragment"><p>The example below shows how a Transformer like BERT converts the inputs into atomic chunks called <strong>tokens</strong> which are then fed through the network to produce a single prediction:</p></li>
+</ul>
+</section>
+<section id="tokens" class="slide level2">
+<h2>Tokens</h2>
+<ul>
+<li class="fragment">The example below shows how a Transformer like BERT converts the inputs into atomic chunks called <strong>tokens</strong> which are then fed through the network to produce a single prediction:</li>
 </ul>
 
 <img src="https://github.com/huggingface/workshops/blob/main/nlp-zurich/images/clf_arch.png?raw=1" alt="Alt text that describes the graphic" title="Title text" width="600" class="r-stretch"></section>
-<section id="pipeline" class="slide level2">
+<section id="pipeline" class="slide level2 smaller">
 <h2>Pipeline</h2>
 <ul>
 <li class="fragment">We need to specify the task in the <code>pipeline()</code> function as follows;</li>
 </ul>
 <div class="fragment">
 <div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>sentiment_pipeline <span class="op">=</span> pipeline(<span class="st">'text-classification'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>sentiment_pipeline <span class="op">=</span> pipeline(<span class="st">'text-classification'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li class="fragment"><p>When you run this code, you’ll see a message about which Hub model is being used by default.</p></li>
@@ -609,14 +597,14 @@ Jan Kirenz
 </div>
 </div>
 </section>
-<section id="run-pipeline" class="slide level2">
+<section id="run-pipeline" class="slide level2 smaller">
 <h2>Run pipeline</h2>
 <ul>
 <li class="fragment">Now we are ready to run our example through pipeline and look at some predictions:</li>
 </ul>
 <div class="fragment">
 <div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>sentiment_pipeline(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>sentiment_pipeline(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li class="fragment"><p><code>Output</code>: [{‘label’: ‘NEGATIVE’, ‘score’: 0.9015464186668396}]</p></li>
@@ -631,12 +619,17 @@ Jan Kirenz
 <h1>Named entity recognition (NER)</h1>
 
 </section>
-<section id="basics-1" class="slide level2">
+<section id="basics" class="slide level2">
 <h2>Basics</h2>
 <ul>
 <li class="fragment"><p>Instead of just finding the overall sentiment, let’s see if we can extract <strong>entities</strong> such as organizations, locations, or individuals from the text.</p></li>
 <li class="fragment"><p>This task is called named entity recognition, or NER for short.</p></li>
-<li class="fragment"><p>Instead of predicting just a class for the whole text <strong>a class is predicted for each token</strong>, as shown in the example below:</p></li>
+</ul>
+</section>
+<section id="predict-class-for-echa-token" class="slide level2">
+<h2>Predict class for echa token</h2>
+<ul>
+<li class="fragment">Instead of predicting just a class for the whole text <strong>a class is predicted for each token</strong>, as shown in the example below:</li>
 </ul>
 <div class="fragment">
 <p><img src="https://github.com/huggingface/workshops/blob/main/nlp-zurich/images/ner_arch.png?raw=1" alt="Alt text that describes the graphic" title="Title text" width="600"></p>
@@ -650,7 +643,7 @@ Jan Kirenz
 </ul>
 <div class="fragment">
 <div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>ner_pipeline <span class="op">=</span> pipeline(<span class="st">'ner'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>ner_pipeline <span class="op">=</span> pipeline(<span class="st">'ner'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -662,8 +655,8 @@ Jan Kirenz
 </ul>
 <div class="fragment">
 <div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>entities <span class="op">=</span> ner_pipeline(text, aggregation_strategy<span class="op">=</span><span class="st">"simple"</span>)</span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="bu">print</span>(entities)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>entities <span class="op">=</span> ner_pipeline(text, aggregation_strategy<span class="op">=</span><span class="st">"simple"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="bu">print</span>(entities)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li class="fragment"><code>Output</code>: [{‘entity_group’: ‘ORG’, ‘score’: 0.87900954, ‘word’: ‘Amazon’, ‘start’: 5, ‘end’: 11}, {‘entity_group’: ‘MISC’, ‘score’: 0.9908588, ‘word’: ‘Optimus Prime’, ‘start’: 36, ‘end’: 49}, {‘entity_group’: ‘LOC’, ‘score’: 0.9997547, ‘word’: ‘Germany’, ‘start’: 90, ‘end’: 97}, {‘entity_group’: ‘MISC’, ‘score’: 0.55656713, ‘word’: ‘Mega’, ‘start’: 208, ‘end’: 212}, {‘entity_group’: ‘PER’, ‘score’: 0.5902563, ‘word’: ‘##tron’, ‘start’: 212, ‘end’: 216}, {‘entity_group’: ‘ORG’, ‘score’: 0.6696913, ‘word’: ‘Decept’, ‘start’: 253, ‘end’: 259}, {‘entity_group’: ‘MISC’, ‘score’: 0.4983487, ‘word’: ‘##icons’, ‘start’: 259, ‘end’: 264}, {‘entity_group’: ‘MISC’, ‘score’: 0.77536064, ‘word’: ‘Megatron’, ‘start’: 350, ‘end’: 358}, {‘entity_group’: ‘MISC’, ‘score’: 0.987854, ‘word’: ‘Optimus Prime’, ‘start’: 367, ‘end’: 380}, {‘entity_group’: ‘PER’, ‘score’: 0.81209683, ‘word’: ‘Bumblebee’, ‘start’: 502, ‘end’: 511}]</li>
@@ -677,19 +670,19 @@ Jan Kirenz
 </ul>
 <div class="fragment">
 <div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="cf">for</span> entity <span class="kw">in</span> entities:</span>
-<span id="cb9-2"><a href="#cb9-2"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>entity[<span class="st">'word'</span>]<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>entity[<span class="st">'entity_group'</span>]<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>entity[<span class="st">'score'</span>]<span class="sc">:.2f}</span><span class="ss">)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="cf">for</span> entity <span class="kw">in</span> entities:</span>
+<span id="cb8-2"><a href="#cb8-2"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>entity[<span class="st">'word'</span>]<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>entity[<span class="st">'entity_group'</span>]<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>entity[<span class="st">'score'</span>]<span class="sc">:.2f}</span><span class="ss">)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a><span class="an">Amazon:</span><span class="co"> ORG (0.88)  </span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="an">Optimus Prime:</span><span class="co"> MISC (0.99)  </span></span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="an">Germany:</span><span class="co"> LOC (1.00)  </span></span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="an">Mega:</span><span class="co"> MISC (0.56)  </span></span>
-<span id="cb10-5"><a href="#cb10-5"></a>##tron: PER (0.59)  </span>
-<span id="cb10-6"><a href="#cb10-6"></a>Decept: ORG (0.67)  </span>
-<span id="cb10-7"><a href="#cb10-7"></a>##icons: MISC (0.50)  </span>
-<span id="cb10-8"><a href="#cb10-8"></a>Megatron: MISC (0.78)  </span>
-<span id="cb10-9"><a href="#cb10-9"></a>Optimus Prime: MISC (0.99)  </span>
-<span id="cb10-10"><a href="#cb10-10"></a>Bumblebee: PER (0.81)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb9-1"><a href="#cb9-1"></a><span class="er">Amazon:</span> <span class="er">ORG</span> <span class="er">(0.88)</span>  </span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="er">Optimus</span> <span class="er">Prime:</span> <span class="er">MISC</span> <span class="er">(0.99)</span>  </span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="er">Germany:</span> <span class="er">LOC</span> <span class="er">(1.00)</span>  </span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="er">Mega:</span> <span class="er">MISC</span> <span class="er">(0.56)</span>  </span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="er">##tron:</span> <span class="er">PER</span> <span class="er">(0.59)</span>  </span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="er">Decept:</span> <span class="er">ORG</span> <span class="er">(0.67)</span>  </span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="er">##icons:</span> <span class="er">MISC</span> <span class="er">(0.50)</span>  </span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="er">Megatron:</span> <span class="er">MISC</span> <span class="er">(0.78)</span>  </span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="er">Optimus</span> <span class="er">Prime:</span> <span class="er">MISC</span> <span class="er">(0.99)</span>  </span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="er">Bumblebee:</span> <span class="er">PER</span> <span class="er">(0.81)</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="findings" class="slide level2">
@@ -704,12 +697,17 @@ Jan Kirenz
 <h1>Question answering</h1>
 
 </section>
-<section id="basics-2" class="slide level2 smaller">
+<section id="basics-1" class="slide level2 smaller">
 <h2>Basics</h2>
 <ul>
 <li class="fragment"><p>In this task, the model is given a <strong>question</strong> and a <strong>context</strong> and needs to find the answer to the question within the context.</p></li>
 <li class="fragment"><p>This problem can be rephrased as a classification problem: For each token the model needs to predict whether it is the start or the end of the answer.</p></li>
-<li class="fragment"><p>In the end we can extract the answer by looking at the span between the token with the highest start probability and highest end probability:</p></li>
+</ul>
+</section>
+<section id="basics-2" class="slide level2">
+<h2>Basics</h2>
+<ul>
+<li class="fragment">In the end we can extract the answer by looking at the span between the token with the highest start probability and highest end probability:</li>
 </ul>
 <div class="fragment">
 <p><img src="https://github.com/huggingface/workshops/blob/main/nlp-zurich/images/qa_arch.png?raw=1" alt="Alt text that describes the graphic" title="Title text" width="600"></p>
@@ -722,7 +720,7 @@ Jan Kirenz
 </ul>
 <div class="fragment">
 <div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>qa_pipeline <span class="op">=</span> pipeline(<span class="st">"question-answering"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>qa_pipeline <span class="op">=</span> pipeline(<span class="st">"question-answering"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li class="fragment">This default model is trained on the famous <a href="https://huggingface.co/datasets/squad">SQuAD dataset</a>.</li>
@@ -736,17 +734,17 @@ Jan Kirenz
 </ul>
 <div class="fragment">
 <div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>question <span class="op">=</span> <span class="st">"What does the customer want?"</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a></span>
-<span id="cb12-3"><a href="#cb12-3"></a>outputs <span class="op">=</span> qa_pipeline(question<span class="op">=</span>question, context<span class="op">=</span>text)</span>
-<span id="cb12-4"><a href="#cb12-4"></a>outputs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>question <span class="op">=</span> <span class="st">"What does the customer want?"</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a></span>
+<span id="cb11-3"><a href="#cb11-3"></a>outputs <span class="op">=</span> qa_pipeline(question<span class="op">=</span>question, context<span class="op">=</span>text)</span>
+<span id="cb11-4"><a href="#cb11-4"></a>outputs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">{</span><span class="er">'score'</span><span class="fu">:</span> <span class="fl">0.6312916874885559</span><span class="fu">,</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a> <span class="er">'start'</span><span class="fu">:</span> <span class="dv">335</span><span class="fu">,</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a> <span class="er">'end'</span><span class="fu">:</span> <span class="dv">358</span><span class="fu">,</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a> <span class="er">'answer'</span><span class="fu">:</span> <span class="er">'an</span> <span class="er">exchange</span> <span class="er">of</span> <span class="er">Megatron'</span><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">{</span><span class="er">'score'</span><span class="fu">:</span> <span class="fl">0.6312916874885559</span><span class="fu">,</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a> <span class="er">'start'</span><span class="fu">:</span> <span class="dv">335</span><span class="fu">,</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a> <span class="er">'end'</span><span class="fu">:</span> <span class="dv">358</span><span class="fu">,</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a> <span class="er">'answer'</span><span class="fu">:</span> <span class="er">'an</span> <span class="er">exchange</span> <span class="er">of</span> <span class="er">Megatron'</span><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section>
 <section>
@@ -754,11 +752,10 @@ Jan Kirenz
 <h1>Text summarization</h1>
 
 </section>
-<section id="basics-3" class="slide level2">
+<section id="basics-3" class="slide level2" data-background-color="white">
 <h2>Basics</h2>
 <ul>
-<li class="fragment"><p>Where BERT excels and delve into the generative domain.</p></li>
-<li class="fragment"><p>Note that generation is much more computationally demanding since we usually generate one token at a time and need to run this several times.</p></li>
+<li class="fragment"><p>Generation is much more computationally demanding since we usually generate one token at a time and need to run this several times.</p></li>
 <li class="fragment"><p>An example for how this process works is shown below:</p></li>
 </ul>
 <div class="fragment">
@@ -772,7 +769,7 @@ Jan Kirenz
 </ul>
 <div class="fragment">
 <div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>summarization_pipeline <span class="op">=</span> pipeline(<span class="st">"summarization"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>summarization_pipeline <span class="op">=</span> pipeline(<span class="st">"summarization"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li class="fragment">This model was trained on the <a href="https://huggingface.co/datasets/cnn_dailymail">CNN/Dailymail dataset</a> to summarize news articles.</li>
@@ -782,9 +779,9 @@ Jan Kirenz
 <section id="output" class="slide level2">
 <h2>Output</h2>
 <div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>outputs <span class="op">=</span> summarization_pipeline(text, max_length<span class="op">=</span><span class="dv">80</span>, clean_up_tokenization_spaces<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb15-2"><a href="#cb15-2"></a></span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="bu">print</span>(wrapper.fill(outputs[<span class="dv">0</span>][<span class="st">'summary_text'</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>outputs <span class="op">=</span> summarization_pipeline(text, max_length<span class="op">=</span><span class="dv">80</span>, clean_up_tokenization_spaces<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-2"><a href="#cb14-2"></a></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="bu">print</span>(wrapper.fill(outputs[<span class="dv">0</span>][<span class="st">'summary_text'</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li class="fragment"><code>Output</code>: Bumblebee ordered an Optimus Prime action figure from your online store in Germany. Unfortunately, when I opened the package, I discovered to my horror that I had been sent an action figure of Megatron instead. As a lifelong enemy of the Decepticons, I hope you can understand my dilemma.</li>
@@ -810,20 +807,20 @@ Jan Kirenz
 </ul>
 <div class="fragment">
 <div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>translator <span class="op">=</span> pipeline(<span class="st">"translation_en_to_de"</span>, model<span class="op">=</span><span class="st">"Helsinki-NLP/opus-mt-en-de"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>translator <span class="op">=</span> pipeline(<span class="st">"translation_en_to_de"</span>, model<span class="op">=</span><span class="st">"Helsinki-NLP/opus-mt-en-de"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
-<section id="output-1" class="slide level2">
+<section id="output-1" class="slide level2 smaller">
 <h2>Output</h2>
 <ul>
 <li class="fragment">Let’s translate our text to German:</li>
 </ul>
 <div class="fragment">
 <div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>outputs <span class="op">=</span> translator(text, clean_up_tokenization_spaces<span class="op">=</span><span class="va">True</span>, min_length<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb17-2"><a href="#cb17-2"></a></span>
-<span id="cb17-3"><a href="#cb17-3"></a><span class="bu">print</span>(wrapper.fill(outputs[<span class="dv">0</span>][<span class="st">'translation_text'</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>outputs <span class="op">=</span> translator(text, clean_up_tokenization_spaces<span class="op">=</span><span class="va">True</span>, min_length<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb16-2"><a href="#cb16-2"></a></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="bu">print</span>(wrapper.fill(outputs[<span class="dv">0</span>][<span class="st">'translation_text'</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li class="fragment"><code>Output</code>: Sehr geehrter Amazon, letzte Woche habe ich eine Optimus Prime Action Figur aus Ihrem Online-Shop in Deutschland bestellt. Leider, als ich das Paket öffnete, entdeckte ich zu meinem Entsetzen, dass ich stattdessen eine Action Figur von Megatron geschickt worden war! Als lebenslanger Feind der Decepticons, Ich hoffe, Sie können mein Dilemma verstehen. Um das Problem zu lösen, Ich fordere einen Austausch von Megatron für die Optimus Prime Figur habe ich bestellt. Eingeschlossen sind Kopien meiner Aufzeichnungen über diesen Kauf. Ich erwarte, von Ihnen bald zu hören. Aufrichtig, Bumblebee.</li>
@@ -853,30 +850,30 @@ Jan Kirenz
 <section id="pipeline-5" class="slide level2">
 <h2>Pipeline</h2>
 <div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>zero_shot_classifier <span class="op">=</span> pipeline(<span class="st">"zero-shot-classification"</span>,</span>
-<span id="cb18-2"><a href="#cb18-2"></a>                                model<span class="op">=</span><span class="st">"vicgalle/xlm-roberta-large-xnli-anli"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>zero_shot_classifier <span class="op">=</span> pipeline(<span class="st">"zero-shot-classification"</span>,</span>
+<span id="cb17-2"><a href="#cb17-2"></a>                                model<span class="op">=</span><span class="st">"vicgalle/xlm-roberta-large-xnli-anli"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="text-input-1" class="slide level2">
 <h2>Text input</h2>
 <p>Let’s have a look at an example:</p>
 <div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>text <span class="op">=</span> <span class="st">'Dieses Tutorial ist großartig! Ich hoffe, dass jemand von Hugging Face meine Hochschule besuchen wird :)'</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a></span>
-<span id="cb19-3"><a href="#cb19-3"></a>classes <span class="op">=</span> [<span class="st">'Treffen'</span>, <span class="st">'Arbeit'</span>, <span class="st">'Digital'</span>, <span class="st">'Reisen'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>text <span class="op">=</span> <span class="st">'Dieses Tutorial ist großartig! Ich hoffe, dass jemand von Hugging Face meine Hochschule besuchen wird :)'</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a></span>
+<span id="cb18-3"><a href="#cb18-3"></a>classes <span class="op">=</span> [<span class="st">'Treffen'</span>, <span class="st">'Arbeit'</span>, <span class="st">'Digital'</span>, <span class="st">'Reisen'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="pipeline-6" class="slide level2">
 <h2>Pipeline</h2>
 <div class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>zero_shot_classifier(text, classes, multi_label<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>zero_shot_classifier(text, classes, multi_label<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">{</span><span class="er">'sequence'</span><span class="fu">:</span> <span class="er">'Dieses</span> <span class="er">Tutorial</span> <span class="er">ist</span> <span class="er">großartig!</span> <span class="er">Ich</span> <span class="er">hoffe</span><span class="fu">,</span> <span class="er">dass</span> <span class="er">jemand</span> <span class="er">von</span> <span class="er">Hugging</span> <span class="er">Face</span> <span class="er">meine</span> <span class="er">Hochschule</span> <span class="er">besuchen</span> <span class="er">wird</span> <span class="fu">:</span><span class="er">)'</span><span class="fu">,</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a> <span class="er">'labels'</span><span class="fu">:</span> <span class="ot">[</span><span class="er">'Digital'</span><span class="ot">,</span> <span class="er">'Arbeit'</span><span class="ot">,</span> <span class="er">'Treffen'</span><span class="ot">,</span> <span class="er">'Reisen'</span><span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb21-3"><a href="#cb21-3"></a> <span class="er">'scores'</span><span class="fu">:</span> <span class="ot">[</span><span class="fl">0.7426563501358032</span><span class="ot">,</span></span>
-<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fl">0.6590237021446228</span><span class="ot">,</span></span>
-<span id="cb21-5"><a href="#cb21-5"></a>  <span class="fl">0.517701268196106</span><span class="ot">,</span></span>
-<span id="cb21-6"><a href="#cb21-6"></a>  <span class="fl">0.011237525381147861</span><span class="ot">]</span><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">{</span><span class="er">'sequence'</span><span class="fu">:</span> <span class="er">'Dieses</span> <span class="er">Tutorial</span> <span class="er">ist</span> <span class="er">großartig!</span> <span class="er">Ich</span> <span class="er">hoffe</span><span class="fu">,</span> <span class="er">dass</span> <span class="er">jemand</span> <span class="er">von</span> <span class="er">Hugging</span> <span class="er">Face</span> <span class="er">meine</span> <span class="er">Hochschule</span> <span class="er">besuchen</span> <span class="er">wird</span> <span class="fu">:</span><span class="er">)'</span><span class="fu">,</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a> <span class="er">'labels'</span><span class="fu">:</span> <span class="ot">[</span><span class="er">'Digital'</span><span class="ot">,</span> <span class="er">'Arbeit'</span><span class="ot">,</span> <span class="er">'Treffen'</span><span class="ot">,</span> <span class="er">'Reisen'</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a> <span class="er">'scores'</span><span class="fu">:</span> <span class="ot">[</span><span class="fl">0.7426563501358032</span><span class="ot">,</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a>  <span class="fl">0.6590237021446228</span><span class="ot">,</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a>  <span class="fl">0.517701268196106</span><span class="ot">,</span></span>
+<span id="cb20-6"><a href="#cb20-6"></a>  <span class="fl">0.011237525381147861</span><span class="ot">]</span><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li class="fragment">For longer and more domain specific examples this approach might suffer.</li>
 </ul>
@@ -884,45 +881,42 @@ Jan Kirenz
 <section>
 <section id="going-beyond-text" class="title-slide slide level1 center">
 <h1>Going beyond text</h1>
-
+<p>Transformers can also be used for domains other than NLP!</p>
 </section>
-<section id="basics-6" class="slide level2">
+<section id="basics-6" class="slide level2 smaller">
 <h2>Basics</h2>
-<ul>
-<li class="fragment"><p>Transformers can also be used for domains other than NLP!</p></li>
-<li class="fragment"><p>For these domains, there are many more pipelines that you can experiment with. Look at the following list for an overview:</p></li>
-</ul>
+<p>There are many more pipelines that you can experiment with</p>
 <div class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="im">from</span> transformers <span class="im">import</span> pipelines</span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="cf">for</span> task <span class="kw">in</span> pipelines.SUPPORTED_TASKS:</span>
-<span id="cb22-3"><a href="#cb22-3"></a>    <span class="bu">print</span>(task)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="im">from</span> transformers <span class="im">import</span> pipelines</span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="cf">for</span> task <span class="kw">in</span> pipelines.SUPPORTED_TASKS:</span>
+<span id="cb21-3"><a href="#cb21-3"></a>    <span class="bu">print</span>(task)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1"></a>audio-classification</span>
-<span id="cb23-2"><a href="#cb23-2"></a>automatic-speech-recognition</span>
-<span id="cb23-3"><a href="#cb23-3"></a>feature-extraction</span>
-<span id="cb23-4"><a href="#cb23-4"></a>text-classification</span>
-<span id="cb23-5"><a href="#cb23-5"></a>token-classification</span>
-<span id="cb23-6"><a href="#cb23-6"></a>question-answering</span>
-<span id="cb23-7"><a href="#cb23-7"></a>table-question-answering</span>
-<span id="cb23-8"><a href="#cb23-8"></a>visual-question-answering</span>
-<span id="cb23-9"><a href="#cb23-9"></a>document-question-answering</span>
-<span id="cb23-10"><a href="#cb23-10"></a>fill-mask</span>
-<span id="cb23-11"><a href="#cb23-11"></a>summarization</span>
-<span id="cb23-12"><a href="#cb23-12"></a>translation</span>
-<span id="cb23-13"><a href="#cb23-13"></a>text2text-generation</span>
-<span id="cb23-14"><a href="#cb23-14"></a>text-generation</span>
-<span id="cb23-15"><a href="#cb23-15"></a>zero-shot-classification</span>
-<span id="cb23-16"><a href="#cb23-16"></a>zero-shot-image-classification</span>
-<span id="cb23-17"><a href="#cb23-17"></a>zero-shot-audio-classification</span>
-<span id="cb23-18"><a href="#cb23-18"></a>conversational</span>
-<span id="cb23-19"><a href="#cb23-19"></a>image-classification</span>
-<span id="cb23-20"><a href="#cb23-20"></a>image-segmentation</span>
-<span id="cb23-21"><a href="#cb23-21"></a>image-to-text</span>
-<span id="cb23-22"><a href="#cb23-22"></a>object-detection</span>
-<span id="cb23-23"><a href="#cb23-23"></a>zero-shot-object-detection</span>
-<span id="cb23-24"><a href="#cb23-24"></a>depth-estimation</span>
-<span id="cb23-25"><a href="#cb23-25"></a>video-classification</span>
-<span id="cb23-26"><a href="#cb23-26"></a>mask-generation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1"></a>audio-classification</span>
+<span id="cb22-2"><a href="#cb22-2"></a>automatic-speech-recognition</span>
+<span id="cb22-3"><a href="#cb22-3"></a>feature-extraction</span>
+<span id="cb22-4"><a href="#cb22-4"></a>text-classification</span>
+<span id="cb22-5"><a href="#cb22-5"></a>token-classification</span>
+<span id="cb22-6"><a href="#cb22-6"></a>question-answering</span>
+<span id="cb22-7"><a href="#cb22-7"></a>table-question-answering</span>
+<span id="cb22-8"><a href="#cb22-8"></a>visual-question-answering</span>
+<span id="cb22-9"><a href="#cb22-9"></a>document-question-answering</span>
+<span id="cb22-10"><a href="#cb22-10"></a>fill-mask</span>
+<span id="cb22-11"><a href="#cb22-11"></a>summarization</span>
+<span id="cb22-12"><a href="#cb22-12"></a>translation</span>
+<span id="cb22-13"><a href="#cb22-13"></a>text2text-generation</span>
+<span id="cb22-14"><a href="#cb22-14"></a>text-generation</span>
+<span id="cb22-15"><a href="#cb22-15"></a>zero-shot-classification</span>
+<span id="cb22-16"><a href="#cb22-16"></a>zero-shot-image-classification</span>
+<span id="cb22-17"><a href="#cb22-17"></a>zero-shot-audio-classification</span>
+<span id="cb22-18"><a href="#cb22-18"></a>conversational</span>
+<span id="cb22-19"><a href="#cb22-19"></a>image-classification</span>
+<span id="cb22-20"><a href="#cb22-20"></a>image-segmentation</span>
+<span id="cb22-21"><a href="#cb22-21"></a>image-to-text</span>
+<span id="cb22-22"><a href="#cb22-22"></a>object-detection</span>
+<span id="cb22-23"><a href="#cb22-23"></a>zero-shot-object-detection</span>
+<span id="cb22-24"><a href="#cb22-24"></a>depth-estimation</span>
+<span id="cb22-25"><a href="#cb22-25"></a>video-classification</span>
+<span id="cb22-26"><a href="#cb22-26"></a>mask-generation</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="computer-vision" class="slide level2">
 <h2>Computer vision</h2>
@@ -936,8 +930,7 @@ Jan Kirenz
 <section id="audio" class="slide level2">
 <h2>Audio</h2>
 <ul>
-<li class="fragment"><p>Another promising area is audio processing.</p></li>
-<li class="fragment"><p>Especially Speech2Text there have been some promising advancements recently.</p></li>
+<li class="fragment"><p>Another promising area is audio processing (especially Speech2Text)</p></li>
 <li class="fragment"><p>See for example the <a href="https://huggingface.co/facebook/wav2vec2-base-960h">wav2vec2 model</a>:</p></li>
 </ul>
 <div class="fragment">
@@ -954,15 +947,11 @@ Jan Kirenz
 <p><img src="https://github.com/huggingface/workshops/blob/main/nlp-zurich/images/tapas.png?raw=1" alt="Alt text that describes the graphic" title="Title text" width="400"></p>
 </div>
 </section></section>
-<section id="acknowledgments" class="title-slide slide level1 center">
-<h1>Acknowledgments</h1>
-<p>*The slides are mainly based on a toolkit provided by Hugging Face’s Lewis Tunstall and the book <a href="https://transformersbook.com/"><em>Natural Language Processing with Transformers</em></a>.</p>
-</section>
-
 <section id="whats-next" class="title-slide slide level1 center" data-background-image="../images/logo.png" data-background-opacity="0.5">
 <h1>What’s next?</h1>
 <p><strong>Congratulations! You have completed this tutorial</strong> 👍</p>
 <p><strong>Next, you may want to go back to the <a href="https://kirenz.github.io/lab-huggingface/">lab’s website</a></strong></p>
+<p><em>The slides are mainly based on a toolkit provided by Hugging Face’s Lewis Tunstall and the book <a href="https://transformersbook.com/"><em>Natural Language Processing with Transformers</em></a>.</em></p>
 
 <div class="footer footer-default">
 <p>Jan Kirenz</p>
