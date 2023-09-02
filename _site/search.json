@@ -1146,5 +1146,33 @@
     "title": "Getting Started with Transformers",
     "section": "Predict class for echa token",
     "text": "Predict class for echa token\n\nInstead of predicting just a class for the whole text a class is predicted for each token, as shown in the example below:"
+  },
+  {
+    "objectID": "slides/diffusers.html#basics",
+    "href": "slides/diffusers.html#basics",
+    "title": "Diffusion models",
+    "section": "Basics",
+    "text": "Basics\n\ndiffusers: A Python library maintained at 🤗\nProviding open and responsible access to pre-trained diffusion models.\nDemocratizing the ecosystem of diffusion models by making them easy to use."
+  },
+  {
+    "objectID": "slides/diffusers.html#diffusers-mac-silicon",
+    "href": "slides/diffusers.html#diffusers-mac-silicon",
+    "title": "Diffusion models",
+    "section": "Diffusers (Mac silicon)",
+    "text": "Diffusers (Mac silicon)\n\nmodel_id = \"runwayml/stable-diffusion-v1-5\"\n\npipeline = StableDiffusionPipeline.from_pretrained(model_id)\n\npipeline = pipeline.to('mps')\n\n# Recommended if your computer has &lt; 64 GB of RAM\npipeline.enable_attention_slicing()\n\nimage = pipeline(\n    \"An astronaut floating through space while plying the guitar\").images[0]\n\nimage.save(\"../images/diffusion_astronaut.png\")"
+  },
+  {
+    "objectID": "slides/diffusers.html#output",
+    "href": "slides/diffusers.html#output",
+    "title": "Diffusion models",
+    "section": "Output",
+    "text": "Output"
+  },
+  {
+    "objectID": "slides/diffusers.html#diffusers-on-windows-and-mac-intel",
+    "href": "slides/diffusers.html#diffusers-on-windows-and-mac-intel",
+    "title": "Diffusion models",
+    "section": "Diffusers on Windows and Mac Intel",
+    "text": "Diffusers on Windows and Mac Intel\n\nmodel_id = \"runwayml/stable-diffusion-v1-5\"\n\npipeline = StableDiffusionPipeline.from_pretrained(model_id)\n\npipeline = pipeline.to(\"cuda\")\n\nimage = pipeline(\"An astronaut riding a tiger\").images[0]\n\nimage.save(\"image.png\")"
   }
 ]
