@@ -17,6 +17,10 @@ To download Jupyter Notebooks: Go to the Colab menu and choose "File" > "Downloa
 
 In this tutorial, you'll get to know the [Hugging Face Hub](http://hf.co):
 
+- Explore the over models shared in the Hub.
+- Learn efficient ways to find the right model and datasets for your own task
+- Learn how to contribute and work collaboratively in your ML workflows
+
 ::: {.callout-tip appearance="simple" icon=false}
 - [🖥️ Presentation](/slides/hub.qmd)
 - [💻 Jupyter Notebook]()
@@ -26,21 +30,38 @@ In this tutorial, you'll get to know the [Hugging Face Hub](http://hf.co):
 
 In this tutorial, you'll learn how to build and host Machine Learning Demos with Gradio ⚡ & Hugging Face:
 
+- Explore ML demos created by the community.
+- Build a quick demo for your machine learning model in Python using the gradio library
+- Host the demos for free with Hugging Face Spaces
+- How to add your demo to our Hugging Face org for your class
 
 ::: {.callout-tip appearance="simple" icon=false}
 - [🖥️ Presentation](/slides/gradio.qmd)
 - [💻 Jupyter Notebook]()
 :::
 
+Optional resources:
+
+- [📖 Tutorial ](https://huggingface.co/learn/nlp-course/chapter9/1?fw=pt)
+
 ## Getting Started with Transformers
 
 Learn how to use transformers in Hugging Face: 
 
+- Transformer neural networks can be used to tackle a wide range of tasks in natural language processing and beyond.
+- Transfer learning allows one to adapt Transformers to specific tasks.
+- The `pipeline()` function from the transformers library can be used to run inference with models from the Hugging Face Hub.
 
 ::: {.callout-tip appearance="simple" icon=false}
 - [🖥️ Presentation](/slides/transformers.qmd)
 - [💻 Jupyter Notebook]()
 :::
+
+
+Optional resources:
+
+- 👉 [Hands-on Transformers exercices](https://github.com/NielsRogge/Transformers-Tutorials)
+
 
 ## Sentiment Analysis
 
@@ -81,7 +102,6 @@ Text generation models:
 :::
 
 
-
 ## Transformers intuition
 
 Learn some basics about transformers models:
@@ -90,3 +110,24 @@ Learn some basics about transformers models:
 - [🖥️ Presentation](/slides/transformer_intuition.qmd.qmd)
 - [💻 Jupyter Notebook]()
 :::
+
+
+## Diffusion models
+
+Learn about the various use cases of diffusion models and how to use the diffusers library to use pre-trained state-of-the-art diffusion models:
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQFQPRFnKMC3Xo_xOHtaub-uBG7lIf7ATOvmQMKvRUrqqUYBDK_L_W5lngcoOHzmrPR3cIZNzssAPC2/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+
+::: {.callout-tip appearance="simple" icon=false}
+- [🖥️ Presentation](/slides/diffusers.qmd)
+- [💻 Jupyter Notebook]()
+:::
+
+
+Optional resources:
+
+- [Stable Diffusion with 🧨 Diffusers](https://huggingface.co/blog/stable_diffusion)
+
+- [Hugging Face Tutorial](https://huggingface.co/docs/diffusers/tutorials/tutorial_overview)
+
