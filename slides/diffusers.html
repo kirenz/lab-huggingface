@@ -12,7 +12,7 @@
   <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Jan Kirenz">
-  <title>Lab - Build and Host Machine Learning Demos</title>
+  <title>Lab - Diffusion models</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -394,8 +394,8 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="../images/logo.png" data-background-opacity="0.5" data-background-size="contain" class="quarto-title-block center">
-  <h1 class="title">Build and Host Machine Learning Demos</h1>
-  <p class="subtitle">with HuggingFace and Gradio</p>
+  <h1 class="title">Diffusion models</h1>
+  <p class="subtitle">with Hugging Face Pipelines</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -409,283 +409,87 @@ Jan Kirenz
 <nav role="doc-toc"> 
 <h2 id="toc-title">Table of contents</h2>
 <ul>
-<li class="fragment"><a href="#/build-and-host-machine-learning-demos-with-gradio-hugging-face" id="/toc-build-and-host-machine-learning-demos-with-gradio-hugging-face">Build and Host Machine Learning Demos with Gradio &amp; Hugging Face</a></li>
-<li class="fragment"><a href="#/gradio-basics" id="/toc-gradio-basics">Gradio Basics</a></li>
-<li class="fragment"><a href="#/python-setup" id="/toc-python-setup">Python setup</a></li>
-<li class="fragment"><a href="#/image-app" id="/toc-image-app">Image App</a></li>
-<li class="fragment"><a href="#/gradio-sound-app" id="/toc-gradio-sound-app">Gradio Sound App</a></li>
-<li class="fragment"><a href="#/text-to-speech-app" id="/toc-text-to-speech-app">Text-to-Speech App</a></li>
-<li class="fragment"><a href="#/gpt-j-app" id="/toc-gpt-j-app">GPT-J App</a></li>
-<li class="fragment"><a href="#/build-your-own-app" id="/toc-build-your-own-app">Build your own App</a></li>
-<li class="fragment"><a href="#/host-the-demo" id="/toc-host-the-demo">Host the Demo</a></li>
-<li class="fragment"><a href="#/add-demo-to-hugging-face-organization-classroom" id="/toc-add-demo-to-hugging-face-organization-classroom">Add Demo to Hugging Face organization (classroom)</a></li>
+<li class="fragment"><a href="#/diffusers" id="/toc-diffusers">🧨 Diffusers</a></li>
+<li class="fragment"><a href="#/setup" id="/toc-setup">Setup</a></li>
+<li class="fragment"><a href="#/text-to-image-with-diffusers" id="/toc-text-to-image-with-diffusers">Text-to-image with 🧨 diffusers</a></li>
+<li class="fragment"><a href="#/resources" id="/toc-resources">Resources</a></li>
 <li class="fragment"><a href="#/whats-next" id="/toc-whats-next">What’s next?</a></li>
 </ul>
 </nav>
 </section>
-<section>
-<section id="build-and-host-machine-learning-demos-with-gradio-hugging-face" class="title-slide slide level1 center">
-<h1>Build and Host Machine Learning Demos with Gradio &amp; Hugging Face</h1>
+<section id="diffusers" class="title-slide slide level1 center">
+<h1>🧨 Diffusers</h1>
 
 </section>
-<section id="why-demos" class="slide level2">
-<h2>Why Demos?</h2>
 
-<img data-src="../images/gradio-website.png" class="r-stretch"><ul>
-<li class="fragment"><p>Developers can easily <strong>present</strong> their work to a wide audience</p></li>
-<li class="fragment"><p>Increase <strong>reproducibility</strong> of machine learning research</p></li>
-<li class="fragment"><p>Easily <strong>identify and debug</strong> failure points of models</p></li>
-</ul>
-</section>
-<section id="learning-goals" class="slide level2">
-<h2>Learning goals</h2>
-<p>Learn how to:</p>
-<ol type="1">
-<li class="fragment">Build a quick demo for your machine learning model in Python using the <code>gradio</code> library</li>
-<li class="fragment">Host the demos for free with Hugging Face Spaces</li>
-<li class="fragment">Add your demo to the Hugging Face org for your class</li>
-</ol>
-</section>
-<section id="keras-org-on-hugging-face" class="slide level2">
-<h2>Keras Org on Hugging Face</h2>
-<ul>
-<li class="fragment"><p>As a quick example of what we would like to build, check out the <a href="https://huggingface.co/keras-io">Keras Org on Hugging Face</a></p></li>
-<li class="fragment"><p>Open any <strong>Space</strong> in your browser to use the model immediately</p></li>
-</ul>
-</section></section>
 <section>
-<section id="gradio-basics" class="title-slide slide level1 center">
-<h1>Gradio Basics</h1>
-<p><code>gradio</code> is a Python library that lets you build web demos simply by specifying the list of input and output <strong>components</strong> expected by your machine learning model.</p>
-</section>
-<section id="gradio-components" class="slide level2 smaller">
-<h2>Gradio components</h2>
-<ul>
-<li class="fragment"><p>Gradio comes with a bunch of predefined components for different kinds of machine learning models.</p></li>
-<li class="fragment"><p>For an <strong>image classifier</strong>, the expected input type is an <code>Image</code> and the output type is a <code>Label</code>.</p></li>
-<li class="fragment"><p>For a <strong>speech recognition model</strong>, the expected input component is an <code>Microphone</code> (which lets users record from the browser) or <code>Audio</code> (which lets users drag-and-drop audio files), while the output type is <code>Text</code>.</p></li>
-<li class="fragment"><p>For a <strong>question answering model</strong>, we expect <strong>2 inputs</strong>: [<code>Text</code>, <code>Text</code>], one textbox for the paragraph and one for the question, and the output type is a single <code>Text</code> corresponding to the answer.</p></li>
-<li class="fragment"><p>For all of the supported components, <a href="https://gradio.app/docs/">see the docs</a></p></li>
-</ul>
-</section>
-<section id="gradio-prediction-function" class="slide level2">
-<h2>Gradio prediction function</h2>
-<ul>
-<li class="fragment"><p>In addition to the input and output types, Gradio expects a third parameter, which is the prediction function itself.</p></li>
-<li class="fragment"><p>This parameter can be <strong><em>any</em> regular Python function</strong> that takes in parameter(s) corresponding to the input component(s) and returns value(s) corresponding to the output component(s)</p></li>
-</ul>
-</section></section>
-<section id="python-setup" class="title-slide slide level1 center">
-<h1>Python setup</h1>
+<section id="setup" class="title-slide slide level1 center">
+<h1>Setup</h1>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> IFrame</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> gradio <span class="im">as</span> gr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> diffusers <span class="im">import</span> StableDiffusionPipeline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-
-<section>
-<section id="image-app" class="title-slide slide level1 center">
-<h1>Image App</h1>
-
-</section>
-<section id="custom-python-function" class="slide level2">
-<h2>Custom Python function</h2>
+<section id="basics" class="slide level2">
+<h2>Basics</h2>
 <ul>
-<li class="fragment">Let’s create a simple Python function</li>
+<li class="fragment"><p><a href="https://github.com/huggingface/diffusers">diffusers</a>: A Python library maintained at 🤗</p></li>
+<li class="fragment"><p>Providing open and responsible access to pre-trained diffusion models.</p></li>
+<li class="fragment"><p>Democratizing the ecosystem of diffusion models by making them easy to use.</p></li>
 </ul>
-<div class="fragment">
+</section></section>
+<section>
+<section id="text-to-image-with-diffusers" class="title-slide slide level1 center">
+<h1>Text-to-image with 🧨 diffusers</h1>
+<p>Note that there are differences between Mac silicon and Windows.</p>
+</section>
+<section id="diffusers-mac-silicon" class="slide level2 smaller">
+<h2>Diffusers (Mac silicon)</h2>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> sepia(image):</span>
-<span id="cb2-2"><a href="#cb2-2"></a>    sepia_filter <span class="op">=</span> np.array(</span>
-<span id="cb2-3"><a href="#cb2-3"></a>        [[<span class="fl">0.393</span>, <span class="fl">0.769</span>, <span class="fl">0.189</span>],</span>
-<span id="cb2-4"><a href="#cb2-4"></a>         [<span class="fl">0.349</span>, <span class="fl">0.686</span>, <span class="fl">0.168</span>],</span>
-<span id="cb2-5"><a href="#cb2-5"></a>         [<span class="fl">0.272</span>, <span class="fl">0.534</span>, <span class="fl">0.131</span>]]</span>
-<span id="cb2-6"><a href="#cb2-6"></a>    )</span>
-<span id="cb2-7"><a href="#cb2-7"></a>    sepia_img <span class="op">=</span> image.dot(sepia_filter.T)</span>
-<span id="cb2-8"><a href="#cb2-8"></a>    sepia_img <span class="op">/=</span> sepia_img.<span class="bu">max</span>()</span>
-<span id="cb2-9"><a href="#cb2-9"></a>    <span class="cf">return</span> sepia_img</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>model_id <span class="op">=</span> <span class="st">"runwayml/stable-diffusion-v1-5"</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>pipeline <span class="op">=</span> StableDiffusionPipeline.from_pretrained(model_id)</span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a>pipeline <span class="op">=</span> pipeline.to(<span class="st">'mps'</span>)</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co"># Recommended if your computer has &lt; 64 GB of RAM</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>pipeline.enable_attention_slicing()</span>
+<span id="cb2-9"><a href="#cb2-9"></a></span>
+<span id="cb2-10"><a href="#cb2-10"></a>image <span class="op">=</span> pipeline(</span>
+<span id="cb2-11"><a href="#cb2-11"></a>    <span class="st">"An astronaut floating through space while plying the guitar"</span>).images[<span class="dv">0</span>]</span>
+<span id="cb2-12"><a href="#cb2-12"></a></span>
+<span id="cb2-13"><a href="#cb2-13"></a>image.save(<span class="st">"../images/diffusion_astronaut.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="gradio-image-app" class="slide level2">
-<h2>Gradio Image App</h2>
+<section id="output" class="slide level2">
+<h2>Output</h2>
+
+<img data-src="../images/diffusion_astronaut.png" class="r-stretch"></section>
+<section id="diffusers-on-windows-and-mac-intel" class="slide level2">
+<h2>Diffusers on Windows and Mac Intel</h2>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode numberSource python code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1"></a>gr.Interface(</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-2" class="code-annotation-target"><a href="#annotated-cell-3-2"></a>    fn<span class="op">=</span>sepia,</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-3-3" class="code-annotation-target"><a href="#annotated-cell-3-3"></a>    inputs<span class="op">=</span><span class="st">"image"</span>,</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-3-4" class="code-annotation-target"><a href="#annotated-cell-3-4"></a>    outputs<span class="op">=</span><span class="st">"image"</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-3-5" class="code-annotation-target"><a href="#annotated-cell-3-5"></a>).launch()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-annotation">
-<dl class="code-annotation-container-grid">
-<dt class="fragment" data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
-<dd class="fragment">
-<span data-code-annotation="1" data-code-cell="annotated-cell-3" data-code-lines="1">We define an Gradio <code>Interface</code> using:</span>
-</dd>
-<dt class="fragment" data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
-<dd class="fragment">
-<span data-code-annotation="2" data-code-cell="annotated-cell-3" data-code-lines="2">a function <code>fn</code></span>
-</dd>
-<dt class="fragment" data-target-cell="annotated-cell-3" data-target-annotation="3">3</dt>
-<dd class="fragment">
-<span data-code-annotation="3" data-code-cell="annotated-cell-3" data-code-lines="3">Input component: <code>inputs</code> image</span>
-</dd>
-<dt class="fragment" data-target-cell="annotated-cell-3" data-target-annotation="4">4</dt>
-<dd class="fragment">
-<span data-code-annotation="4" data-code-cell="annotated-cell-3" data-code-lines="4">Output component: <code>outputs</code> image</span>
-</dd>
-<dt class="fragment" data-target-cell="annotated-cell-3" data-target-annotation="5">5</dt>
-<dd class="fragment">
-<span data-code-annotation="5" data-code-cell="annotated-cell-3" data-code-lines="5">… and <code>launch</code> the app</span>
-</dd>
-</dl>
-</div>
-</div>
-</section>
-<section id="gradio-image-app-interface" class="slide level2">
-<h2>Gradio Image App Interface</h2>
-
-<img data-src="../images/gradio_image_app.png" class="r-stretch"></section></section>
-<section>
-<section id="gradio-sound-app" class="title-slide slide level1 center">
-<h1>Gradio Sound App</h1>
-<p>Create an app that generates a musical tone when provided a few different parameters.</p>
-</section>
-<section id="gradio-sound-app-1" class="slide level2 smaller">
-<h2>Gradio Sound App</h2>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> generate_tone(note, octave, duration):</span>
-<span id="cb3-2"><a href="#cb3-2"></a>    sampling_rate <span class="op">=</span> <span class="dv">48000</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>    a4_freq, tones_from_a4 <span class="op">=</span> <span class="dv">440</span>, <span class="dv">12</span> <span class="op">*</span> (octave <span class="op">-</span> <span class="dv">4</span>) <span class="op">+</span> (note <span class="op">-</span> <span class="dv">9</span>)</span>
-<span id="cb3-4"><a href="#cb3-4"></a>    frequency <span class="op">=</span> a4_freq <span class="op">*</span> <span class="dv">2</span> <span class="op">**</span> (tones_from_a4 <span class="op">/</span> <span class="dv">12</span>)</span>
-<span id="cb3-5"><a href="#cb3-5"></a>    audio <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="bu">int</span>(duration), <span class="bu">int</span>(duration) <span class="op">*</span> sampling_rate)</span>
-<span id="cb3-6"><a href="#cb3-6"></a>    audio <span class="op">=</span> (<span class="dv">20000</span> <span class="op">*</span> np.sin(audio <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> frequency))).astype(np.int16)</span>
-<span id="cb3-7"><a href="#cb3-7"></a>    <span class="cf">return</span> sampling_rate, audio</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>model_id <span class="op">=</span> <span class="st">"runwayml/stable-diffusion-v1-5"</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a>pipeline <span class="op">=</span> StableDiffusionPipeline.from_pretrained(model_id)</span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a>pipeline <span class="op">=</span> pipeline.to(<span class="st">"cuda"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a>image <span class="op">=</span> pipeline(<span class="st">"An astronaut riding a tiger"</span>).images[<span class="dv">0</span>]</span>
 <span id="cb3-8"><a href="#cb3-8"></a></span>
-<span id="cb3-9"><a href="#cb3-9"></a></span>
-<span id="cb3-10"><a href="#cb3-10"></a>gr.Interface(</span>
-<span id="cb3-11"><a href="#cb3-11"></a>    generate_tone,  <span class="co"># function</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a>    [</span>
-<span id="cb3-13"><a href="#cb3-13"></a>        gr.Dropdown([<span class="st">"C"</span>, <span class="st">"C#"</span>, <span class="st">"D"</span>, <span class="st">"D#"</span>, <span class="st">"E"</span>, <span class="st">"F"</span>, <span class="st">"F#"</span>,</span>
-<span id="cb3-14"><a href="#cb3-14"></a>                    <span class="st">"G"</span>, <span class="st">"G#"</span>, <span class="st">"A"</span>, <span class="st">"A#"</span>, <span class="st">"B"</span>], <span class="bu">type</span><span class="op">=</span><span class="st">"index"</span>),</span>
-<span id="cb3-15"><a href="#cb3-15"></a>        gr.Slider(<span class="dv">4</span>, <span class="dv">6</span>, step<span class="op">=</span><span class="dv">1</span>),</span>
-<span id="cb3-16"><a href="#cb3-16"></a>        gr.Number(value<span class="op">=</span><span class="dv">1</span>, label<span class="op">=</span><span class="st">"Duration in seconds"</span>),</span>
-<span id="cb3-17"><a href="#cb3-17"></a>    ],</span>
-<span id="cb3-18"><a href="#cb3-18"></a>    <span class="st">"audio"</span>,</span>
-<span id="cb3-19"><a href="#cb3-19"></a>    title<span class="op">=</span><span class="st">"Generate a Musical Tone!"</span></span>
-<span id="cb3-20"><a href="#cb3-20"></a>).launch()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="gradio-sound-app-interface" class="slide level2">
-<h2>Gradio Sound App Interface</h2>
-
-<img data-src="../images/gradio_music_app.png" class="r-stretch"></section></section>
-<section>
-<section id="text-to-speech-app" class="title-slide slide level1 center">
-<h1>Text-to-Speech App</h1>
-<ul>
-<li class="fragment"><p>It is especially easy to demo a <code>transformers</code> model from Hugging Face’s Model Hub, using the special <code>gr.Interface.load</code> method.</p></li>
-<li class="fragment"><p>Text-to-speech model built by Facebook:</p></li>
-</ul>
-<div class="fragment">
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>gr.Interface.load(<span class="st">"huggingface/facebook/fastspeech2-en-ljspeech"</span>).launch()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</section>
-<section id="gradio-text-to-speech-app-interface" class="slide level2">
-<h2>Gradio Text to Speech App Interface</h2>
-
-<img data-src="../images/gradio_txt_sp.png" class="r-stretch"></section></section>
-<section>
-<section id="gpt-j-app" class="title-slide slide level1 center">
-<h1>GPT-J App</h1>
-<ul>
-<li class="fragment">Demo for <a href="https://huggingface.co/EleutherAI/gpt-j-6B">GPT-J</a>, a large language model &amp; add a couple of examples inputs:</li>
-</ul>
-<div class="fragment">
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>examples <span class="op">=</span> [[<span class="st">"A student at HdM Stuttgart is"</span>],</span>
-<span id="cb5-2"><a href="#cb5-2"></a>            [<span class="st">"In Stuttgart you can "</span>]]</span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a>gr.Interface.load(<span class="st">"huggingface/EleutherAI/gpt-j-6B"</span>,</span>
-<span id="cb5-5"><a href="#cb5-5"></a>                  examples<span class="op">=</span>examples).launch()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</section>
-<section id="gradio-gp-j-app-interface" class="slide level2">
-<h2>Gradio GP-J App Interface</h2>
-
-<img data-src="../images/gradio_gp_j.png" class="r-stretch"></section></section>
-<section id="build-your-own-app" class="title-slide slide level1 center">
-<h1>Build your own App</h1>
-<ul>
-<li class="fragment"><p>You can go to the <a href="https://huggingface.co/models">Hugging Face Model Hub</a> and pick any model that performs one of the tasks supported in the <code>transformers</code> library</p></li>
-<li class="fragment"><p>Create a Gradio demo for that model using <code>gr.Interface.load</code>.</p></li>
-</ul>
-</section>
-
-<section>
-<section id="host-the-demo" class="title-slide slide level1 center">
-<h1>Host the Demo</h1>
-<p>Host the Demo (for free) on Hugging Face Spaces</p>
-</section>
-<section id="workflow-1" class="slide level2 smaller">
-<h2>Workflow, 1</h2>
-<ul>
-<li class="fragment">Here are the steps to that (also see GIF in the next slide):</li>
-</ul>
-<ol type="1">
-<li class="fragment"><p>First, create a Hugging Face account if you do not already have one, by visiting <a href="https://huggingface.co/" class="uri">https://huggingface.co/</a> and clicking “Sign Up”</p></li>
-<li class="fragment"><p>Once you are logged in, click on your profile picture and then click on “New Space” underneath it to get to this page: <a href="https://huggingface.co/new-space" class="uri">https://huggingface.co/new-space</a></p></li>
-<li class="fragment"><p>Give your Space a name and a license. Select “Gradio” as the Space SDK, and then choose “Public” if you are fine with everyone accessing your Space and the underlying code</p></li>
-<li class="fragment"><p>Then you will find a page that provides you instructions on how to upload your files into the Git repository for that Space. You may also need to add a <code>requirements.txt</code> file to specify any Python package dependencies.</p></li>
-<li class="fragment"><p>Once you have pushed your files, that’s it! Spaces will automatically build your Gradio demo allowing you to share it with anyone, anywhere!</p></li>
-</ol>
-</section>
-<section id="workflow-in-a-gif" class="slide level2">
-<h2>Workflow in a GIF</h2>
-<ul>
-<li class="fragment">You may also choose “public” instead of “private” when you create your space</li>
-</ul>
-
-<img data-src="https://huggingface.co/blog/assets/28_gradio-spaces/spaces-demo-finalized.gif" class="r-stretch"></section>
-<section id="share-your-demo" class="slide level2">
-<h2>Share your demo</h2>
-<ul>
-<li class="fragment"><p>You can embed your Gradio demo on any website – in a blog, a portfolio page, or even in a colab notebook,</p></li>
-<li class="fragment"><p>Example: Pictionary sketch recognition model below:</p></li>
-</ul>
-<div class="fragment">
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>IFrame(src<span class="op">=</span><span class="st">'https://hf.space/gradioiframe/abidlabs/Draw/+'</span>, width<span class="op">=</span><span class="dv">1000</span>, height<span class="op">=</span><span class="dv">800</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><img data-src="../images/gradio_recognition.png"></p>
+<span id="cb3-9"><a href="#cb3-9"></a>image.save(<span class="st">"image.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section>
-<section>
-<section id="add-demo-to-hugging-face-organization-classroom" class="title-slide slide level1 center">
-<h1>Add Demo to Hugging Face organization (classroom)</h1>
-
-</section>
-<section id="workflow" class="slide level2">
-<h2>Workflow</h2>
-<ol type="1">
-<li class="fragment"><p>You find the link to our organization (HdM-…) in <a href="https://moodle.hdm-stuttgart.de/login/index.php">Moodle</a></p></li>
-<li class="fragment"><p>Visit the organization page and click “Request to join this org” button, if you are not yet part of the org.</p></li>
-<li class="fragment"><p>Then, once you have been approved to join the organization (and built your Gradio Demo and uploaded it to Spaces – see Sections above):</p></li>
-</ol>
+<section id="resources" class="title-slide slide level1 center">
+<h1>Resources</h1>
 <ul>
-<li class="fragment">Go to your Space and go to <code>Settings &gt; Rename or transfer this space</code></li>
-<li class="fragment">select the organization name under <code>New owner</code>.</li>
-<li class="fragment">Click the button and the Space will now be added to our organization</li>
+<li class="fragment"><a href="http://adityaramesh.com/posts/dalle2/dalle2.html">Yaramesh, A. (2022). How DALL·E 2 Works. Blog post.</a></li>
 </ul>
-</section></section>
+<p><a href="https://nvlabs.github.io/denoising-diffusion-gan/">Xiao, Z., Kreis, K. &amp; Arash, A. (2022). Tackling the Generative Learning Trilemma with Denoising Diffusion GANs. International Conference on Learning Representations (ICLR)</a></p>
+</section>
+
 <section id="whats-next" class="title-slide slide level1 center" data-background-image="../images/logo.png" data-background-opacity="0.5">
 <h1>What’s next?</h1>
 <p><strong>Congratulations! You have completed this tutorial</strong> 👍</p>
 <p><strong>Next, you may want to go back to the <a href="https://kirenz.github.io/lab-huggingface/">lab’s website</a></strong></p>
-<p><em>Acknowledgments: The slides are mainly based on a toolkit provided by Abubakar Abid from HuggingFace</em></p>
 
 <div class="footer footer-default">
 <p>Jan Kirenz</p>
