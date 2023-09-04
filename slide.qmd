@@ -116,7 +116,7 @@ Learn some basics about transformers models:
 
 Learn about the various use cases of diffusion models and how to use the diffusers library to use pre-trained state-of-the-art diffusion models:
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQFQPRFnKMC3Xo_xOHtaub-uBG7lIf7ATOvmQMKvRUrqqUYBDK_L_W5lngcoOHzmrPR3cIZNzssAPC2/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQFQPRFnKMC3Xo_xOHtaub-uBG7lIf7ATOvmQMKvRUrqqUYBDK_L_W5lngcoOHzmrPR3cIZNzssAPC2/embed?start=false&loop=false&delayms=3000" frameborder="0" width="760" height="369" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 
 ::: {.callout-tip appearance="simple" icon=false}
