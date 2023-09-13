@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Lab - Transformers intro</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//images/logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Lab</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../slide.html" rel="" target="">
+ <span class="menu-text">Slides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../requirements.html" rel="" target="">
+ <span class="menu-text">Requirements</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../assignments.html" rel="" target="">
+ <span class="menu-text">Assignments</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals">Learning goals</a></li>
+  <li><a href="#why-transformers" id="toc-why-transformers" class="nav-link" data-scroll-target="#why-transformers">Why Transformers?</a></li>
+  <li><a href="#transformers-examples" id="toc-transformers-examples" class="nav-link" data-scroll-target="#transformers-examples">Transformers examples</a></li>
+  <li><a href="#transfer-learning" id="toc-transfer-learning" class="nav-link" data-scroll-target="#transfer-learning">Transfer learning</a></li>
+  <li><a href="#fine-tuning" id="toc-fine-tuning" class="nav-link" data-scroll-target="#fine-tuning">Fine tuning</a></li>
+  <li><a href="#transfer-learning-1" id="toc-transfer-learning-1" class="nav-link" data-scroll-target="#transfer-learning-1">Transfer learning</a></li>
+  <li><a href="#hugging-face-transformers" id="toc-hugging-face-transformers" class="nav-link" data-scroll-target="#hugging-face-transformers">Hugging Face Transformers</a>
+  <ul class="collapse">
+  <li><a href="#pipelines-for-transformers" id="toc-pipelines-for-transformers" class="nav-link" data-scroll-target="#pipelines-for-transformers">Pipelines for Transformers</a></li>
+  <li><a href="#what-happens-inside-the-pipeline-function" id="toc-what-happens-inside-the-pipeline-function" class="nav-link" data-scroll-target="#what-happens-inside-the-pipeline-function">What happens inside the pipeline function?</a></li>
+  </ul></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a>
+  <ul class="collapse">
+  <li><a href="#text-input" id="toc-text-input" class="nav-link" data-scroll-target="#text-input">Text input</a></li>
+  <li><a href="#create-text-wrapper" id="toc-create-text-wrapper" class="nav-link" data-scroll-target="#create-text-wrapper">Create text wrapper</a></li>
+  </ul></li>
+  <li><a href="#text-classification" id="toc-text-classification" class="nav-link" data-scroll-target="#text-classification">Text classification</a>
+  <ul class="collapse">
+  <li><a href="#analyze-sentiment" id="toc-analyze-sentiment" class="nav-link" data-scroll-target="#analyze-sentiment">Analyze sentiment</a></li>
+  <li><a href="#tokens" id="toc-tokens" class="nav-link" data-scroll-target="#tokens">Tokens</a></li>
+  <li><a href="#pipeline" id="toc-pipeline" class="nav-link" data-scroll-target="#pipeline">Pipeline</a></li>
+  <li><a href="#run-pipeline" id="toc-run-pipeline" class="nav-link" data-scroll-target="#run-pipeline">Run pipeline</a></li>
+  </ul></li>
+  <li><a href="#named-entity-recognition-ner" id="toc-named-entity-recognition-ner" class="nav-link" data-scroll-target="#named-entity-recognition-ner">Named entity recognition (NER)</a>
+  <ul class="collapse">
+  <li><a href="#basics" id="toc-basics" class="nav-link" data-scroll-target="#basics">Basics</a></li>
+  <li><a href="#predict-class-for-echa-token" id="toc-predict-class-for-echa-token" class="nav-link" data-scroll-target="#predict-class-for-echa-token">Predict class for echa token</a></li>
+  <li><a href="#pipeline-1" id="toc-pipeline-1" class="nav-link" data-scroll-target="#pipeline-1">Pipeline</a></li>
+  <li><a href="#merge-entities" id="toc-merge-entities" class="nav-link" data-scroll-target="#merge-entities">Merge entities</a></li>
+  <li><a href="#clean-the-output" id="toc-clean-the-output" class="nav-link" data-scroll-target="#clean-the-output">Clean the output</a></li>
+  <li><a href="#findings" id="toc-findings" class="nav-link" data-scroll-target="#findings">Findings</a></li>
+  </ul></li>
+  <li><a href="#question-answering" id="toc-question-answering" class="nav-link" data-scroll-target="#question-answering">Question answering</a>
+  <ul class="collapse">
+  <li><a href="#basics-1" id="toc-basics-1" class="nav-link" data-scroll-target="#basics-1">Basics</a></li>
+  <li><a href="#basics-2" id="toc-basics-2" class="nav-link" data-scroll-target="#basics-2">Basics</a></li>
+  <li><a href="#pipeline-2" id="toc-pipeline-2" class="nav-link" data-scroll-target="#pipeline-2">Pipeline</a></li>
+  <li><a href="#ask-question" id="toc-ask-question" class="nav-link" data-scroll-target="#ask-question">Ask question</a></li>
+  </ul></li>
+  <li><a href="#text-summarization" id="toc-text-summarization" class="nav-link" data-scroll-target="#text-summarization">Text summarization</a>
+  <ul class="collapse">
+  <li><a href="#basics-3" id="toc-basics-3" class="nav-link" data-scroll-target="#basics-3">Basics</a></li>
+  <li><a href="#pipeline-3" id="toc-pipeline-3" class="nav-link" data-scroll-target="#pipeline-3">Pipeline</a></li>
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">Output</a></li>
+  </ul></li>
+  <li><a href="#translation" id="toc-translation" class="nav-link" data-scroll-target="#translation">Translation</a>
+  <ul class="collapse">
+  <li><a href="#basics-4" id="toc-basics-4" class="nav-link" data-scroll-target="#basics-4">Basics</a></li>
+  <li><a href="#pipeline-4" id="toc-pipeline-4" class="nav-link" data-scroll-target="#pipeline-4">Pipeline</a></li>
+  <li><a href="#output-1" id="toc-output-1" class="nav-link" data-scroll-target="#output-1">Output</a></li>
+  <li><a href="#findings-1" id="toc-findings-1" class="nav-link" data-scroll-target="#findings-1">Findings</a></li>
+  </ul></li>
+  <li><a href="#zero-shot-classification" id="toc-zero-shot-classification" class="nav-link" data-scroll-target="#zero-shot-classification">Zero-shot classification</a>
+  <ul class="collapse">
+  <li><a href="#basics-5" id="toc-basics-5" class="nav-link" data-scroll-target="#basics-5">Basics</a></li>
+  <li><a href="#pipeline-5" id="toc-pipeline-5" class="nav-link" data-scroll-target="#pipeline-5">Pipeline</a></li>
+  <li><a href="#text-input-1" id="toc-text-input-1" class="nav-link" data-scroll-target="#text-input-1">Text input</a></li>
+  <li><a href="#pipeline-6" id="toc-pipeline-6" class="nav-link" data-scroll-target="#pipeline-6">Pipeline</a></li>
+  </ul></li>
+  <li><a href="#going-beyond-text" id="toc-going-beyond-text" class="nav-link" data-scroll-target="#going-beyond-text">Going beyond text</a>
+  <ul class="collapse">
+  <li><a href="#basics-6" id="toc-basics-6" class="nav-link" data-scroll-target="#basics-6">Basics</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Transformers intro</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="learning-goals" class="level2">
+<h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
+<ol type="1">
+<li>Transformer neural networks can be used to tackle a wide range of tasks in natural language processing and beyond.</li>
+<li>Transfer learning allows one to adapt Transformers to specific tasks.</li>
+<li>The <code>pipeline()</code> function from the <code>transformers</code> library can be used to run inference with models from the <a href="https://huggingface.co/models">Hugging Face Hub</a>.</li>
+</ol>
+</section>
+<section id="why-transformers" class="level2">
+<h2 class="anchored" data-anchor-id="why-transformers">Why Transformers?</h2>
+<ul>
+<li><p>Deep learning is currently undergoing a period of rapid progress across a wide variety of domains, including:</p></li>
+<li><p>📖 Natural language processing</p></li>
+<li><p>👀 Computer vision</p></li>
+<li><p>🔊 Audio</p></li>
+<li><p>and many more!</p></li>
+<li><p>The main driver of these breakthroughs is the <strong>Transformer</strong> – a novel <strong>neural network</strong> developed by <a href="https://arxiv.org/abs/1706.03762">Google researchers in 2017</a>.</p></li>
+</ul>
+</section>
+<section id="transformers-examples" class="level2">
+<h2 class="anchored" data-anchor-id="transformers-examples">Transformers examples</h2>
+<ul>
+<li><p>💻 They can <strong>generate code</strong> as in products like <a href="https://copilot.github.com/">GitHub Copilot</a>, which is based on OpenAI’s family of <a href="https://huggingface.co/gpt2?text=My+name+is+Clara+and+I+am">GPT models</a>.</p></li>
+<li><p>❓ They can be used for <strong>improve search engines</strong>, like <a href="https://www.blog.google/products/search/search-language-understanding-bert/">Google did</a> with a Transformer called <a href="https://huggingface.co/bert-base-uncased">BERT</a>.</p></li>
+<li><p>🗣️ They can <strong>process speech in multiple languages</strong> to perform speech recognition, speech translation, and language identification. For example, Facebook’s <a href="https://huggingface.co/spaces/facebook/XLS-R-2B-22-16">XLS-R model</a> can automatically transcribe audio in one language to another!</p></li>
+</ul>
+</section>
+<section id="transfer-learning" class="level2">
+<h2 class="anchored" data-anchor-id="transfer-learning">Transfer learning</h2>
+<ul>
+<li><p>Training Transformer models <strong>from scratch</strong> involves <strong>a lot of resources</strong> (compute, data, and days to train)</p></li>
+<li><p>With <strong>transfer learning</strong>, it is possible to adapt a model that has been trained from scratch (usually called a <strong>pretrained model</strong>) for a new, but similar task.</p></li>
+</ul>
+</section>
+<section id="fine-tuning" class="level2">
+<h2 class="anchored" data-anchor-id="fine-tuning">Fine tuning</h2>
+<ul>
+<li><p>Fine-tuning can be used as a special case of transfer learning where you use new data to continue training the model on the new task.</p></li>
+<li><p>The models that we’ll be looking at in this tutorial are all examples of fine-tuned models</p></li>
+</ul>
+</section>
+<section id="transfer-learning-1" class="level2">
+<h2 class="anchored" data-anchor-id="transfer-learning-1">Transfer learning</h2>
+<p>You can learn more about the transfer learning process in the video below:</p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/BqqfQnyjmgg?si=P09F30TBQvBttyXC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+</iframe>
+</section>
+<section id="hugging-face-transformers" class="level1">
+<h1>Hugging Face Transformers</h1>
+<p>The <a href="https://github.com/huggingface/transformers">Hugging Face Transformers library</a> provides a unified API across dozens of Transformer architectures, as well as the means to train models and run inference with them.</p>
+<!---
+ 
+- So to get started, let's install the library with the following command:
+
+
+::: {.cell}
+``` {.python .cell-code}
+!pip install transformers[sentencepiece]
+```
+:::
+
+
+Now that we've installed the library, let's take a look at some applications! 
+--->
+<section id="pipelines-for-transformers" class="level2">
+<h2 class="anchored" data-anchor-id="pipelines-for-transformers">Pipelines for Transformers</h2>
+<ul>
+<li><p>The fastest way to learn what Transformers can do is via the <code>pipeline()</code> function.</p></li>
+<li><p>This function loads a model from the Hugging Face Hub and takes care of all the preprocessing and postprocessing steps that are needed to convert inputs into predictions:</p></li>
+</ul>
+<p><img src="https://github.com/huggingface/workshops/blob/main/nlp-zurich/images/pipeline.png?raw=1" alt="Alt text that describes the graphic" title="Title text" width="800"></p>
+</section>
+<section id="what-happens-inside-the-pipeline-function" class="level2">
+<h2 class="anchored" data-anchor-id="what-happens-inside-the-pipeline-function">What happens inside the pipeline function?</h2>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/1pedAIvTWXk?si=WhdZ1fe6iQokgH2X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+</iframe>
+</section>
+</section>
+<section id="setup" class="level1">
+<h1>Setup</h1>
+<p>Import the pipeline:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> pipeline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="text-input" class="level2">
+<h2 class="anchored" data-anchor-id="text-input">Text input</h2>
+<ul>
+<li>We need a snippet of text for our models to analyze, so let’s use the following (fictious!) customer feedback about a certain online order:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"""Dear Amazon, last week I ordered an Optimus Prime action figure </span><span class="ch">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="st">from your online store in Germany. Unfortunately, when I opened the package, </span><span class="ch">\</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="st">I discovered to my horror that I had been sent an action figure of Megatron </span><span class="ch">\</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">instead! As a lifelong enemy of the Decepticons, I hope you can understand my </span><span class="ch">\</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">dilemma. To resolve the issue, I demand an exchange of Megatron for the </span><span class="ch">\</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="st">Optimus Prime figure I ordered. Enclosed are copies of my records concerning </span><span class="ch">\</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">this purchase. I expect to hear from you soon. Sincerely, Bumblebee."""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="create-text-wrapper" class="level2">
+<h2 class="anchored" data-anchor-id="create-text-wrapper">Create text wrapper</h2>
+<ul>
+<li>Let’s create a simple wrapper so that we can pretty print out texts:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> textwrap</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>wrapper <span class="op">=</span> textwrap.TextWrapper(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>            width<span class="op">=</span><span class="dv">80</span>, </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>            break_long_words<span class="op">=</span><span class="va">False</span>, </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>            break_on_hyphens<span class="op">=</span><span class="va">False</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>          )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="text-classification" class="level1">
+<h1>Text classification</h1>
+<p>Let’s start with one of the most common tasks in NLP: text classification</p>
+<section id="analyze-sentiment" class="level2">
+<h2 class="anchored" data-anchor-id="analyze-sentiment">Analyze sentiment</h2>
+<ul>
+<li><p>Now suppose that we’d like to predict the <em>sentiment</em> of this text, i.e.&nbsp;whether the feedback is positive or negative.</p></li>
+<li><p>This is a special type of text classification that is often used in industry to aggregate customer feedback across products or services.</p></li>
+</ul>
+</section>
+<section id="tokens" class="level2">
+<h2 class="anchored" data-anchor-id="tokens">Tokens</h2>
+<ul>
+<li>The example below shows how a Transformer like BERT converts the inputs into atomic chunks called <strong>tokens</strong> which are then fed through the network to produce a single prediction:</li>
+</ul>
+<p><img src="https://github.com/huggingface/workshops/blob/main/nlp-zurich/images/clf_arch.png?raw=1" alt="Alt text that describes the graphic" title="Title text" width="600"></p>
+</section>
+<section id="pipeline" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="pipeline">Pipeline</h2>
+<ul>
+<li>We need to specify the task in the <code>pipeline()</code> function as follows;</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sentiment_pipeline <span class="op">=</span> pipeline(<span class="st">'text-classification'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>When you run this code, you’ll see a message about which Hub model is being used by default.</p></li>
+<li><p>In this case, the <code>pipeline()</code> function loads the <code>distilbert-base-uncased-finetuned-sst-2-english</code> model, which is a small BERT variant trained on <a href="https://paperswithcode.com/sota/sentiment-analysis-on-sst-2-binary">SST-2</a> which is a sentiment analysis dataset.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>💡 The first time you execute the code, the model will be automatically downloaded from the Hub and cached for later use!</p>
+</div>
+</div>
+</section>
+<section id="run-pipeline" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="run-pipeline">Run pipeline</h2>
+<ul>
+<li>Now we are ready to run our example through pipeline and look at some predictions:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sentiment_pipeline(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p><code>Output</code>: [{‘label’: ‘NEGATIVE’, ‘score’: 0.9015464186668396}]</p></li>
+<li><p>The model predicts negative sentiment with a high confidence which makes sense given that we have a disgruntled customer.</p></li>
+<li><p>You can also see that the pipeline returns a list of Python dictionaries with the predictions.</p></li>
+<li><p>We can also pass several texts at the same time in which case we would get several dicts in the list for each text one.</p></li>
+</ul>
+</section>
+</section>
+<section id="named-entity-recognition-ner" class="level1">
+<h1>Named entity recognition (NER)</h1>
+<section id="basics" class="level2">
+<h2 class="anchored" data-anchor-id="basics">Basics</h2>
+<ul>
+<li><p>Instead of just finding the overall sentiment, let’s see if we can extract <strong>entities</strong> such as organizations, locations, or individuals from the text.</p></li>
+<li><p>This task is called named entity recognition, or NER for short.</p></li>
+</ul>
+</section>
+<section id="predict-class-for-echa-token" class="level2">
+<h2 class="anchored" data-anchor-id="predict-class-for-echa-token">Predict class for echa token</h2>
+<ul>
+<li>Instead of predicting just a class for the whole text <strong>a class is predicted for each token</strong>, as shown in the example below:</li>
+</ul>
+<p><img src="https://github.com/huggingface/workshops/blob/main/nlp-zurich/images/ner_arch.png?raw=1" alt="Alt text that describes the graphic" title="Title text" width="600"></p>
+</section>
+<section id="pipeline-1" class="level2">
+<h2 class="anchored" data-anchor-id="pipeline-1">Pipeline</h2>
+<ul>
+<li><p>We just load a pipeline for NER without specifying a model.</p></li>
+<li><p>This will load a default BERT model that has been trained on the <a href="https://huggingface.co/datasets/conll2003">CoNLL-2003</a> dataset:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ner_pipeline <span class="op">=</span> pipeline(<span class="st">'ner'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="merge-entities" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="merge-entities">Merge entities</h2>
+<ul>
+<li><p>When we pass our text through the model, we now get a long list of Python dictionaries, where each dictionary corresponds to one detected entity.</p></li>
+<li><p>Since multiple tokens can correspond to a a single entity, we can apply an aggregation strategy that merges entities if the same class appears in consequtive tokens:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>entities <span class="op">=</span> ner_pipeline(text, aggregation_strategy<span class="op">=</span><span class="st">"simple"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(entities)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><code>Output</code>: [{‘entity_group’: ‘ORG’, ‘score’: 0.87900954, ‘word’: ‘Amazon’, ‘start’: 5, ‘end’: 11}, {‘entity_group’: ‘MISC’, ‘score’: 0.9908588, ‘word’: ‘Optimus Prime’, ‘start’: 36, ‘end’: 49}, {‘entity_group’: ‘LOC’, ‘score’: 0.9997547, ‘word’: ‘Germany’, ‘start’: 90, ‘end’: 97}, {‘entity_group’: ‘MISC’, ‘score’: 0.55656713, ‘word’: ‘Mega’, ‘start’: 208, ‘end’: 212}, {‘entity_group’: ‘PER’, ‘score’: 0.5902563, ‘word’: ‘##tron’, ‘start’: 212, ‘end’: 216}, {‘entity_group’: ‘ORG’, ‘score’: 0.6696913, ‘word’: ‘Decept’, ‘start’: 253, ‘end’: 259}, {‘entity_group’: ‘MISC’, ‘score’: 0.4983487, ‘word’: ‘##icons’, ‘start’: 259, ‘end’: 264}, {‘entity_group’: ‘MISC’, ‘score’: 0.77536064, ‘word’: ‘Megatron’, ‘start’: 350, ‘end’: 358}, {‘entity_group’: ‘MISC’, ‘score’: 0.987854, ‘word’: ‘Optimus Prime’, ‘start’: 367, ‘end’: 380}, {‘entity_group’: ‘PER’, ‘score’: 0.81209683, ‘word’: ‘Bumblebee’, ‘start’: 502, ‘end’: 511}]</li>
+</ul>
+</section>
+<section id="clean-the-output" class="level2">
+<h2 class="anchored" data-anchor-id="clean-the-output">Clean the output</h2>
+<ul>
+<li>This isn’t very easy to read, so let’s clean up the outputs a bit:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> entity <span class="kw">in</span> entities:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>entity[<span class="st">'word'</span>]<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>entity[<span class="st">'entity_group'</span>]<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>entity[<span class="st">'score'</span>]<span class="sc">:.2f}</span><span class="ss">)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="er">Amazon:</span> <span class="er">ORG</span> <span class="er">(0.88)</span>  </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="er">Optimus</span> <span class="er">Prime:</span> <span class="er">MISC</span> <span class="er">(0.99)</span>  </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="er">Germany:</span> <span class="er">LOC</span> <span class="er">(1.00)</span>  </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="er">Mega:</span> <span class="er">MISC</span> <span class="er">(0.56)</span>  </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="er">##tron:</span> <span class="er">PER</span> <span class="er">(0.59)</span>  </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="er">Decept:</span> <span class="er">ORG</span> <span class="er">(0.67)</span>  </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="er">##icons:</span> <span class="er">MISC</span> <span class="er">(0.50)</span>  </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="er">Megatron:</span> <span class="er">MISC</span> <span class="er">(0.78)</span>  </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="er">Optimus</span> <span class="er">Prime:</span> <span class="er">MISC</span> <span class="er">(0.99)</span>  </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="er">Bumblebee:</span> <span class="er">PER</span> <span class="er">(0.81)</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="findings" class="level2">
+<h2 class="anchored" data-anchor-id="findings">Findings</h2>
+<ul>
+<li><p>It seems that the model found most of the named entities but was confused about “Megatron” andn “Decepticons”, which are characters in the transformers franchise.</p></li>
+<li><p>This is no surprise since the original dataset probably did not contain many transformer characters. For this reason it makes sense to further fine-tune a model on your on dataset!</p></li>
+</ul>
+</section>
+</section>
+<section id="question-answering" class="level1">
+<h1>Question answering</h1>
+<section id="basics-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="basics-1">Basics</h2>
+<ul>
+<li><p>In this task, the model is given a <strong>question</strong> and a <strong>context</strong> and needs to find the answer to the question within the context.</p></li>
+<li><p>This problem can be rephrased as a classification problem: For each token the model needs to predict whether it is the start or the end of the answer.</p></li>
+</ul>
+</section>
+<section id="basics-2" class="level2">
+<h2 class="anchored" data-anchor-id="basics-2">Basics</h2>
+<ul>
+<li>In the end we can extract the answer by looking at the span between the token with the highest start probability and highest end probability:</li>
+</ul>
+<p><img src="https://github.com/huggingface/workshops/blob/main/nlp-zurich/images/qa_arch.png?raw=1" alt="Alt text that describes the graphic" title="Title text" width="600"></p>
+</section>
+<section id="pipeline-2" class="level2">
+<h2 class="anchored" data-anchor-id="pipeline-2">Pipeline</h2>
+<ul>
+<li>we load the model by specifying the task in the <code>pipeline()</code> function:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>qa_pipeline <span class="op">=</span> pipeline(<span class="st">"question-answering"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>This default model is trained on the famous <a href="https://huggingface.co/datasets/squad">SQuAD dataset</a>.</li>
+</ul>
+</section>
+<section id="ask-question" class="level2">
+<h2 class="anchored" data-anchor-id="ask-question">Ask question</h2>
+<ul>
+<li>Let’s see if we can ask it what the customer wants:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>question <span class="op">=</span> <span class="st">"What does the customer want?"</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>outputs <span class="op">=</span> qa_pipeline(question<span class="op">=</span>question, context<span class="op">=</span>text)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>outputs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="er">'score'</span><span class="fu">:</span> <span class="fl">0.6312916874885559</span><span class="fu">,</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a> <span class="er">'start'</span><span class="fu">:</span> <span class="dv">335</span><span class="fu">,</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a> <span class="er">'end'</span><span class="fu">:</span> <span class="dv">358</span><span class="fu">,</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a> <span class="er">'answer'</span><span class="fu">:</span> <span class="er">'an</span> <span class="er">exchange</span> <span class="er">of</span> <span class="er">Megatron'</span><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="text-summarization" class="level1">
+<h1>Text summarization</h1>
+<section id="basics-3" class="level2" data-background-color="white">
+<h2 data-background-color="white" class="anchored" data-anchor-id="basics-3">Basics</h2>
+<ul>
+<li><p>Generation is much more computationally demanding since we usually generate one token at a time and need to run this several times.</p></li>
+<li><p>An example for how this process works is shown below:</p></li>
+</ul>
+<p><img src="https://github.com/huggingface/workshops/blob/main/nlp-zurich/images/gen_steps.png?raw=1" alt="Alt text that describes the graphic" title="Title text" width="600"></p>
+</section>
+<section id="pipeline-3" class="level2">
+<h2 class="anchored" data-anchor-id="pipeline-3">Pipeline</h2>
+<ul>
+<li>A popular task involving generation is summarization</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>summarization_pipeline <span class="op">=</span> pipeline(<span class="st">"summarization"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>This model was trained on the <a href="https://huggingface.co/datasets/cnn_dailymail">CNN/Dailymail dataset</a> to summarize news articles.</li>
+</ul>
+</section>
+<section id="output" class="level2">
+<h2 class="anchored" data-anchor-id="output">Output</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>outputs <span class="op">=</span> summarization_pipeline(text, max_length<span class="op">=</span><span class="dv">80</span>, clean_up_tokenization_spaces<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(wrapper.fill(outputs[<span class="dv">0</span>][<span class="st">'summary_text'</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><code>Output</code>: Bumblebee ordered an Optimus Prime action figure from your online store in Germany. Unfortunately, when I opened the package, I discovered to my horror that I had been sent an action figure of Megatron instead. As a lifelong enemy of the Decepticons, I hope you can understand my dilemma.</li>
+</ul>
+</section>
+</section>
+<section id="translation" class="level1">
+<h1>Translation</h1>
+<section id="basics-4" class="level2">
+<h2 class="anchored" data-anchor-id="basics-4">Basics</h2>
+<ul>
+<li><p>But what if there is no model in the language of my data?</p></li>
+<li><p>You can still try to translate the text.</p></li>
+<li><p>The <a href="https://huggingface.co/models?pipeline_tag=translation&amp;sort=downloads&amp;search=Helsinkie-NLP">Helsinki NLP team</a> has provided over 1,000 language pair models for translation.</p></li>
+</ul>
+</section>
+<section id="pipeline-4" class="level2">
+<h2 class="anchored" data-anchor-id="pipeline-4">Pipeline</h2>
+<ul>
+<li>Translate English to German:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>translator <span class="op">=</span> pipeline(<span class="st">"translation_en_to_de"</span>, model<span class="op">=</span><span class="st">"Helsinki-NLP/opus-mt-en-de"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="output-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="output-1">Output</h2>
+<ul>
+<li>Let’s translate our text to German:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>outputs <span class="op">=</span> translator(text, clean_up_tokenization_spaces<span class="op">=</span><span class="va">True</span>, min_length<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(wrapper.fill(outputs[<span class="dv">0</span>][<span class="st">'translation_text'</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><code>Output</code>: Sehr geehrter Amazon, letzte Woche habe ich eine Optimus Prime Action Figur aus Ihrem Online-Shop in Deutschland bestellt. Leider, als ich das Paket öffnete, entdeckte ich zu meinem Entsetzen, dass ich stattdessen eine Action Figur von Megatron geschickt worden war! Als lebenslanger Feind der Decepticons, Ich hoffe, Sie können mein Dilemma verstehen. Um das Problem zu lösen, Ich fordere einen Austausch von Megatron für die Optimus Prime Figur habe ich bestellt. Eingeschlossen sind Kopien meiner Aufzeichnungen über diesen Kauf. Ich erwarte, von Ihnen bald zu hören. Aufrichtig, Bumblebee.</li>
+</ul>
+</section>
+<section id="findings-1" class="level2">
+<h2 class="anchored" data-anchor-id="findings-1">Findings</h2>
+<ul>
+<li><p>We can see that the text is clearly not perfectly translated, but the core meaning stays the same.</p></li>
+<li><p>Another application of translation models is data augmentation via backtranslation</p></li>
+</ul>
+</section>
+</section>
+<section id="zero-shot-classification" class="level1">
+<h1>Zero-shot classification</h1>
+<section id="basics-5" class="level2">
+<h2 class="anchored" data-anchor-id="basics-5">Basics</h2>
+<ul>
+<li><p>In zero-shot classification the model receives a text and a list of candidate labels and determines which labels are compatible with the text.</p></li>
+<li><p>Instead of having fixed classes this allows for flexible classification without any labelled data!</p></li>
+<li><p>Usually this is a good first baseline!</p></li>
+</ul>
+</section>
+<section id="pipeline-5" class="level2">
+<h2 class="anchored" data-anchor-id="pipeline-5">Pipeline</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>zero_shot_classifier <span class="op">=</span> pipeline(<span class="st">"zero-shot-classification"</span>,</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                                model<span class="op">=</span><span class="st">"vicgalle/xlm-roberta-large-xnli-anli"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="text-input-1" class="level2">
+<h2 class="anchored" data-anchor-id="text-input-1">Text input</h2>
+<p>Let’s have a look at an example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">'Dieses Tutorial ist großartig! Ich hoffe, dass jemand von Hugging Face meine Hochschule besuchen wird :)'</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>classes <span class="op">=</span> [<span class="st">'Treffen'</span>, <span class="st">'Arbeit'</span>, <span class="st">'Digital'</span>, <span class="st">'Reisen'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="pipeline-6" class="level2">
+<h2 class="anchored" data-anchor-id="pipeline-6">Pipeline</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>zero_shot_classifier(text, classes, multi_label<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="er">'sequence'</span><span class="fu">:</span> <span class="er">'Dieses</span> <span class="er">Tutorial</span> <span class="er">ist</span> <span class="er">großartig!</span> <span class="er">Ich</span> <span class="er">hoffe</span><span class="fu">,</span> <span class="er">dass</span> <span class="er">jemand</span> <span class="er">von</span> <span class="er">Hugging</span> <span class="er">Face</span> <span class="er">meine</span> <span class="er">Hochschule</span> <span class="er">besuchen</span> <span class="er">wird</span> <span class="fu">:</span><span class="er">)'</span><span class="fu">,</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a> <span class="er">'labels'</span><span class="fu">:</span> <span class="ot">[</span><span class="er">'Digital'</span><span class="ot">,</span> <span class="er">'Arbeit'</span><span class="ot">,</span> <span class="er">'Treffen'</span><span class="ot">,</span> <span class="er">'Reisen'</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a> <span class="er">'scores'</span><span class="fu">:</span> <span class="ot">[</span><span class="fl">0.7426563501358032</span><span class="ot">,</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.6590237021446228</span><span class="ot">,</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.517701268196106</span><span class="ot">,</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.011237525381147861</span><span class="ot">]</span><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>For longer and more domain specific examples this approach might suffer.</li>
+</ul>
+</section>
+</section>
+<section id="going-beyond-text" class="level1">
+<h1>Going beyond text</h1>
+<p>Transformers can also be used for domains other than NLP!</p>
+<section id="basics-6" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="basics-6">Basics</h2>
+<p>There are many more pipelines that you can experiment with</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> pipelines</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> task <span class="kw">in</span> pipelines.SUPPORTED_TASKS:</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(task)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© <a href="https://www.kirenz.com/">Jan Kirenz</a>, 2023</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../slide.html">Slides</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../requirements.html">Requirements</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../assignments.html">Assignments</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://moodle.hdm-stuttgart.de/login/index.php">
+      <i class="bi bi-person-circle" role="img" aria-label="Moodle">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

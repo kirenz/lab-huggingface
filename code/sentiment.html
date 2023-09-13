@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab - Slides</title>
+<title>Lab - Sentimant Analysis with Hugging Face</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href=".//images/logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//images/logo.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -62,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -72,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Lab</span>
     </a>
   </div>
@@ -83,19 +117,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
+    <a class="nav-link" href="../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./slide.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../slide.html" rel="" target="">
  <span class="menu-text">Slides</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./requirements.html" rel="" target="">
+    <a class="nav-link" href="../requirements.html" rel="" target="">
  <span class="menu-text">Requirements</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./assignments.html" rel="" target="">
+    <a class="nav-link" href="../assignments.html" rel="" target="">
  <span class="menu-text">Assignments</span></a>
   </li>  
 </ul>
@@ -114,15 +148,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#hugging-face-hub" id="toc-hugging-face-hub" class="nav-link active" data-scroll-target="#hugging-face-hub"><span class="header-section-number">1</span> Hugging Face Hub</a></li>
-  <li><a href="#build-and-host-machine-learning-demos" id="toc-build-and-host-machine-learning-demos" class="nav-link" data-scroll-target="#build-and-host-machine-learning-demos"><span class="header-section-number">2</span> Build and Host Machine Learning Demos</a></li>
-  <li><a href="#getting-started-with-transformers" id="toc-getting-started-with-transformers" class="nav-link" data-scroll-target="#getting-started-with-transformers"><span class="header-section-number">3</span> Getting Started with Transformers</a></li>
-  <li><a href="#sentiment-analysis" id="toc-sentiment-analysis" class="nav-link" data-scroll-target="#sentiment-analysis"><span class="header-section-number">4</span> Sentiment Analysis</a></li>
-  <li><a href="#summarization" id="toc-summarization" class="nav-link" data-scroll-target="#summarization"><span class="header-section-number">5</span> Summarization</a></li>
-  <li><a href="#question-and-answering" id="toc-question-and-answering" class="nav-link" data-scroll-target="#question-and-answering"><span class="header-section-number">6</span> Question and Answering</a></li>
-  <li><a href="#text-generation" id="toc-text-generation" class="nav-link" data-scroll-target="#text-generation"><span class="header-section-number">7</span> Text generation</a></li>
-  <li><a href="#transformers-intuition" id="toc-transformers-intuition" class="nav-link" data-scroll-target="#transformers-intuition"><span class="header-section-number">8</span> Transformers intuition</a></li>
-  <li><a href="#diffusion-models" id="toc-diffusion-models" class="nav-link" data-scroll-target="#diffusion-models"><span class="header-section-number">9</span> Diffusion models</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#intuition" id="toc-intuition" class="nav-link" data-scroll-target="#intuition">Intuition</a>
+  <ul class="collapse">
+  <li><a href="#use-cases" id="toc-use-cases" class="nav-link" data-scroll-target="#use-cases">Use Cases</a></li>
+  </ul></li>
+  <li><a href="#pipeline" id="toc-pipeline" class="nav-link" data-scroll-target="#pipeline">Pipeline</a>
+  <ul class="collapse">
+  <li><a href="#pipeline-example-with-default-model" id="toc-pipeline-example-with-default-model" class="nav-link" data-scroll-target="#pipeline-example-with-default-model">Pipeline example with default model</a></li>
+  <li><a href="#pipeline-example-with-specific-model" id="toc-pipeline-example-with-specific-model" class="nav-link" data-scroll-target="#pipeline-example-with-specific-model">Pipeline example with specific model</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -131,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Slides</h1>
+<h1 class="title">Sentimant Analysis with Hugging Face</h1>
 </div>
 
 
@@ -146,203 +181,61 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><em>The following tutorials are mainly based on material provided by Hugging Face</em></p>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Take a look at the <a href="https://kirenz.github.io/lab-toolkit/slides/slides.html#/title-slide">slides tutorial</a> to learn how to use all slide options.</p>
-<p>To download Jupyter Notebooks: Go to the Colab menu and choose “File” &gt; “Download” &gt; “Download .ipynb”</p>
-</div>
-</div>
-</div>
-<section id="hugging-face-hub" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="hugging-face-hub"><span class="header-section-number">1</span> Hugging Face Hub</h2>
-<p>In this tutorial, you’ll get to know the <a href="http://hf.co">Hugging Face Hub</a>:</p>
-<ul>
-<li>Explore the over models shared in the Hub.</li>
-<li>Learn efficient ways to find the right model and datasets for your own task</li>
-<li>Learn how to contribute and work collaboratively in your ML workflows</li>
-</ul>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<ul>
-<li><a href="./slides/hub.html">🖥️ Presentation</a></li>
-<li><a href="https://colab.research.google.com/github/kirenz/lab-huggingface/blob/main/code/hub.ipynb">💻 Jupyter Notebook</a></li>
-</ul>
-</div>
-</div>
+<section id="setup" class="level1">
+<h1>Setup</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> pipeline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="build-and-host-machine-learning-demos" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="build-and-host-machine-learning-demos"><span class="header-section-number">2</span> Build and Host Machine Learning Demos</h2>
-<p>In this tutorial, you’ll learn how to build and host Machine Learning Demos with Gradio ⚡ &amp; Hugging Face:</p>
+<section id="intuition" class="level1">
+<h1>Intuition</h1>
+<p><img src="../images/text-classification.png" class="img-fluid"></p>
 <ul>
-<li>Explore ML demos created by the community.</li>
-<li>Build a quick demo for your machine learning model in Python using the gradio library</li>
-<li>Host the demos for free with Hugging Face Spaces</li>
-<li>How to add your demo to our Hugging Face org for your class</li>
+<li><p>Text classification: assigning a label or class to a given text</p></li>
+<li><p>Sentiment analysis is the automated process of tagging data according to their sentiment:</p>
+<ul>
+<li>Positive, negative and neutral</li>
+</ul></li>
 </ul>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
+<section id="use-cases" class="level2">
+<h2 class="anchored" data-anchor-id="use-cases">Use Cases</h2>
 <ul>
-<li><a href="./slides/gradio.html">🖥️ Presentation</a></li>
-<li><a href="https://colab.research.google.com/github/kirenz/lab-huggingface/blob/main/code/gradio.ipynb">💻 Jupyter Notebook</a></li>
-</ul>
-</div>
-</div>
-</div>
-<p>Optional resources:</p>
-<ul>
-<li><a href="https://huggingface.co/learn/nlp-course/chapter9/1?fw=pt">📖 Tutorial</a></li>
+<li><p>Sentiment Analysis on Customer Reviews</p></li>
+<li><p>You can track the sentiments of your customers from the product reviews using sentiment analysis models.</p></li>
+<li><p>This can help understand churn and retention by grouping reviews by sentiment, to later analyze the text and make strategic decisions based on this knowledge.</p></li>
 </ul>
 </section>
-<section id="getting-started-with-transformers" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="getting-started-with-transformers"><span class="header-section-number">3</span> Getting Started with Transformers</h2>
-<p>Learn how to use transformers in Hugging Face:</p>
-<ul>
-<li>Transformer neural networks can be used to tackle a wide range of tasks in natural language processing and beyond.</li>
-<li>Transfer learning allows one to adapt Transformers to specific tasks.</li>
-<li>The <code>pipeline()</code> function from the transformers library can be used to run inference with models from the Hugging Face Hub.</li>
-</ul>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<ul>
-<li><a href="./slides/transformers.html">🖥️ Presentation</a></li>
-<li><a href="https://colab.research.google.com/github/kirenz/lab-huggingface/blob/main/code/transformers.ipynb">💻 Jupyter Notebook</a></li>
-</ul>
-</div>
-</div>
-</div>
-<p>Optional resources:</p>
-<ul>
-<li>👉 <a href="https://github.com/NielsRogge/Transformers-Tutorials">Hands-on Transformers exercices</a></li>
-</ul>
 </section>
-<section id="sentiment-analysis" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="sentiment-analysis"><span class="header-section-number">4</span> Sentiment Analysis</h2>
-<p>Learn how to perform sentiment analysis:</p>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<section id="pipeline" class="level1">
+<h1>Pipeline</h1>
+<section id="pipeline-example-with-default-model" class="level2">
+<h2 class="anchored" data-anchor-id="pipeline-example-with-default-model">Pipeline example with default model</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>sentiment_pipeline <span class="op">=</span> pipeline(<span class="st">"sentiment-analysis"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>data <span class="op">=</span> [<span class="st">"I love you"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4"></a>        <span class="st">"I hate you"</span>]</span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a>sentiment_pipeline(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-body-container">
 <ul>
-<li><a href="./slides/sentiment.html">🖥️ Presentation</a></li>
-<li><a href="https://colab.research.google.com/github/kirenz/lab-huggingface/blob/main/code/sentiment.ipynb">💻 Jupyter Notebook</a></li>
+<li>Output:</li>
 </ul>
-</div>
-</div>
-</div>
+<pre class="{bash}"><code>[{'label': 'POSITIVE', 'score': 0.9998656511306763},
+ {'label': 'NEGATIVE', 'score': 0.9991129040718079}]</code></pre>
 </section>
-<section id="summarization" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="summarization"><span class="header-section-number">5</span> Summarization</h2>
-<p>Learn how to perform text summarization:</p>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<section id="pipeline-example-with-specific-model" class="level2">
+<h2 class="anchored" data-anchor-id="pipeline-example-with-specific-model">Pipeline example with specific model</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>specific_model <span class="op">=</span> pipeline(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"finiteautomata/bertweet-base-sentiment-analysis"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-body-container">
-<ul>
-<li><a href="./slides/summarization.html">🖥️ Presentation</a></li>
-<li><a href="https://colab.research.google.com/github/kirenz/lab-huggingface/blob/main/code/summarization.ipynb">💻 Jupyter Notebook</a></li>
-</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>specific_model(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-</section>
-<section id="question-and-answering" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="question-and-answering"><span class="header-section-number">6</span> Question and Answering</h2>
-<p>Qestion answering tasks return an answer given a question:</p>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<ul>
-<li><a href="./slides/qa.html">🖥️ Presentation</a></li>
-<li><a href="https://colab.research.google.com/github/kirenz/lab-huggingface/blob/main/code/qa.ipynb">💻 Jupyter Notebook</a></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="text-generation" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="text-generation"><span class="header-section-number">7</span> Text generation</h2>
-<p>Text generation models:</p>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<ul>
-<li><a href="./slides/generation.html">🖥️ Presentation</a></li>
-<li><a href="https://colab.research.google.com/github/kirenz/lab-huggingface/blob/main/code/generation.ipynb">💻 Jupyter Notebook</a></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="transformers-intuition" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="transformers-intuition"><span class="header-section-number">8</span> Transformers intuition</h2>
-<p>Learn some basics about transformers models:</p>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<ul>
-<li><a href="./slides/transformer_intuition.qmd.qmd">🖥️ Presentation</a></li>
-<li><a href="https://colab.research.google.com/github/kirenz/lab-huggingface/blob/main/code/transformer_intuition.ipynb">💻 Jupyter Notebook</a></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="diffusion-models" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="diffusion-models"><span class="header-section-number">9</span> Diffusion models</h2>
-<p>Learn about the various use cases of diffusion models and how to use the diffusers library to use pre-trained state-of-the-art diffusion models:</p>
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQFQPRFnKMC3Xo_xOHtaub-uBG7lIf7ATOvmQMKvRUrqqUYBDK_L_W5lngcoOHzmrPR3cIZNzssAPC2/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="760" height="369" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
-</iframe>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<ul>
-<li><a href="./slides/diffusers.html">🖥️ Presentation</a></li>
-<li><a href="- [💻 Jupyter Notebook](https://colab.research.google.com/github/kirenz/lab-huggingface/blob/main/code/diffusers.ipynb)">💻 Jupyter Notebook</a></li>
-</ul>
-</div>
-</div>
-</div>
-<p>Optional resources:</p>
-<ul>
-<li><p><a href="https://huggingface.co/blog/stable_diffusion">Stable Diffusion with 🧨 Diffusers</a></p></li>
-<li><p><a href="https://huggingface.co/docs/diffusers/tutorials/tutorial_overview">Hugging Face Tutorial</a></p></li>
-</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -586,13 +479,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./slide.html">Slides</a>
+    <a class="nav-link" href="../slide.html">Slides</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./requirements.html">Requirements</a>
+    <a class="nav-link" href="../requirements.html">Requirements</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./assignments.html">Assignments</a>
+    <a class="nav-link" href="../assignments.html">Assignments</a>
   </li>  
 </ul>
     </div>
