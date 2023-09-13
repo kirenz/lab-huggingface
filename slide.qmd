@@ -23,7 +23,8 @@ In this tutorial, you'll get to know the [Hugging Face Hub](http://hf.co):
 
 ::: {.callout-tip appearance="simple" icon=false}
 - [🖥️ Presentation](/slides/hub.qmd)
-- [💻 Jupyter Notebook]()
+- [💻 Jupyter Notebook](https://colab.research.google.com/github/kirenz/lab-huggingface/blob/main/code/hub.ipynb)
+
 :::
 
 ## Build and Host Machine Learning Demos 
@@ -37,7 +38,8 @@ In this tutorial, you'll learn how to build and host Machine Learning Demos with
 
 ::: {.callout-tip appearance="simple" icon=false}
 - [🖥️ Presentation](/slides/gradio.qmd)
-- [💻 Jupyter Notebook]()
+- [💻 Jupyter Notebook](https://colab.research.google.com/github/kirenz/lab-huggingface/blob/main/code/gradio.ipynb)
+
 :::
 
 Optional resources:
@@ -54,7 +56,8 @@ Learn how to use transformers in Hugging Face:
 
 ::: {.callout-tip appearance="simple" icon=false}
 - [🖥️ Presentation](/slides/transformers.qmd)
-- [💻 Jupyter Notebook]()
+- [💻 Jupyter Notebook](https://colab.research.google.com/github/kirenz/lab-huggingface/blob/main/code/transformers.ipynb)
+
 :::
 
 
@@ -69,7 +72,8 @@ Learn how to perform sentiment analysis:
 
 ::: {.callout-tip appearance="simple" icon=false}
 - [🖥️ Presentation](/slides/sentiment.qmd)
-- [💻 Jupyter Notebook]()
+- [💻 Jupyter Notebook](https://colab.research.google.com/github/kirenz/lab-huggingface/blob/main/code/sentiment.ipynb)
+
 :::
 
 
@@ -79,7 +83,8 @@ Learn how to perform text summarization:
 
 ::: {.callout-tip appearance="simple" icon=false}
 - [🖥️ Presentation](/slides/summarization.qmd)
-- [💻 Jupyter Notebook]()
+- [💻 Jupyter Notebook](https://colab.research.google.com/github/kirenz/lab-huggingface/blob/main/code/summarization.ipynb)
+
 :::
 
 
@@ -89,7 +94,8 @@ Qestion answering tasks return an answer given a question:
 
 ::: {.callout-tip appearance="simple" icon=false}
 - [🖥️ Presentation](/slides/qa.qmd)
-- [💻 Jupyter Notebook]()
+- [💻 Jupyter Notebook](https://colab.research.google.com/github/kirenz/lab-huggingface/blob/main/code/qa.ipynb)
+
 :::
 
 ## Text generation
@@ -98,7 +104,7 @@ Text generation models:
 
 ::: {.callout-tip appearance="simple" icon=false}
 - [🖥️ Presentation](/slides/generation.qmd)
-- [💻 Jupyter Notebook]()
+- [💻 Jupyter Notebook](https://colab.research.google.com/github/kirenz/lab-huggingface/blob/main/code/generation.ipynb)
 :::
 
 
@@ -108,7 +114,7 @@ Learn some basics about transformers models:
 
 ::: {.callout-tip appearance="simple" icon=false}
 - [🖥️ Presentation](/slides/transformer_intuition.qmd.qmd)
-- [💻 Jupyter Notebook]()
+- [💻 Jupyter Notebook](https://colab.research.google.com/github/kirenz/lab-huggingface/blob/main/code/transformer_intuition.ipynb)
 :::
 
 
@@ -121,7 +127,8 @@ Learn about the various use cases of diffusion models and how to use the diffuse
 
 ::: {.callout-tip appearance="simple" icon=false}
 - [🖥️ Presentation](/slides/diffusers.qmd)
-- [💻 Jupyter Notebook]()
+- [💻 Jupyter Notebook](- [💻 Jupyter Notebook](https://colab.research.google.com/github/kirenz/lab-huggingface/blob/main/code/diffusers.ipynb)
+)
 :::
 
 
