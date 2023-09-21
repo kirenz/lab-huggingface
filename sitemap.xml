@@ -1,91 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/kirenz/lab-huggingface/requirements.html</loc>
-    <lastmod>2023-09-13T10:02:57.984Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/kirenz/lab-huggingface/slides/hub.html</loc>
-    <lastmod>2023-09-13T10:02:56.656Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/kirenz/lab-huggingface/slides/qa.html</loc>
-    <lastmod>2023-09-13T10:02:55.616Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/kirenz/lab-huggingface/slides/transformers.html</loc>
-    <lastmod>2023-09-13T10:02:54.336Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/kirenz/lab-huggingface/slides/gradio.html</loc>
-    <lastmod>2023-09-13T10:02:53.040Z</lastmod>
+    <loc>https://github.com/kirenz/lab-huggingface/assignments.html</loc>
+    <lastmod>2023-09-21T16:07:32.331Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/kirenz/lab-huggingface/code/transformer_intuition.html</loc>
-    <lastmod>2023-09-13T10:02:50.896Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/kirenz/lab-huggingface/code/generation.html</loc>
-    <lastmod>2023-09-13T10:02:50.320Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/kirenz/lab-huggingface/code/transformers.html</loc>
-    <lastmod>2023-09-13T10:02:49.580Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/kirenz/lab-huggingface/code/summarization.html</loc>
-    <lastmod>2023-09-13T10:02:48.160Z</lastmod>
+    <lastmod>2023-09-21T16:07:31.767Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/kirenz/lab-huggingface/code/gradio.html</loc>
-    <lastmod>2023-09-13T10:02:47.488Z</lastmod>
+    <lastmod>2023-09-21T16:07:31.171Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/kirenz/lab-huggingface/assignments.html</loc>
-    <lastmod>2023-09-13T10:02:46.616Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/kirenz/lab-huggingface/slide.html</loc>
-    <lastmod>2023-09-13T10:02:45.984Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/kirenz/lab-huggingface/index.html</loc>
-    <lastmod>2023-09-13T10:02:46.948Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/kirenz/lab-huggingface/code/diffusers.html</loc>
-    <lastmod>2023-09-13T10:02:47.812Z</lastmod>
+    <loc>https://github.com/kirenz/lab-huggingface/code/transformers.html</loc>
+    <lastmod>2023-09-21T16:07:30.355Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/kirenz/lab-huggingface/code/sentiment.html</loc>
-    <lastmod>2023-09-13T10:02:48.776Z</lastmod>
+    <lastmod>2023-09-21T16:07:29.251Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/kirenz/lab-huggingface/code/qa.html</loc>
-    <lastmod>2023-09-13T10:02:49.968Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/kirenz/lab-huggingface/code/hub.html</loc>
-    <lastmod>2023-09-13T10:02:50.616Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/kirenz/lab-huggingface/slides/transformer_intuition.html</loc>
-    <lastmod>2023-09-13T10:02:51.380Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/kirenz/lab-huggingface/slides/generation.html</loc>
-    <lastmod>2023-09-13T10:02:53.420Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/kirenz/lab-huggingface/slides/summarization.html</loc>
-    <lastmod>2023-09-13T10:02:54.972Z</lastmod>
+    <loc>https://github.com/kirenz/lab-huggingface/slides/qa.html</loc>
+    <lastmod>2023-09-21T16:07:28.019Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/kirenz/lab-huggingface/slides/diffusers.html</loc>
-    <lastmod>2023-09-13T10:02:55.976Z</lastmod>
+    <lastmod>2023-09-21T16:07:26.843Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/kirenz/lab-huggingface/slides/gradio.html</loc>
+    <lastmod>2023-09-21T16:07:26.123Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/kirenz/lab-huggingface/slides/sentiment.html</loc>
-    <lastmod>2023-09-13T10:02:57.304Z</lastmod>
+    <lastmod>2023-09-21T16:07:24.715Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/kirenz/lab-huggingface/slides/generation.html</loc>
+    <lastmod>2023-09-21T16:07:21.419Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/kirenz/lab-huggingface/require.html</loc>
+    <lastmod>2023-09-21T16:07:18.815Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/kirenz/lab-huggingface/index.html</loc>
+    <lastmod>2023-09-21T16:07:17.067Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/kirenz/lab-huggingface/slide.html</loc>
+    <lastmod>2023-09-21T16:07:19.947Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/kirenz/lab-huggingface/slides/hub.html</loc>
+    <lastmod>2023-09-21T16:07:24.111Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/kirenz/lab-huggingface/slides/transformers.html</loc>
+    <lastmod>2023-09-21T16:07:25.571Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/kirenz/lab-huggingface/slides/transformer_intuition.html</loc>
+    <lastmod>2023-09-21T16:07:26.475Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/kirenz/lab-huggingface/slides/summarization.html</loc>
+    <lastmod>2023-09-21T16:07:27.431Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/kirenz/lab-huggingface/code/generation.html</loc>
+    <lastmod>2023-09-21T16:07:28.707Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/kirenz/lab-huggingface/code/diffusers.html</loc>
+    <lastmod>2023-09-21T16:07:29.563Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/kirenz/lab-huggingface/code/summarization.html</loc>
+    <lastmod>2023-09-21T16:07:30.671Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/kirenz/lab-huggingface/code/qa.html</loc>
+    <lastmod>2023-09-21T16:07:31.499Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/kirenz/lab-huggingface/code/hub.html</loc>
+    <lastmod>2023-09-21T16:07:32.035Z</lastmod>
   </url>
 </urlset>
