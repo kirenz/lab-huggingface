@@ -1,0 +1,22 @@
+---
+title: "Requirements"
+---
+
+
+## Local development
+
+To start this lab on your local machine, you'll need:
+
+To start this lab, you'll need the following environments:
+
+:::{.callout-important}
+Visit the "[Programming Toolkit-webpage](https://kirenz.github.io/lab-toolkit/)" to learn how to meet all requirements.
+:::
+
+- **Python**: Anaconda, Anaconda Environment `transformers` and Visual Studio Code
+- **Environment**: A folder on your machine called *huggingface* and an environment file with your Hugging Face API.
+
+
+## Cloud development
+
+Instead of local development, you may also work in a fully configured dev environment in the cloud with GitHub Codespaces. Take a look at [this site](/slide.qmd) to learn more about the different options.
