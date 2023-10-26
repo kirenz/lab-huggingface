@@ -7,473 +7,116 @@
     "text": "tbd"
   },
   {
-    "objectID": "code/gradio.html",
-    "href": "code/gradio.html",
-    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
+    "objectID": "slide.html",
+    "href": "slide.html",
+    "title": "Slides",
     "section": "",
-    "text": "Developers can easily present their work to a wide audience\nIncrease reproducibility of machine learning research\nEasily identify and debug failure points of models"
+    "text": "The following tutorials are mainly based on material provided by Hugging Face\nYou have several options to start code development:"
   },
   {
-    "objectID": "code/gradio.html#why-demos",
-    "href": "code/gradio.html#why-demos",
-    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
-    "section": "",
-    "text": "Developers can easily present their work to a wide audience\nIncrease reproducibility of machine learning research\nEasily identify and debug failure points of models"
+    "objectID": "slide.html#hugging-face-hub",
+    "href": "slide.html#hugging-face-hub",
+    "title": "Slides",
+    "section": "1 Hugging Face Hub",
+    "text": "1 Hugging Face Hub\nIn this tutorial, you’ll get to know the Hugging Face Hub:\n\nExplore the over models shared in the Hub.\nLearn efficient ways to find the right model and datasets for your own task\nLearn how to contribute and work collaboratively in your ML workflows\n\n\n\n\n\n\n\n\n🖥️ Presentation\n💻 Jupyter Notebook"
   },
   {
-    "objectID": "code/gradio.html#learning-goals",
-    "href": "code/gradio.html#learning-goals",
-    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
-    "section": "Learning goals",
-    "text": "Learning goals\nLearn how to:\n\nBuild a quick demo for your machine learning model in Python using the gradio library\nHost the demos for free with Hugging Face Spaces\nAdd your demo to the Hugging Face org for your class"
+    "objectID": "slide.html#build-and-host-machine-learning-demos",
+    "href": "slide.html#build-and-host-machine-learning-demos",
+    "title": "Slides",
+    "section": "2 Build and Host Machine Learning Demos",
+    "text": "2 Build and Host Machine Learning Demos\nIn this tutorial, you’ll learn how to build and host Machine Learning Demos with Gradio ⚡ & Hugging Face:\n\nExplore ML demos created by the community.\nBuild a quick demo for your machine learning model in Python using the gradio library\nHost the demos for free with Hugging Face Spaces\nHow to add your demo to our Hugging Face org for your class\n\n\n\n\n\n\n\n\n🖥️ Presentation\n💻 Jupyter Notebook\n\n\n\n\nOptional resources:\n\n📖 Tutorial"
   },
   {
-    "objectID": "code/gradio.html#keras-org-on-hugging-face",
-    "href": "code/gradio.html#keras-org-on-hugging-face",
-    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
-    "section": "Keras Org on Hugging Face",
-    "text": "Keras Org on Hugging Face\n\nAs a quick example of what we would like to build, check out the Keras Org on Hugging Face\nOpen any Space in your browser to use the model immediately"
+    "objectID": "slide.html#getting-started-with-transformers",
+    "href": "slide.html#getting-started-with-transformers",
+    "title": "Slides",
+    "section": "3 Getting Started with Transformers",
+    "text": "3 Getting Started with Transformers\nLearn how to use transformers in Hugging Face:\n\nTransformer neural networks can be used to tackle a wide range of tasks in natural language processing and beyond.\nTransfer learning allows one to adapt Transformers to specific tasks.\nThe pipeline() function from the transformers library can be used to run inference with models from the Hugging Face Hub.\n\n\n\n\n\n\n\n\n🖥️ Presentation\n💻 Jupyter Notebook\n\n\n\n\nOptional resources:\n\n👉 Hands-on Transformers exercices"
   },
   {
-    "objectID": "code/gradio.html#gradio-components",
-    "href": "code/gradio.html#gradio-components",
-    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
-    "section": "Gradio components",
-    "text": "Gradio components\n\nGradio comes with a bunch of predefined components for different kinds of machine learning models.\nFor an image classifier, the expected input type is an Image and the output type is a Label.\nFor a speech recognition model, the expected input component is an Microphone (which lets users record from the browser) or Audio (which lets users drag-and-drop audio files), while the output type is Text.\nFor a question answering model, we expect 2 inputs: [Text, Text], one textbox for the paragraph and one for the question, and the output type is a single Text corresponding to the answer.\nFor all of the supported components, see the docs"
+    "objectID": "slide.html#sentiment-analysis",
+    "href": "slide.html#sentiment-analysis",
+    "title": "Slides",
+    "section": "4 Sentiment Analysis",
+    "text": "4 Sentiment Analysis\nLearn how to perform sentiment analysis:\n\n\n\n\n\n\n\n🖥️ Presentation\n💻 Jupyter Notebook"
   },
   {
-    "objectID": "code/gradio.html#gradio-prediction-function",
-    "href": "code/gradio.html#gradio-prediction-function",
-    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
-    "section": "Gradio prediction function",
-    "text": "Gradio prediction function\n\nIn addition to the input and output types, Gradio expects a third parameter, which is the prediction function itself.\nThis parameter can be any regular Python function that takes in parameter(s) corresponding to the input component(s) and returns value(s) corresponding to the output component(s)"
+    "objectID": "slide.html#summarization",
+    "href": "slide.html#summarization",
+    "title": "Slides",
+    "section": "5 Summarization",
+    "text": "5 Summarization\nLearn how to perform text summarization:\n\n\n\n\n\n\n\n🖥️ Presentation\n💻 Jupyter Notebook"
   },
   {
-    "objectID": "code/gradio.html#custom-python-function",
-    "href": "code/gradio.html#custom-python-function",
-    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
-    "section": "Custom Python function",
-    "text": "Custom Python function\n\nLet’s create a simple Python function\n\n\ndef sepia(image):\n    sepia_filter = np.array(\n        [[0.393, 0.769, 0.189],\n         [0.349, 0.686, 0.168],\n         [0.272, 0.534, 0.131]]\n    )\n    sepia_img = image.dot(sepia_filter.T)\n    sepia_img /= sepia_img.max()\n    return sepia_img"
+    "objectID": "slide.html#question-and-answering",
+    "href": "slide.html#question-and-answering",
+    "title": "Slides",
+    "section": "6 Question and Answering",
+    "text": "6 Question and Answering\nQestion answering tasks return an answer given a question:\n\n\n\n\n\n\n\n🖥️ Presentation\n💻 Jupyter Notebook"
   },
   {
-    "objectID": "code/gradio.html#gradio-image-app",
-    "href": "code/gradio.html#gradio-image-app",
-    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
-    "section": "Gradio Image App",
-    "text": "Gradio Image App\n\n1gr.Interface(\n2    fn=sepia,\n3    inputs=\"image\",\n4    outputs=\"image\"\n5).launch()\n\n\n1\n\nWe define an Gradio Interface using:\n\n2\n\na function fn\n\n3\n\nInput component: inputs image\n\n4\n\nOutput component: outputs image\n\n5\n\n… and launch the app"
+    "objectID": "slide.html#text-generation",
+    "href": "slide.html#text-generation",
+    "title": "Slides",
+    "section": "7 Text generation",
+    "text": "7 Text generation\nText generation models:\n\n\n\n\n\n\n\n🖥️ Presentation\n💻 Jupyter Notebook"
   },
   {
-    "objectID": "code/gradio.html#gradio-image-app-interface",
-    "href": "code/gradio.html#gradio-image-app-interface",
-    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
-    "section": "Gradio Image App Interface",
-    "text": "Gradio Image App Interface"
+    "objectID": "slide.html#transformers-intuition",
+    "href": "slide.html#transformers-intuition",
+    "title": "Slides",
+    "section": "8 Transformers intuition",
+    "text": "8 Transformers intuition\nLearn some basics about transformers models:\n\n\n\n\n\n\n\n🖥️ Presentation\n💻 Jupyter Notebook"
   },
   {
-    "objectID": "code/gradio.html#gradio-sound-app-1",
-    "href": "code/gradio.html#gradio-sound-app-1",
-    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
-    "section": "Gradio Sound App",
-    "text": "Gradio Sound App\n\ndef generate_tone(note, octave, duration):\n    sampling_rate = 48000\n    a4_freq, tones_from_a4 = 440, 12 * (octave - 4) + (note - 9)\n    frequency = a4_freq * 2 ** (tones_from_a4 / 12)\n    audio = np.linspace(0, int(duration), int(duration) * sampling_rate)\n    audio = (20000 * np.sin(audio * (2 * np.pi * frequency))).astype(np.int16)\n    return sampling_rate, audio\n\n\ngr.Interface(\n    generate_tone,  # function\n    [\n        gr.Dropdown([\"C\", \"C#\", \"D\", \"D#\", \"E\", \"F\", \"F#\",\n                    \"G\", \"G#\", \"A\", \"A#\", \"B\"], type=\"index\"),\n        gr.Slider(4, 6, step=1),\n        gr.Number(value=1, label=\"Duration in seconds\"),\n    ],\n    \"audio\",\n    title=\"Generate a Musical Tone!\"\n).launch()"
+    "objectID": "slide.html#diffusion-models",
+    "href": "slide.html#diffusion-models",
+    "title": "Slides",
+    "section": "9 Diffusion models",
+    "text": "9 Diffusion models\nLearn about the various use cases of diffusion models and how to use the diffusers library to use pre-trained state-of-the-art diffusion models:\n\n\n\n\n\n\n\n\n\n🖥️ Presentation\n💻 Jupyter Notebook\n\n\n\n\nOptional resources:\n\nStable Diffusion with 🧨 Diffusers\nHugging Face Tutorial"
   },
   {
-    "objectID": "code/gradio.html#gradio-sound-app-interface",
-    "href": "code/gradio.html#gradio-sound-app-interface",
-    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
-    "section": "Gradio Sound App Interface",
-    "text": "Gradio Sound App Interface"
-  },
-  {
-    "objectID": "code/gradio.html#gradio-text-to-speech-app-interface",
-    "href": "code/gradio.html#gradio-text-to-speech-app-interface",
-    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
-    "section": "Gradio Text to Speech App Interface",
-    "text": "Gradio Text to Speech App Interface"
-  },
-  {
-    "objectID": "code/gradio.html#gradio-gp-j-app-interface",
-    "href": "code/gradio.html#gradio-gp-j-app-interface",
-    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
-    "section": "Gradio GP-J App Interface",
-    "text": "Gradio GP-J App Interface"
-  },
-  {
-    "objectID": "code/gradio.html#workflow-1",
-    "href": "code/gradio.html#workflow-1",
-    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
-    "section": "Workflow, 1",
-    "text": "Workflow, 1\n\nHere are the steps to that (also see GIF in the next slide):\n\n\nFirst, create a Hugging Face account if you do not already have one, by visiting https://huggingface.co/ and clicking “Sign Up”\nOnce you are logged in, click on your profile picture and then click on “New Space” underneath it to get to this page: https://huggingface.co/new-space\nGive your Space a name and a license. Select “Gradio” as the Space SDK, and then choose “Public” if you are fine with everyone accessing your Space and the underlying code\nThen you will find a page that provides you instructions on how to upload your files into the Git repository for that Space. You may also need to add a requirements.txt file to specify any Python package dependencies.\nOnce you have pushed your files, that’s it! Spaces will automatically build your Gradio demo allowing you to share it with anyone, anywhere!"
-  },
-  {
-    "objectID": "code/gradio.html#workflow-in-a-gif",
-    "href": "code/gradio.html#workflow-in-a-gif",
-    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
-    "section": "Workflow in a GIF",
-    "text": "Workflow in a GIF\n\nYou may also choose “public” instead of “private” when you create your space"
-  },
-  {
-    "objectID": "code/gradio.html#share-your-demo",
-    "href": "code/gradio.html#share-your-demo",
-    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
-    "section": "Share your demo",
-    "text": "Share your demo\n\nYou can embed your Gradio demo on any website – in a blog, a portfolio page, or even in a colab notebook,\nExample: Pictionary sketch recognition model below:\n\n\nIFrame(src='https://hf.space/gradioiframe/abidlabs/Draw/+', width=1000, height=800)"
-  },
-  {
-    "objectID": "code/transformers.html",
-    "href": "code/transformers.html",
-    "title": "Transformers intro",
-    "section": "",
-    "text": "Transformer neural networks can be used to tackle a wide range of tasks in natural language processing and beyond.\nTransfer learning allows one to adapt Transformers to specific tasks.\nThe pipeline() function from the transformers library can be used to run inference with models from the Hugging Face Hub."
-  },
-  {
-    "objectID": "code/transformers.html#learning-goals",
-    "href": "code/transformers.html#learning-goals",
-    "title": "Transformers intro",
-    "section": "",
-    "text": "Transformer neural networks can be used to tackle a wide range of tasks in natural language processing and beyond.\nTransfer learning allows one to adapt Transformers to specific tasks.\nThe pipeline() function from the transformers library can be used to run inference with models from the Hugging Face Hub."
-  },
-  {
-    "objectID": "code/transformers.html#why-transformers",
-    "href": "code/transformers.html#why-transformers",
-    "title": "Transformers intro",
-    "section": "Why Transformers?",
-    "text": "Why Transformers?\n\nDeep learning is currently undergoing a period of rapid progress across a wide variety of domains, including:\n📖 Natural language processing\n👀 Computer vision\n🔊 Audio\nand many more!\nThe main driver of these breakthroughs is the Transformer – a novel neural network developed by Google researchers in 2017."
-  },
-  {
-    "objectID": "code/transformers.html#transformers-examples",
-    "href": "code/transformers.html#transformers-examples",
-    "title": "Transformers intro",
-    "section": "Transformers examples",
-    "text": "Transformers examples\n\n💻 They can generate code as in products like GitHub Copilot, which is based on OpenAI’s family of GPT models.\n❓ They can be used for improve search engines, like Google did with a Transformer called BERT.\n🗣️ They can process speech in multiple languages to perform speech recognition, speech translation, and language identification. For example, Facebook’s XLS-R model can automatically transcribe audio in one language to another!"
-  },
-  {
-    "objectID": "code/transformers.html#transfer-learning",
-    "href": "code/transformers.html#transfer-learning",
-    "title": "Transformers intro",
-    "section": "Transfer learning",
-    "text": "Transfer learning\n\nTraining Transformer models from scratch involves a lot of resources (compute, data, and days to train)\nWith transfer learning, it is possible to adapt a model that has been trained from scratch (usually called a pretrained model) for a new, but similar task."
-  },
-  {
-    "objectID": "code/transformers.html#fine-tuning",
-    "href": "code/transformers.html#fine-tuning",
-    "title": "Transformers intro",
-    "section": "Fine tuning",
-    "text": "Fine tuning\n\nFine-tuning can be used as a special case of transfer learning where you use new data to continue training the model on the new task.\nThe models that we’ll be looking at in this tutorial are all examples of fine-tuned models"
-  },
-  {
-    "objectID": "code/transformers.html#transfer-learning-1",
-    "href": "code/transformers.html#transfer-learning-1",
-    "title": "Transformers intro",
-    "section": "Transfer learning",
-    "text": "Transfer learning\nYou can learn more about the transfer learning process in the video below:"
-  },
-  {
-    "objectID": "code/transformers.html#pipelines-for-transformers",
-    "href": "code/transformers.html#pipelines-for-transformers",
-    "title": "Transformers intro",
-    "section": "Pipelines for Transformers",
-    "text": "Pipelines for Transformers\n\nThe fastest way to learn what Transformers can do is via the pipeline() function.\nThis function loads a model from the Hugging Face Hub and takes care of all the preprocessing and postprocessing steps that are needed to convert inputs into predictions:"
-  },
-  {
-    "objectID": "code/transformers.html#what-happens-inside-the-pipeline-function",
-    "href": "code/transformers.html#what-happens-inside-the-pipeline-function",
-    "title": "Transformers intro",
-    "section": "What happens inside the pipeline function?",
-    "text": "What happens inside the pipeline function?"
-  },
-  {
-    "objectID": "code/transformers.html#text-input",
-    "href": "code/transformers.html#text-input",
-    "title": "Transformers intro",
-    "section": "Text input",
-    "text": "Text input\n\nWe need a snippet of text for our models to analyze, so let’s use the following (fictious!) customer feedback about a certain online order:\n\n\ntext = \"\"\"Dear Amazon, last week I ordered an Optimus Prime action figure \\\nfrom your online store in Germany. Unfortunately, when I opened the package, \\\nI discovered to my horror that I had been sent an action figure of Megatron \\\ninstead! As a lifelong enemy of the Decepticons, I hope you can understand my \\\ndilemma. To resolve the issue, I demand an exchange of Megatron for the \\\nOptimus Prime figure I ordered. Enclosed are copies of my records concerning \\\nthis purchase. I expect to hear from you soon. Sincerely, Bumblebee.\"\"\""
-  },
-  {
-    "objectID": "code/transformers.html#create-text-wrapper",
-    "href": "code/transformers.html#create-text-wrapper",
-    "title": "Transformers intro",
-    "section": "Create text wrapper",
-    "text": "Create text wrapper\n\nLet’s create a simple wrapper so that we can pretty print out texts:\n\n\nimport textwrap\n\nwrapper = textwrap.TextWrapper(\n            width=80, \n            break_long_words=False, \n            break_on_hyphens=False\n          )"
-  },
-  {
-    "objectID": "code/transformers.html#analyze-sentiment",
-    "href": "code/transformers.html#analyze-sentiment",
-    "title": "Transformers intro",
-    "section": "Analyze sentiment",
-    "text": "Analyze sentiment\n\nNow suppose that we’d like to predict the sentiment of this text, i.e. whether the feedback is positive or negative.\nThis is a special type of text classification that is often used in industry to aggregate customer feedback across products or services."
-  },
-  {
-    "objectID": "code/transformers.html#tokens",
-    "href": "code/transformers.html#tokens",
-    "title": "Transformers intro",
-    "section": "Tokens",
-    "text": "Tokens\n\nThe example below shows how a Transformer like BERT converts the inputs into atomic chunks called tokens which are then fed through the network to produce a single prediction:"
-  },
-  {
-    "objectID": "code/transformers.html#pipeline",
-    "href": "code/transformers.html#pipeline",
-    "title": "Transformers intro",
-    "section": "Pipeline",
-    "text": "Pipeline\n\nWe need to specify the task in the pipeline() function as follows;\n\n\nsentiment_pipeline = pipeline('text-classification')\n\n\nWhen you run this code, you’ll see a message about which Hub model is being used by default.\nIn this case, the pipeline() function loads the distilbert-base-uncased-finetuned-sst-2-english model, which is a small BERT variant trained on SST-2 which is a sentiment analysis dataset.\n\n\n\n\n\n\n\nNote\n\n\n\n💡 The first time you execute the code, the model will be automatically downloaded from the Hub and cached for later use!"
-  },
-  {
-    "objectID": "code/transformers.html#run-pipeline",
-    "href": "code/transformers.html#run-pipeline",
-    "title": "Transformers intro",
-    "section": "Run pipeline",
-    "text": "Run pipeline\n\nNow we are ready to run our example through pipeline and look at some predictions:\n\n\nsentiment_pipeline(text)\n\n\nOutput: [{‘label’: ‘NEGATIVE’, ‘score’: 0.9015464186668396}]\nThe model predicts negative sentiment with a high confidence which makes sense given that we have a disgruntled customer.\nYou can also see that the pipeline returns a list of Python dictionaries with the predictions.\nWe can also pass several texts at the same time in which case we would get several dicts in the list for each text one."
-  },
-  {
-    "objectID": "code/transformers.html#basics",
-    "href": "code/transformers.html#basics",
-    "title": "Transformers intro",
-    "section": "Basics",
-    "text": "Basics\n\nInstead of just finding the overall sentiment, let’s see if we can extract entities such as organizations, locations, or individuals from the text.\nThis task is called named entity recognition, or NER for short."
-  },
-  {
-    "objectID": "code/transformers.html#predict-class-for-echa-token",
-    "href": "code/transformers.html#predict-class-for-echa-token",
-    "title": "Transformers intro",
-    "section": "Predict class for echa token",
-    "text": "Predict class for echa token\n\nInstead of predicting just a class for the whole text a class is predicted for each token, as shown in the example below:"
-  },
-  {
-    "objectID": "code/transformers.html#pipeline-1",
-    "href": "code/transformers.html#pipeline-1",
-    "title": "Transformers intro",
-    "section": "Pipeline",
-    "text": "Pipeline\n\nWe just load a pipeline for NER without specifying a model.\nThis will load a default BERT model that has been trained on the CoNLL-2003 dataset:\n\n\nner_pipeline = pipeline('ner')"
-  },
-  {
-    "objectID": "code/transformers.html#merge-entities",
-    "href": "code/transformers.html#merge-entities",
-    "title": "Transformers intro",
-    "section": "Merge entities",
-    "text": "Merge entities\n\nWhen we pass our text through the model, we now get a long list of Python dictionaries, where each dictionary corresponds to one detected entity.\nSince multiple tokens can correspond to a a single entity, we can apply an aggregation strategy that merges entities if the same class appears in consequtive tokens:\n\n\nentities = ner_pipeline(text, aggregation_strategy=\"simple\")\nprint(entities)\n\n\nOutput: [{‘entity_group’: ‘ORG’, ‘score’: 0.87900954, ‘word’: ‘Amazon’, ‘start’: 5, ‘end’: 11}, {‘entity_group’: ‘MISC’, ‘score’: 0.9908588, ‘word’: ‘Optimus Prime’, ‘start’: 36, ‘end’: 49}, {‘entity_group’: ‘LOC’, ‘score’: 0.9997547, ‘word’: ‘Germany’, ‘start’: 90, ‘end’: 97}, {‘entity_group’: ‘MISC’, ‘score’: 0.55656713, ‘word’: ‘Mega’, ‘start’: 208, ‘end’: 212}, {‘entity_group’: ‘PER’, ‘score’: 0.5902563, ‘word’: ‘##tron’, ‘start’: 212, ‘end’: 216}, {‘entity_group’: ‘ORG’, ‘score’: 0.6696913, ‘word’: ‘Decept’, ‘start’: 253, ‘end’: 259}, {‘entity_group’: ‘MISC’, ‘score’: 0.4983487, ‘word’: ‘##icons’, ‘start’: 259, ‘end’: 264}, {‘entity_group’: ‘MISC’, ‘score’: 0.77536064, ‘word’: ‘Megatron’, ‘start’: 350, ‘end’: 358}, {‘entity_group’: ‘MISC’, ‘score’: 0.987854, ‘word’: ‘Optimus Prime’, ‘start’: 367, ‘end’: 380}, {‘entity_group’: ‘PER’, ‘score’: 0.81209683, ‘word’: ‘Bumblebee’, ‘start’: 502, ‘end’: 511}]"
-  },
-  {
-    "objectID": "code/transformers.html#clean-the-output",
-    "href": "code/transformers.html#clean-the-output",
-    "title": "Transformers intro",
-    "section": "Clean the output",
-    "text": "Clean the output\n\nThis isn’t very easy to read, so let’s clean up the outputs a bit:\n\n\nfor entity in entities:\n    print(f\"{entity['word']}: {entity['entity_group']} ({entity['score']:.2f})\")\n\nAmazon: ORG (0.88)  \nOptimus Prime: MISC (0.99)  \nGermany: LOC (1.00)  \nMega: MISC (0.56)  \n##tron: PER (0.59)  \nDecept: ORG (0.67)  \n##icons: MISC (0.50)  \nMegatron: MISC (0.78)  \nOptimus Prime: MISC (0.99)  \nBumblebee: PER (0.81)"
-  },
-  {
-    "objectID": "code/transformers.html#findings",
-    "href": "code/transformers.html#findings",
-    "title": "Transformers intro",
-    "section": "Findings",
-    "text": "Findings\n\nIt seems that the model found most of the named entities but was confused about “Megatron” andn “Decepticons”, which are characters in the transformers franchise.\nThis is no surprise since the original dataset probably did not contain many transformer characters. For this reason it makes sense to further fine-tune a model on your on dataset!"
-  },
-  {
-    "objectID": "code/transformers.html#basics-1",
-    "href": "code/transformers.html#basics-1",
-    "title": "Transformers intro",
-    "section": "Basics",
-    "text": "Basics\n\nIn this task, the model is given a question and a context and needs to find the answer to the question within the context.\nThis problem can be rephrased as a classification problem: For each token the model needs to predict whether it is the start or the end of the answer."
-  },
-  {
-    "objectID": "code/transformers.html#basics-2",
-    "href": "code/transformers.html#basics-2",
-    "title": "Transformers intro",
-    "section": "Basics",
-    "text": "Basics\n\nIn the end we can extract the answer by looking at the span between the token with the highest start probability and highest end probability:"
-  },
-  {
-    "objectID": "code/transformers.html#pipeline-2",
-    "href": "code/transformers.html#pipeline-2",
-    "title": "Transformers intro",
-    "section": "Pipeline",
-    "text": "Pipeline\n\nwe load the model by specifying the task in the pipeline() function:\n\n\nqa_pipeline = pipeline(\"question-answering\")\n\n\nThis default model is trained on the famous SQuAD dataset."
-  },
-  {
-    "objectID": "code/transformers.html#ask-question",
-    "href": "code/transformers.html#ask-question",
-    "title": "Transformers intro",
-    "section": "Ask question",
-    "text": "Ask question\n\nLet’s see if we can ask it what the customer wants:\n\n\nquestion = \"What does the customer want?\"\n\noutputs = qa_pipeline(question=question, context=text)\noutputs\n\n{'score': 0.6312916874885559,\n 'start': 335,\n 'end': 358,\n 'answer': 'an exchange of Megatron'}"
-  },
-  {
-    "objectID": "code/transformers.html#basics-3",
-    "href": "code/transformers.html#basics-3",
-    "title": "Transformers intro",
-    "section": "Basics",
-    "text": "Basics\n\nGeneration is much more computationally demanding since we usually generate one token at a time and need to run this several times.\nAn example for how this process works is shown below:"
-  },
-  {
-    "objectID": "code/transformers.html#pipeline-3",
-    "href": "code/transformers.html#pipeline-3",
-    "title": "Transformers intro",
-    "section": "Pipeline",
-    "text": "Pipeline\n\nA popular task involving generation is summarization\n\n\nsummarization_pipeline = pipeline(\"summarization\")\n\n\nThis model was trained on the CNN/Dailymail dataset to summarize news articles."
-  },
-  {
-    "objectID": "code/transformers.html#output",
-    "href": "code/transformers.html#output",
-    "title": "Transformers intro",
-    "section": "Output",
-    "text": "Output\n\noutputs = summarization_pipeline(text, max_length=80, clean_up_tokenization_spaces=True)\n\nprint(wrapper.fill(outputs[0]['summary_text']))\n\n\nOutput: Bumblebee ordered an Optimus Prime action figure from your online store in Germany. Unfortunately, when I opened the package, I discovered to my horror that I had been sent an action figure of Megatron instead. As a lifelong enemy of the Decepticons, I hope you can understand my dilemma."
-  },
-  {
-    "objectID": "code/transformers.html#basics-4",
-    "href": "code/transformers.html#basics-4",
-    "title": "Transformers intro",
-    "section": "Basics",
-    "text": "Basics\n\nBut what if there is no model in the language of my data?\nYou can still try to translate the text.\nThe Helsinki NLP team has provided over 1,000 language pair models for translation."
-  },
-  {
-    "objectID": "code/transformers.html#pipeline-4",
-    "href": "code/transformers.html#pipeline-4",
-    "title": "Transformers intro",
-    "section": "Pipeline",
-    "text": "Pipeline\n\nTranslate English to German:\n\n\ntranslator = pipeline(\"translation_en_to_de\", model=\"Helsinki-NLP/opus-mt-en-de\")"
-  },
-  {
-    "objectID": "code/transformers.html#output-1",
-    "href": "code/transformers.html#output-1",
-    "title": "Transformers intro",
-    "section": "Output",
-    "text": "Output\n\nLet’s translate our text to German:\n\n\noutputs = translator(text, clean_up_tokenization_spaces=True, min_length=100)\n\nprint(wrapper.fill(outputs[0]['translation_text']))\n\n\nOutput: Sehr geehrter Amazon, letzte Woche habe ich eine Optimus Prime Action Figur aus Ihrem Online-Shop in Deutschland bestellt. Leider, als ich das Paket öffnete, entdeckte ich zu meinem Entsetzen, dass ich stattdessen eine Action Figur von Megatron geschickt worden war! Als lebenslanger Feind der Decepticons, Ich hoffe, Sie können mein Dilemma verstehen. Um das Problem zu lösen, Ich fordere einen Austausch von Megatron für die Optimus Prime Figur habe ich bestellt. Eingeschlossen sind Kopien meiner Aufzeichnungen über diesen Kauf. Ich erwarte, von Ihnen bald zu hören. Aufrichtig, Bumblebee."
-  },
-  {
-    "objectID": "code/transformers.html#findings-1",
-    "href": "code/transformers.html#findings-1",
-    "title": "Transformers intro",
-    "section": "Findings",
-    "text": "Findings\n\nWe can see that the text is clearly not perfectly translated, but the core meaning stays the same.\nAnother application of translation models is data augmentation via backtranslation"
-  },
-  {
-    "objectID": "code/transformers.html#basics-5",
-    "href": "code/transformers.html#basics-5",
-    "title": "Transformers intro",
-    "section": "Basics",
-    "text": "Basics\n\nIn zero-shot classification the model receives a text and a list of candidate labels and determines which labels are compatible with the text.\nInstead of having fixed classes this allows for flexible classification without any labelled data!\nUsually this is a good first baseline!"
-  },
-  {
-    "objectID": "code/transformers.html#pipeline-5",
-    "href": "code/transformers.html#pipeline-5",
-    "title": "Transformers intro",
-    "section": "Pipeline",
-    "text": "Pipeline\n\nzero_shot_classifier = pipeline(\"zero-shot-classification\",\n                                model=\"vicgalle/xlm-roberta-large-xnli-anli\")"
-  },
-  {
-    "objectID": "code/transformers.html#text-input-1",
-    "href": "code/transformers.html#text-input-1",
-    "title": "Transformers intro",
-    "section": "Text input",
-    "text": "Text input\nLet’s have a look at an example:\n\ntext = 'Dieses Tutorial ist großartig! Ich hoffe, dass jemand von Hugging Face meine Hochschule besuchen wird :)'\n\nclasses = ['Treffen', 'Arbeit', 'Digital', 'Reisen']"
-  },
-  {
-    "objectID": "code/transformers.html#pipeline-6",
-    "href": "code/transformers.html#pipeline-6",
-    "title": "Transformers intro",
-    "section": "Pipeline",
-    "text": "Pipeline\n\nzero_shot_classifier(text, classes, multi_label=True)\n\n{'sequence': 'Dieses Tutorial ist großartig! Ich hoffe, dass jemand von Hugging Face meine Hochschule besuchen wird :)',\n 'labels': ['Digital', 'Arbeit', 'Treffen', 'Reisen'],\n 'scores': [0.7426563501358032,\n  0.6590237021446228,\n  0.517701268196106,\n  0.011237525381147861]}\n\nFor longer and more domain specific examples this approach might suffer."
-  },
-  {
-    "objectID": "code/transformers.html#basics-6",
-    "href": "code/transformers.html#basics-6",
-    "title": "Transformers intro",
-    "section": "Basics",
-    "text": "Basics\nThere are many more pipelines that you can experiment with\n\nfrom transformers import pipelines\nfor task in pipelines.SUPPORTED_TASKS:\n    print(task)"
-  },
-  {
-    "objectID": "code/sentiment.html",
-    "href": "code/sentiment.html",
-    "title": "Sentimant Analysis with Hugging Face",
-    "section": "",
-    "text": "from transformers import pipeline"
-  },
-  {
-    "objectID": "code/sentiment.html#use-cases",
-    "href": "code/sentiment.html#use-cases",
-    "title": "Sentimant Analysis with Hugging Face",
+    "objectID": "slides/summarization.html#use-cases",
+    "href": "slides/summarization.html#use-cases",
+    "title": "Text summarization",
     "section": "Use Cases",
-    "text": "Use Cases\n\nSentiment Analysis on Customer Reviews\nYou can track the sentiments of your customers from the product reviews using sentiment analysis models.\nThis can help understand churn and retention by grouping reviews by sentiment, to later analyze the text and make strategic decisions based on this knowledge."
+    "text": "Use Cases\n\nHelp readers quickly understand the main points.\nLegislative bills, legal and financial documents, patents, and scientific papers …"
   },
   {
-    "objectID": "code/sentiment.html#pipeline-example-with-default-model",
-    "href": "code/sentiment.html#pipeline-example-with-default-model",
-    "title": "Sentimant Analysis with Hugging Face",
-    "section": "Pipeline example with default model",
-    "text": "Pipeline example with default model\n\nsentiment_pipeline = pipeline(\"sentiment-analysis\")\n\ndata = [\"I love you\",\n        \"I hate you\"]\n\nsentiment_pipeline(data)\n\n\nOutput:\n\n[{'label': 'POSITIVE', 'score': 0.9998656511306763},\n {'label': 'NEGATIVE', 'score': 0.9991129040718079}]"
+    "objectID": "slides/summarization.html#two-types-of-summarization",
+    "href": "slides/summarization.html#two-types-of-summarization",
+    "title": "Text summarization",
+    "section": "Two types of summarization:",
+    "text": "Two types of summarization:\n\nextractive: identify and extract the most important sentences from the original text.\nabstractive: generate the target summary (which may include new words not in the input document) from the original text"
   },
   {
-    "objectID": "code/sentiment.html#pipeline-example-with-specific-model",
-    "href": "code/sentiment.html#pipeline-example-with-specific-model",
-    "title": "Sentimant Analysis with Hugging Face",
-    "section": "Pipeline example with specific model",
-    "text": "Pipeline example with specific model\n\nspecific_model = pipeline(\n    model=\"finiteautomata/bertweet-base-sentiment-analysis\")\n\n\nspecific_model(data)"
+    "objectID": "slides/summarization.html#create-pipeline",
+    "href": "slides/summarization.html#create-pipeline",
+    "title": "Text summarization",
+    "section": "Create pipeline",
+    "text": "Create pipeline\n\nsummarizer = pipeline(task=\"summarization\")"
   },
   {
-    "objectID": "slides/qa.html#use-cases",
-    "href": "slides/qa.html#use-cases",
-    "title": "Question Answering",
-    "section": "Use Cases",
-    "text": "Use Cases\n\nAutomate the response to Frequently Asked Questions\nChat Bots"
+    "objectID": "slides/summarization.html#provide-text",
+    "href": "slides/summarization.html#provide-text",
+    "title": "Text summarization",
+    "section": "Provide text",
+    "text": "Provide text\n\nParagraph about observational studies and experiments from Introduction to Modern Statistics\n\n\n\nmy_text = \"When researchers want to evaluate the effect of particular traits, treatments, \\\nor conditions, they conduct an experiment. For instance, we may suspect drinking a \\\nhigh-calorie energy drink will improve performance in a race. To check if there \\\nreally is a causal relationship between the explanatory variable (whether the \\\nrunner drank an energy drink or not) and the response variable (the race time), \\\n researchers identify a sample of individuals and split them into groups. \\\n The individuals in each group are assigned a treatment. When individuals are \\\n randomly assigned to a group, the experiment is called a randomized experiment. \\\n Random assignment organizes the participants in a study into groups that are roughly \\\n equal on all aspects, thus allowing us to control for any confounding variables that \\\n  might affect the outcome (e.g., fitness level, racing experience, etc.). For example, \\\n   each runner in the experiment could be randomly assigned, perhaps by flipping a coin,  \\\ninto one of two groups: the first group receives a placebo (fake treatment, in this case  \\\na no-calorie drink) and the second group receives the high-calorie energy drink.  \\\nSee the case study in Section 1.1 for another example of an experiment, though that  \\\nstudy did not employ a placebo. Researchers perform an observational study when they  \\\ncollect data in a way that does not directly interfere with how the data arise.  \\\nFor instance, researchers may collect information via surveys, review medical or company  \\\nrecords, or follow a cohort of many similar individuals to form hypotheses about why  \\\ncertain diseases might develop. In each of these situations, researchers merely observe  \\\nthe data that arise. In general, observational studies can provide evidence of a naturally  \\\noccurring association between variables, but they cannot by themselves show a causal connection  \\\nas they do not offer a mechanism for controlling for confounding variables.\""
   },
   {
-    "objectID": "slides/qa.html#common-types",
-    "href": "slides/qa.html#common-types",
-    "title": "Question Answering",
-    "section": "Common types",
-    "text": "Common types\n\nExtractive QA: The model extracts the answer from the original context.\n\nThe context could be a provided text, a table or even HTML! This is usually solved with BERT-like models.\n\nOpen Generative QA: The model generates free text directly based on the context.\nClosed Generative QA: In this case, no context is provided. The answer is completely generated by a model."
+    "objectID": "slides/summarization.html#summarizer",
+    "href": "slides/summarization.html#summarizer",
+    "title": "Text summarization",
+    "section": "Summarizer",
+    "text": "Summarizer\n\nsummarizer(my_text, min_length=20, max_length=80)"
   },
   {
-    "objectID": "slides/qa.html#closed-domain-vs-open-domain",
-    "href": "slides/qa.html#closed-domain-vs-open-domain",
-    "title": "Question Answering",
-    "section": "Closed-domain vs open-domain",
-    "text": "Closed-domain vs open-domain\n\nClosed-domain models are restricted to a specific domain (e.g. legal, medical documents).\nOpen-domain models are not restricted to a specific domain."
-  },
-  {
-    "objectID": "slides/qa.html#define-pipeline",
-    "href": "slides/qa.html#define-pipeline",
-    "title": "Question Answering",
-    "section": "Define pipeline",
-    "text": "Define pipeline\n\nDefine the Pipeline1\n\n\n\nqa_model = pipeline(\"question-answering\")\n\n\nWill be initialized with the default model distilbert-base-cased-distilled-squad"
-  },
-  {
-    "objectID": "slides/qa.html#provide-question-and-context",
-    "href": "slides/qa.html#provide-question-and-context",
-    "title": "Question Answering",
-    "section": "Provide question and context",
-    "text": "Provide question and context\n\n\nquestion = \"Where do I live?\"\n\ncontext = \"My name is Jan and I live in Stuttgart.\""
-  },
-  {
-    "objectID": "slides/qa.html#return-the-answer",
-    "href": "slides/qa.html#return-the-answer",
-    "title": "Question Answering",
-    "section": "Return the answer",
-    "text": "Return the answer\n\n\nqa_model(question=question, context=context)\n\n\n\n{'score': 0.9671180844306946, 'start': 29, 'end': 38, 'answer': 'Stuttgart'}"
-  },
-  {
-    "objectID": "slides/diffusers.html#basics",
-    "href": "slides/diffusers.html#basics",
-    "title": "Diffusion models",
-    "section": "Basics",
-    "text": "Basics\n\ndiffusers: A Python library maintained at 🤗\nProviding open and responsible access to pre-trained diffusion models.\nDemocratizing the ecosystem of diffusion models by making them easy to use."
-  },
-  {
-    "objectID": "slides/diffusers.html#diffusers-mac-silicon",
-    "href": "slides/diffusers.html#diffusers-mac-silicon",
-    "title": "Diffusion models",
-    "section": "Diffusers (Mac silicon)",
-    "text": "Diffusers (Mac silicon)\n\nmodel_id = \"runwayml/stable-diffusion-v1-5\"\n\npipeline = StableDiffusionPipeline.from_pretrained(model_id)\n\npipeline = pipeline.to('mps')\n\n# Recommended if your computer has &lt; 64 GB of RAM\npipeline.enable_attention_slicing()\n\nimage = pipeline(\n    \"An astronaut floating through space while plying the guitar\").images[0]\n\nimage.save(\"../images/diffusion_astronaut.png\")"
-  },
-  {
-    "objectID": "slides/diffusers.html#output",
-    "href": "slides/diffusers.html#output",
-    "title": "Diffusion models",
+    "objectID": "slides/summarization.html#output",
+    "href": "slides/summarization.html#output",
+    "title": "Text summarization",
     "section": "Output",
-    "text": "Output"
-  },
-  {
-    "objectID": "slides/diffusers.html#diffusers-on-windows-and-mac-intel",
-    "href": "slides/diffusers.html#diffusers-on-windows-and-mac-intel",
-    "title": "Diffusion models",
-    "section": "Diffusers on Windows and Mac Intel",
-    "text": "Diffusers on Windows and Mac Intel\n\nmodel_id = \"runwayml/stable-diffusion-v1-5\"\n\npipeline = StableDiffusionPipeline.from_pretrained(model_id)\n\npipeline = pipeline.to(\"cuda\")\n\nimage = pipeline(\"An astronaut riding a tiger\").images[0]\n\nimage.save(\"image.png\")"
+    "text": "Output\n\nOutput:\n\n\n[{'summary_text': ' When researchers want to evaluate the effect of particular  \\\ntraits, treatments, or conditions, they conduct an experiment . For example, we  \\\nmay suspect drinking a high-calorie energy drink will improve performance in a race .  \\\nResearchers perform an observational study when they collect data in a way that does  \\\nnot directly interfere with how the data arise .'}]"
   },
   {
     "objectID": "slides/gradio.html#why-demos",
@@ -588,319 +231,46 @@
     "text": "Workflow\n\nYou find the link to our organization (HdM-…) in Moodle\nVisit the organization page and click “Request to join this org” button, if you are not yet part of the org.\nThen, once you have been approved to join the organization (and built your Gradio Demo and uploaded it to Spaces – see Sections above):\n\n\nGo to your Space and go to Settings &gt; Rename or transfer this space\nselect the organization name under New owner.\nClick the button and the Space will now be added to our organization"
   },
   {
-    "objectID": "slides/sentiment.html#use-cases",
-    "href": "slides/sentiment.html#use-cases",
-    "title": "Sentiment Analyis",
+    "objectID": "slides/qa.html#use-cases",
+    "href": "slides/qa.html#use-cases",
+    "title": "Question Answering",
     "section": "Use Cases",
-    "text": "Use Cases\n\nSentiment Analysis on Customer Reviews\nYou can track the sentiments of your customers from the product reviews using sentiment analysis models.\nThis can help understand churn and retention by grouping reviews by sentiment, to later analyze the text and make strategic decisions based on this knowledge."
+    "text": "Use Cases\n\nAutomate the response to Frequently Asked Questions\nChat Bots"
   },
   {
-    "objectID": "slides/sentiment.html#pipeline-example-with-default-model",
-    "href": "slides/sentiment.html#pipeline-example-with-default-model",
-    "title": "Sentiment Analyis",
-    "section": "Pipeline example with default model",
-    "text": "Pipeline example with default model\n\nsentiment_pipeline = pipeline(\"sentiment-analysis\")\n\ndata = [\"I love you\",\n        \"I hate you\"]\n\nsentiment_pipeline(data)\n\n\nOutput:\n\n\n[{'label': 'POSITIVE', 'score': 0.9998656511306763},\n {'label': 'NEGATIVE', 'score': 0.9991129040718079}]"
+    "objectID": "slides/qa.html#common-types",
+    "href": "slides/qa.html#common-types",
+    "title": "Question Answering",
+    "section": "Common types",
+    "text": "Common types\n\nExtractive QA: The model extracts the answer from the original context.\n\nThe context could be a provided text, a table or even HTML! This is usually solved with BERT-like models.\n\nOpen Generative QA: The model generates free text directly based on the context.\nClosed Generative QA: In this case, no context is provided. The answer is completely generated by a model."
   },
   {
-    "objectID": "slides/sentiment.html#pipeline-example-with-specific-model",
-    "href": "slides/sentiment.html#pipeline-example-with-specific-model",
-    "title": "Sentiment Analyis",
-    "section": "Pipeline example with specific model",
-    "text": "Pipeline example with specific model\n\nspecific_model = pipeline(\n    model=\"finiteautomata/bertweet-base-sentiment-analysis\")\n\n\n\nspecific_model(data)\n\n\nOutput:\n\n\n\n[{'label': 'POS', 'score': 0.9916695356369019},\n {'label': 'NEG', 'score': 0.9806600213050842}]"
+    "objectID": "slides/qa.html#closed-domain-vs-open-domain",
+    "href": "slides/qa.html#closed-domain-vs-open-domain",
+    "title": "Question Answering",
+    "section": "Closed-domain vs open-domain",
+    "text": "Closed-domain vs open-domain\n\nClosed-domain models are restricted to a specific domain (e.g. legal, medical documents).\nOpen-domain models are not restricted to a specific domain."
   },
   {
-    "objectID": "slides/generation.html#use-cases",
-    "href": "slides/generation.html#use-cases",
-    "title": "Text generation",
-    "section": "Use Cases",
-    "text": "Use Cases\n\nStories Generation\nCode Generation: can help programmers in their repetitive coding tasks."
+    "objectID": "slides/qa.html#define-pipeline",
+    "href": "slides/qa.html#define-pipeline",
+    "title": "Question Answering",
+    "section": "Define pipeline",
+    "text": "Define pipeline\n\nDefine the Pipeline1\n\n\n\nqa_model = pipeline(\"question-answering\")\n\n\nWill be initialized with the default model distilbert-base-cased-distilled-squad"
   },
   {
-    "objectID": "slides/generation.html#task-variants",
-    "href": "slides/generation.html#task-variants",
-    "title": "Text generation",
-    "section": "Task Variants",
-    "text": "Task Variants\n\nCompletion Generation Models\n\nGiven an incomplete sentence, complete it.\nContinue a story given the first sentences.\nProvided a code description, generate the code.\n\nText-to-Text Generation Models\n\nTranslation\nSummarization\nText classification\n\nInference\n\ntakes an incomplete text and returns multiple outputs with which the text can be completed."
+    "objectID": "slides/qa.html#provide-question-and-context",
+    "href": "slides/qa.html#provide-question-and-context",
+    "title": "Question Answering",
+    "section": "Provide question and context",
+    "text": "Provide question and context\n\n\nquestion = \"Where do I live?\"\n\ncontext = \"My name is Jan and I live in Stuttgart.\""
   },
   {
-    "objectID": "slides/generation.html#create-pipeline-with-gpt-2",
-    "href": "slides/generation.html#create-pipeline-with-gpt-2",
-    "title": "Text generation",
-    "section": "Create pipeline with GPT-2",
-    "text": "Create pipeline with GPT-2\n\ngenerator = pipeline('text-generation', model='gpt2')"
-  },
-  {
-    "objectID": "slides/generation.html#provide-text",
-    "href": "slides/generation.html#provide-text",
-    "title": "Text generation",
-    "section": "Provide text",
-    "text": "Provide text\n\nmy_text = \"Hello, I study online media management\""
-  },
-  {
-    "objectID": "slides/generation.html#make-inference",
-    "href": "slides/generation.html#make-inference",
-    "title": "Text generation",
-    "section": "Make inference",
-    "text": "Make inference\n\ngenerator(my_text, max_length=30, num_return_sequences=3)"
-  },
-  {
-    "objectID": "slides/generation.html#output",
-    "href": "slides/generation.html#output",
-    "title": "Text generation",
-    "section": "Output",
-    "text": "Output\n\n[{'generated_text': 'Hello, I study online media management, and while most of my courses focus on the business, I specialize in online development.\\n\\nIf you know'},\n\n {'generated_text': 'Hello, I study online media management at a computer-focused high school. One of my favorite exercises is watching and reading my students write things.\\n'},\n\n {'generated_text': 'Hello, I study online media management, so I know that it\\'s not the best idea to be a part of the digital environment yourself.\"\\n\\n'}]"
-  },
-  {
-    "objectID": "require.html",
-    "href": "require.html",
-    "title": "Requirements",
-    "section": "",
-    "text": "To start this lab on your local machine, you’ll need:\nTo start this lab, you’ll need the following environments:\n\n\n\n\n\n\nImportant\n\n\n\nVisit the “Programming Toolkit-webpage” to learn how to meet all requirements.\n\n\n\nPython: Anaconda, Anaconda Environment transformers and Visual Studio Code\nEnvironment: A folder on your machine called huggingface and an environment file with your Hugging Face API."
-  },
-  {
-    "objectID": "require.html#local-development",
-    "href": "require.html#local-development",
-    "title": "Requirements",
-    "section": "",
-    "text": "To start this lab on your local machine, you’ll need:\nTo start this lab, you’ll need the following environments:\n\n\n\n\n\n\nImportant\n\n\n\nVisit the “Programming Toolkit-webpage” to learn how to meet all requirements.\n\n\n\nPython: Anaconda, Anaconda Environment transformers and Visual Studio Code\nEnvironment: A folder on your machine called huggingface and an environment file with your Hugging Face API."
-  },
-  {
-    "objectID": "require.html#cloud-development",
-    "href": "require.html#cloud-development",
-    "title": "Requirements",
-    "section": "Cloud development",
-    "text": "Cloud development\nInstead of local development, you may also work in a fully configured dev environment in the cloud with GitHub Codespaces. Take a look at this site to learn more about the different options."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome 👋",
-    "section": "",
-    "text": "Welcome to the lab “Hugging Face 🤗”\n\nIn this lab you will …\n\n\n\n\n\n\nImportant\n\n\n\nMake sure you meet all the requirements and have read the lecture slides before you start with the assignments\n\n\nWhat you will learn in this lab:\n\nyou’ll get to know the Hugging Face Hub\nlearn how to build and host Machine Learning Demos with Gradio ⚡ & Hugging Face\nhow to use transformers in Hugging Face\nhow to perform sentiment analysis, text summarization, question and answering, text generation & more"
-  },
-  {
-    "objectID": "slide.html",
-    "href": "slide.html",
-    "title": "Slides",
-    "section": "",
-    "text": "The following tutorials are mainly based on material provided by Hugging Face\nYou have several options to start code development:"
-  },
-  {
-    "objectID": "slide.html#hugging-face-hub",
-    "href": "slide.html#hugging-face-hub",
-    "title": "Slides",
-    "section": "1 Hugging Face Hub",
-    "text": "1 Hugging Face Hub\nIn this tutorial, you’ll get to know the Hugging Face Hub:\n\nExplore the over models shared in the Hub.\nLearn efficient ways to find the right model and datasets for your own task\nLearn how to contribute and work collaboratively in your ML workflows\n\n\n\n\n\n\n\n\n🖥️ Presentation\n💻 Jupyter Notebook"
-  },
-  {
-    "objectID": "slide.html#build-and-host-machine-learning-demos",
-    "href": "slide.html#build-and-host-machine-learning-demos",
-    "title": "Slides",
-    "section": "2 Build and Host Machine Learning Demos",
-    "text": "2 Build and Host Machine Learning Demos\nIn this tutorial, you’ll learn how to build and host Machine Learning Demos with Gradio ⚡ & Hugging Face:\n\nExplore ML demos created by the community.\nBuild a quick demo for your machine learning model in Python using the gradio library\nHost the demos for free with Hugging Face Spaces\nHow to add your demo to our Hugging Face org for your class\n\n\n\n\n\n\n\n\n🖥️ Presentation\n💻 Jupyter Notebook\n\n\n\n\nOptional resources:\n\n📖 Tutorial"
-  },
-  {
-    "objectID": "slide.html#getting-started-with-transformers",
-    "href": "slide.html#getting-started-with-transformers",
-    "title": "Slides",
-    "section": "3 Getting Started with Transformers",
-    "text": "3 Getting Started with Transformers\nLearn how to use transformers in Hugging Face:\n\nTransformer neural networks can be used to tackle a wide range of tasks in natural language processing and beyond.\nTransfer learning allows one to adapt Transformers to specific tasks.\nThe pipeline() function from the transformers library can be used to run inference with models from the Hugging Face Hub.\n\n\n\n\n\n\n\n\n🖥️ Presentation\n💻 Jupyter Notebook\n\n\n\n\nOptional resources:\n\n👉 Hands-on Transformers exercices"
-  },
-  {
-    "objectID": "slide.html#sentiment-analysis",
-    "href": "slide.html#sentiment-analysis",
-    "title": "Slides",
-    "section": "4 Sentiment Analysis",
-    "text": "4 Sentiment Analysis\nLearn how to perform sentiment analysis:\n\n\n\n\n\n\n\n🖥️ Presentation\n💻 Jupyter Notebook"
-  },
-  {
-    "objectID": "slide.html#summarization",
-    "href": "slide.html#summarization",
-    "title": "Slides",
-    "section": "5 Summarization",
-    "text": "5 Summarization\nLearn how to perform text summarization:\n\n\n\n\n\n\n\n🖥️ Presentation\n💻 Jupyter Notebook"
-  },
-  {
-    "objectID": "slide.html#question-and-answering",
-    "href": "slide.html#question-and-answering",
-    "title": "Slides",
-    "section": "6 Question and Answering",
-    "text": "6 Question and Answering\nQestion answering tasks return an answer given a question:\n\n\n\n\n\n\n\n🖥️ Presentation\n💻 Jupyter Notebook"
-  },
-  {
-    "objectID": "slide.html#text-generation",
-    "href": "slide.html#text-generation",
-    "title": "Slides",
-    "section": "7 Text generation",
-    "text": "7 Text generation\nText generation models:\n\n\n\n\n\n\n\n🖥️ Presentation\n💻 Jupyter Notebook"
-  },
-  {
-    "objectID": "slide.html#transformers-intuition",
-    "href": "slide.html#transformers-intuition",
-    "title": "Slides",
-    "section": "8 Transformers intuition",
-    "text": "8 Transformers intuition\nLearn some basics about transformers models:\n\n\n\n\n\n\n\n🖥️ Presentation\n💻 Jupyter Notebook"
-  },
-  {
-    "objectID": "slide.html#diffusion-models",
-    "href": "slide.html#diffusion-models",
-    "title": "Slides",
-    "section": "9 Diffusion models",
-    "text": "9 Diffusion models\nLearn about the various use cases of diffusion models and how to use the diffusers library to use pre-trained state-of-the-art diffusion models:\n\n\n\n\n\n\n\n\n\n🖥️ Presentation\n💻 Jupyter Notebook\n\n\n\n\nOptional resources:\n\nStable Diffusion with 🧨 Diffusers\nHugging Face Tutorial"
-  },
-  {
-    "objectID": "slides/hub.html#what-is-the-hub",
-    "href": "slides/hub.html#what-is-the-hub",
-    "title": "Hugging Face Hub 🤗",
-    "section": "What is the Hub?",
-    "text": "What is the Hub?\n\nThe Hub is a free platform where anyone can share and explore models, datasets, and ML demos.\n\n\n\n\n\n\n\n\nHugging Face\n\n\n\nOver 300,000 public models.\nModels for Natural Language Processing, Computer Vision, Audio/Speech, and Reinforcement Learning\nModels for over 180 languages."
-  },
-  {
-    "objectID": "slides/hub.html#learning-goals",
-    "href": "slides/hub.html#learning-goals",
-    "title": "Hugging Face Hub 🤗",
-    "section": "Learning Goals",
-    "text": "Learning Goals\n\n\n\n\n\n\nLearning Goals\n\n\n\nExplore models shared on the Hub.\nFind suitable models and datasets for your task.\nHow to contribute and work collaboratively.\nExplore ML demos created by the community."
-  },
-  {
-    "objectID": "slides/hub.html#exploring-a-model",
-    "href": "slides/hub.html#exploring-a-model",
-    "title": "Hugging Face Hub 🤗",
-    "section": "Exploring a model",
-    "text": "Exploring a model\n\nYou can access over 300,000 models at hf.co/models.\nYou will see gpt2 as one of the models with the most downloads. Let’s click on it.\nThe website will take you to the model card when you click a model."
-  },
-  {
-    "objectID": "slides/hub.html#what-is-the-model-card",
-    "href": "slides/hub.html#what-is-the-model-card",
-    "title": "Hugging Face Hub 🤗",
-    "section": "What is the Model Card?",
-    "text": "What is the Model Card?\n\nA model card is a tool that\n\ndocuments models,\nprovides helpful information about the models\nis essential for discoverability and reproducibility"
-  },
-  {
-    "objectID": "slides/hub.html#tags",
-    "href": "slides/hub.html#tags",
-    "title": "Hugging Face Hub 🤗",
-    "section": "Tags",
-    "text": "Tags\n\n\nAt the top, you can find different tags for things such as the\n\ntask (text generation, image classification, etc.)\nframeworks (PyTorch, TensorFlow, etc.),\nthe model’s language (English, Arabic, etc.),\nand license (e.g. MIT)."
-  },
-  {
-    "objectID": "slides/hub.html#inference-api",
-    "href": "slides/hub.html#inference-api",
-    "title": "Hugging Face Hub 🤗",
-    "section": "Inference API",
-    "text": "Inference API\n\n\nAt the right column, you can play with the model directly in the browser using the Inference API.\nGPT2 is a text generation model, so it will generate additional text given an initial input.\nTry typing something like, “It was a bright and sunny day.”"
-  },
-  {
-    "objectID": "slides/hub.html#model-card-content",
-    "href": "slides/hub.html#model-card-content",
-    "title": "Hugging Face Hub 🤗",
-    "section": "Model Card Content",
-    "text": "Model Card Content\n\n\nIn the middle, you can go through the model card content.\nIt has sections such as Intended uses & limitations, Training procedure, and Citation Info."
-  },
-  {
-    "objectID": "slides/hub.html#where-does-the-data-come-from",
-    "href": "slides/hub.html#where-does-the-data-come-from",
-    "title": "Hugging Face Hub 🤗",
-    "section": "Where does the data come from?",
-    "text": "Where does the data come from?\n\n\nAt Hugging Face, everything is based in Git repositories and is open-sourced.\nYou can click the “Files and Versions” tab, which will allow you to see all the repository files, including the model weights.\nThe model card is a markdown file (README.md) which on top of the content contains metadata such as the tags.\nJust as with GitHub, you can do things such as Git cloning, adding, committing, branching, and pushing."
-  },
-  {
-    "objectID": "slides/hub.html#take-a-look-at-config.json",
-    "href": "slides/hub.html#take-a-look-at-config.json",
-    "title": "Hugging Face Hub 🤗",
-    "section": "Take a look at config.json",
-    "text": "Take a look at config.json\n\nOpen the config.json file of the GPT2 repository.\nThe config file contains hyperparameters as well as useful information for loading the model."
-  },
-  {
-    "objectID": "slides/hub.html#filter",
-    "href": "slides/hub.html#filter",
-    "title": "Hugging Face Hub 🤗",
-    "section": "Filter",
-    "text": "Filter\n\n\nAt the left of https://huggingface.co/models, you can filter for different things:\n\nTasks: Computer Vision, Natural Language Processing, Audio, and more.\nLibraries: You can find models of Keras, PyTorch, spaCy, allenNLP, and more.\nDatasets: The Hub also hosts thousands of datasets, as you’ll find more about later.\nLanguages: Many of the models on the Hub are NLP-related. You can find models for hundreds of languages."
-  },
-  {
-    "objectID": "slides/hub.html#workflow",
-    "href": "slides/hub.html#workflow",
-    "title": "Hugging Face Hub 🤗",
-    "section": "Workflow",
-    "text": "Workflow\n\nGo to huggingface.co/new to create a new model repository.\nYou start with a public repo that has a model card.\nYou can upload your model either by using the Web UI or by doing it with Git.\n\n\nWub UI: You can click Add File and drag and drop the files you want to add.\n\n\n\n\n\n\n\n\nNote\n\n\nTake a look at the appendix to learn how to use Git"
-  },
-  {
-    "objectID": "slides/hub.html#share-and-collaboarate",
-    "href": "slides/hub.html#share-and-collaboarate",
-    "title": "Hugging Face Hub 🤗",
-    "section": "Share and collaboarate",
-    "text": "Share and collaboarate\n\nNow that the model is in the Hub, others can find them!\nYou can also collaborate with others easily by creating an organization.\nHosting through the Hub allows a team to update repositories and do things you might be used to, such as working in branches and working collaboratively.\nThe Hub also enables versioning in your models: if a model checkpoint is suddenly broken, you can always head back to a previous version."
-  },
-  {
-    "objectID": "slides/hub.html#basics",
-    "href": "slides/hub.html#basics",
-    "title": "Hugging Face Hub 🤗",
-    "section": "Basics",
-    "text": "Basics\n\nThe Hub hosts around 3000 datasets that are open-sourced and free to use in multiple domains.\nOn top of it, the open-source datasets library allows the easy use of these datasets\nSimilar to models, you can head to https://hf.co/datasets. At the left, you can find different filters based on the task, license, and size of the dataset."
-  },
-  {
-    "objectID": "slides/hub.html#glue-datset",
-    "href": "slides/hub.html#glue-datset",
-    "title": "Hugging Face Hub 🤗",
-    "section": "GLUE datset",
-    "text": "GLUE datset\n\n\nLet’s explore the GLUE dataset, which is a famous dataset used to test the performance of NLP models.\nSimilar to model repositories, you have a dataset card that documents the dataset. If you scroll down a bit, you will find things such as the summary, the structure, and more."
-  },
-  {
-    "objectID": "slides/hub.html#dataset-slice",
-    "href": "slides/hub.html#dataset-slice",
-    "title": "Hugging Face Hub 🤗",
-    "section": "Dataset slice",
-    "text": "Dataset slice\n\n\nAt the top, you can explore a slice of the dataset directly in the browser.\nThe GLUE dataset is divided into multiple sub-datasets (or subsets) that you can select, such as COLA and QNLI."
-  },
-  {
-    "objectID": "slides/hub.html#models-trained-on-the-dataset",
-    "href": "slides/hub.html#models-trained-on-the-dataset",
-    "title": "Hugging Face Hub 🤗",
-    "section": "Models trained on the dataset",
-    "text": "Models trained on the dataset\n\n\nAt the right of the dataset card, you can see a list of models trained on this dataset."
-  },
-  {
-    "objectID": "slides/hub.html#basics-1",
-    "href": "slides/hub.html#basics-1",
-    "title": "Hugging Face Hub 🤗",
-    "section": "Basics",
-    "text": "Basics\n\nDemos of models are an increasingly important part of the ecosystem.\n\n\n\n\n\n\n\nDemos allow:\n\n\n\nmodel developers to easily present their work to a wide audience\nto increase reproducibility in machine learning by lowering the barrier to test a model\nto share with a non-technical audience the impact of a model"
-  },
-  {
-    "objectID": "slides/hub.html#frameworks",
-    "href": "slides/hub.html#frameworks",
-    "title": "Hugging Face Hub 🤗",
-    "section": "Frameworks",
-    "text": "Frameworks\n\nThere are Open-Source Python frameworks such as Gradio and Streamlit that allow building these demos very easily,\nTools such as Hugging Face Spaces allow to host and share them."
-  },
-  {
-    "objectID": "slides/hub.html#sec-git",
-    "href": "slides/hub.html#sec-git",
-    "title": "Hugging Face Hub 🤗",
-    "section": "Git approach",
-    "text": "Git approach\nIf you want to understand the complete workflow how to upload models, let’s go with the Git approach.\n\nInstall both git and git-lfs on your system.\n\n\nGit: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git\nGit-lfs: https://git-lfs.github.com/. Large files need to be uploaded with Git LFS. Git does not work well once your files are above a few megabytes, which is frequent in ML. ML models can be up to gigabytes or terabytes!\n\n\nClone the repository you just created\n\ngit clone https://huggingface.co/&lt;your-username&gt;/&lt;your-model-id&gt;\n\nGo to the directory and initialize Git LFS"
-  },
-  {
-    "objectID": "slides/hub.html#git-approach-optional",
-    "href": "slides/hub.html#git-approach-optional",
-    "title": "Hugging Face Hub 🤗",
-    "section": "Git approach (optional)",
-    "text": "Git approach (optional)\nHuggingFace already provides a list of common file extensions for the large files in .gitattributes\nIf the files you want to upload are not included in the .gitattributes file, you might need as shown here: You can do so with:\ngit lfs track \"*.your_extension\"\ngit lfs install"
-  },
-  {
-    "objectID": "slides/hub.html#git-approach",
-    "href": "slides/hub.html#git-approach",
-    "title": "Hugging Face Hub 🤗",
-    "section": "Git approach",
-    "text": "Git approach\n\nAdd your files to the repository. The files depend on the framework/libraries you’re using. Overall, what is important is that you provide all artifacts required to load the model. For example:\n\n\nFor TensorFlow, you might want to upload a SavedModel or h5 file.\nFor PyTorch, usually, it’s a pytorch_model.bin.\nFor Scikit-Learn, it’s usually a joblib file.\n\nHere is an example in Python saving a Scikit-Learn model file.\nfrom sklearn import linear_model\nreg = linear_model.LinearRegression()\nreg.fit([[0, 0], [1, 1], [2, 2]], [0, 1, 2]\nfrom joblib import dump, load\ndump(reg, 'model.joblib')"
-  },
-  {
-    "objectID": "slides/hub.html#git-approach-1",
-    "href": "slides/hub.html#git-approach-1",
-    "title": "Hugging Face Hub 🤗",
-    "section": "Git approach",
-    "text": "Git approach\n\nCommit and push your files. (make sure the saved file is within the repository). Use GitHub Desktop or:\n\ngit add .\ngit commit -m \"First model version\"\ngit push\nAnd we’re done! You can check your repository with all the recently added files!\n\nThe UI allows you to explore the model files and commits and to see the diff introduced by each commit.\n\n\nJan Kirenz"
+    "objectID": "slides/qa.html#return-the-answer",
+    "href": "slides/qa.html#return-the-answer",
+    "title": "Question Answering",
+    "section": "Return the answer",
+    "text": "Return the answer\n\n\nqa_model(question=question, context=context)\n\n\n\n{'score': 0.9671180844306946, 'start': 29, 'end': 38, 'answer': 'Stuttgart'}"
   },
   {
     "objectID": "slides/transformers.html#learning-goals",
@@ -1176,6 +546,832 @@
     "text": "Table QA\n\nFinally, a lot of real world data is still in form of tables.\nBeing able to query tables is very useful and with TAPAS you can do tabular question-answering:"
   },
   {
+    "objectID": "slides/diffusers.html#basics",
+    "href": "slides/diffusers.html#basics",
+    "title": "Diffusion models",
+    "section": "Basics",
+    "text": "Basics\n\ndiffusers: A Python library maintained at 🤗\nProviding open and responsible access to pre-trained diffusion models.\nDemocratizing the ecosystem of diffusion models by making them easy to use."
+  },
+  {
+    "objectID": "slides/diffusers.html#diffusers-mac-silicon",
+    "href": "slides/diffusers.html#diffusers-mac-silicon",
+    "title": "Diffusion models",
+    "section": "Diffusers (Mac silicon)",
+    "text": "Diffusers (Mac silicon)\n\nmodel_id = \"runwayml/stable-diffusion-v1-5\"\n\npipeline = StableDiffusionPipeline.from_pretrained(model_id)\n\npipeline = pipeline.to('mps')\n\n# Recommended if your computer has &lt; 64 GB of RAM\npipeline.enable_attention_slicing()\n\nimage = pipeline(\n    \"An astronaut floating through space while plying the guitar\").images[0]\n\nimage.save(\"../images/diffusion_astronaut.png\")"
+  },
+  {
+    "objectID": "slides/diffusers.html#output",
+    "href": "slides/diffusers.html#output",
+    "title": "Diffusion models",
+    "section": "Output",
+    "text": "Output"
+  },
+  {
+    "objectID": "slides/diffusers.html#diffusers-on-windows-and-mac-intel",
+    "href": "slides/diffusers.html#diffusers-on-windows-and-mac-intel",
+    "title": "Diffusion models",
+    "section": "Diffusers on Windows and Mac Intel",
+    "text": "Diffusers on Windows and Mac Intel\n\nmodel_id = \"runwayml/stable-diffusion-v1-5\"\n\npipeline = StableDiffusionPipeline.from_pretrained(model_id)\n\npipeline = pipeline.to(\"cuda\")\n\nimage = pipeline(\"An astronaut riding a tiger\").images[0]\n\nimage.save(\"image.png\")"
+  },
+  {
+    "objectID": "code/transformers.html",
+    "href": "code/transformers.html",
+    "title": "Transformers intro",
+    "section": "",
+    "text": "Transformer neural networks can be used to tackle a wide range of tasks in natural language processing and beyond.\nTransfer learning allows one to adapt Transformers to specific tasks.\nThe pipeline() function from the transformers library can be used to run inference with models from the Hugging Face Hub."
+  },
+  {
+    "objectID": "code/transformers.html#learning-goals",
+    "href": "code/transformers.html#learning-goals",
+    "title": "Transformers intro",
+    "section": "",
+    "text": "Transformer neural networks can be used to tackle a wide range of tasks in natural language processing and beyond.\nTransfer learning allows one to adapt Transformers to specific tasks.\nThe pipeline() function from the transformers library can be used to run inference with models from the Hugging Face Hub."
+  },
+  {
+    "objectID": "code/transformers.html#why-transformers",
+    "href": "code/transformers.html#why-transformers",
+    "title": "Transformers intro",
+    "section": "Why Transformers?",
+    "text": "Why Transformers?\n\nDeep learning is currently undergoing a period of rapid progress across a wide variety of domains, including:\n📖 Natural language processing\n👀 Computer vision\n🔊 Audio\nand many more!\nThe main driver of these breakthroughs is the Transformer – a novel neural network developed by Google researchers in 2017."
+  },
+  {
+    "objectID": "code/transformers.html#transformers-examples",
+    "href": "code/transformers.html#transformers-examples",
+    "title": "Transformers intro",
+    "section": "Transformers examples",
+    "text": "Transformers examples\n\n💻 They can generate code as in products like GitHub Copilot, which is based on OpenAI’s family of GPT models.\n❓ They can be used for improve search engines, like Google did with a Transformer called BERT.\n🗣️ They can process speech in multiple languages to perform speech recognition, speech translation, and language identification. For example, Facebook’s XLS-R model can automatically transcribe audio in one language to another!"
+  },
+  {
+    "objectID": "code/transformers.html#transfer-learning",
+    "href": "code/transformers.html#transfer-learning",
+    "title": "Transformers intro",
+    "section": "Transfer learning",
+    "text": "Transfer learning\n\nTraining Transformer models from scratch involves a lot of resources (compute, data, and days to train)\nWith transfer learning, it is possible to adapt a model that has been trained from scratch (usually called a pretrained model) for a new, but similar task."
+  },
+  {
+    "objectID": "code/transformers.html#fine-tuning",
+    "href": "code/transformers.html#fine-tuning",
+    "title": "Transformers intro",
+    "section": "Fine tuning",
+    "text": "Fine tuning\n\nFine-tuning can be used as a special case of transfer learning where you use new data to continue training the model on the new task.\nThe models that we’ll be looking at in this tutorial are all examples of fine-tuned models"
+  },
+  {
+    "objectID": "code/transformers.html#transfer-learning-1",
+    "href": "code/transformers.html#transfer-learning-1",
+    "title": "Transformers intro",
+    "section": "Transfer learning",
+    "text": "Transfer learning\nYou can learn more about the transfer learning process in the video below:"
+  },
+  {
+    "objectID": "code/transformers.html#pipelines-for-transformers",
+    "href": "code/transformers.html#pipelines-for-transformers",
+    "title": "Transformers intro",
+    "section": "Pipelines for Transformers",
+    "text": "Pipelines for Transformers\n\nThe fastest way to learn what Transformers can do is via the pipeline() function.\nThis function loads a model from the Hugging Face Hub and takes care of all the preprocessing and postprocessing steps that are needed to convert inputs into predictions:"
+  },
+  {
+    "objectID": "code/transformers.html#what-happens-inside-the-pipeline-function",
+    "href": "code/transformers.html#what-happens-inside-the-pipeline-function",
+    "title": "Transformers intro",
+    "section": "What happens inside the pipeline function?",
+    "text": "What happens inside the pipeline function?"
+  },
+  {
+    "objectID": "code/transformers.html#text-input",
+    "href": "code/transformers.html#text-input",
+    "title": "Transformers intro",
+    "section": "Text input",
+    "text": "Text input\n\nWe need a snippet of text for our models to analyze, so let’s use the following (fictious!) customer feedback about a certain online order:\n\n\ntext = \"\"\"Dear Amazon, last week I ordered an Optimus Prime action figure \\\nfrom your online store in Germany. Unfortunately, when I opened the package, \\\nI discovered to my horror that I had been sent an action figure of Megatron \\\ninstead! As a lifelong enemy of the Decepticons, I hope you can understand my \\\ndilemma. To resolve the issue, I demand an exchange of Megatron for the \\\nOptimus Prime figure I ordered. Enclosed are copies of my records concerning \\\nthis purchase. I expect to hear from you soon. Sincerely, Bumblebee.\"\"\""
+  },
+  {
+    "objectID": "code/transformers.html#create-text-wrapper",
+    "href": "code/transformers.html#create-text-wrapper",
+    "title": "Transformers intro",
+    "section": "Create text wrapper",
+    "text": "Create text wrapper\n\nLet’s create a simple wrapper so that we can pretty print out texts:\n\n\nimport textwrap\n\nwrapper = textwrap.TextWrapper(\n            width=80, \n            break_long_words=False, \n            break_on_hyphens=False\n          )"
+  },
+  {
+    "objectID": "code/transformers.html#analyze-sentiment",
+    "href": "code/transformers.html#analyze-sentiment",
+    "title": "Transformers intro",
+    "section": "Analyze sentiment",
+    "text": "Analyze sentiment\n\nNow suppose that we’d like to predict the sentiment of this text, i.e. whether the feedback is positive or negative.\nThis is a special type of text classification that is often used in industry to aggregate customer feedback across products or services."
+  },
+  {
+    "objectID": "code/transformers.html#tokens",
+    "href": "code/transformers.html#tokens",
+    "title": "Transformers intro",
+    "section": "Tokens",
+    "text": "Tokens\n\nThe example below shows how a Transformer like BERT converts the inputs into atomic chunks called tokens which are then fed through the network to produce a single prediction:"
+  },
+  {
+    "objectID": "code/transformers.html#pipeline",
+    "href": "code/transformers.html#pipeline",
+    "title": "Transformers intro",
+    "section": "Pipeline",
+    "text": "Pipeline\n\nWe need to specify the task in the pipeline() function as follows;\n\n\nsentiment_pipeline = pipeline('text-classification')\n\n\nWhen you run this code, you’ll see a message about which Hub model is being used by default.\nIn this case, the pipeline() function loads the distilbert-base-uncased-finetuned-sst-2-english model, which is a small BERT variant trained on SST-2 which is a sentiment analysis dataset.\n\n\n\n\n\n\n\nNote\n\n\n\n💡 The first time you execute the code, the model will be automatically downloaded from the Hub and cached for later use!"
+  },
+  {
+    "objectID": "code/transformers.html#run-pipeline",
+    "href": "code/transformers.html#run-pipeline",
+    "title": "Transformers intro",
+    "section": "Run pipeline",
+    "text": "Run pipeline\n\nNow we are ready to run our example through pipeline and look at some predictions:\n\n\nsentiment_pipeline(text)\n\n\nOutput: [{‘label’: ‘NEGATIVE’, ‘score’: 0.9015464186668396}]\nThe model predicts negative sentiment with a high confidence which makes sense given that we have a disgruntled customer.\nYou can also see that the pipeline returns a list of Python dictionaries with the predictions.\nWe can also pass several texts at the same time in which case we would get several dicts in the list for each text one."
+  },
+  {
+    "objectID": "code/transformers.html#basics",
+    "href": "code/transformers.html#basics",
+    "title": "Transformers intro",
+    "section": "Basics",
+    "text": "Basics\n\nInstead of just finding the overall sentiment, let’s see if we can extract entities such as organizations, locations, or individuals from the text.\nThis task is called named entity recognition, or NER for short."
+  },
+  {
+    "objectID": "code/transformers.html#predict-class-for-echa-token",
+    "href": "code/transformers.html#predict-class-for-echa-token",
+    "title": "Transformers intro",
+    "section": "Predict class for echa token",
+    "text": "Predict class for echa token\n\nInstead of predicting just a class for the whole text a class is predicted for each token, as shown in the example below:"
+  },
+  {
+    "objectID": "code/transformers.html#pipeline-1",
+    "href": "code/transformers.html#pipeline-1",
+    "title": "Transformers intro",
+    "section": "Pipeline",
+    "text": "Pipeline\n\nWe just load a pipeline for NER without specifying a model.\nThis will load a default BERT model that has been trained on the CoNLL-2003 dataset:\n\n\nner_pipeline = pipeline('ner')"
+  },
+  {
+    "objectID": "code/transformers.html#merge-entities",
+    "href": "code/transformers.html#merge-entities",
+    "title": "Transformers intro",
+    "section": "Merge entities",
+    "text": "Merge entities\n\nWhen we pass our text through the model, we now get a long list of Python dictionaries, where each dictionary corresponds to one detected entity.\nSince multiple tokens can correspond to a a single entity, we can apply an aggregation strategy that merges entities if the same class appears in consequtive tokens:\n\n\nentities = ner_pipeline(text, aggregation_strategy=\"simple\")\nprint(entities)\n\n\nOutput: [{‘entity_group’: ‘ORG’, ‘score’: 0.87900954, ‘word’: ‘Amazon’, ‘start’: 5, ‘end’: 11}, {‘entity_group’: ‘MISC’, ‘score’: 0.9908588, ‘word’: ‘Optimus Prime’, ‘start’: 36, ‘end’: 49}, {‘entity_group’: ‘LOC’, ‘score’: 0.9997547, ‘word’: ‘Germany’, ‘start’: 90, ‘end’: 97}, {‘entity_group’: ‘MISC’, ‘score’: 0.55656713, ‘word’: ‘Mega’, ‘start’: 208, ‘end’: 212}, {‘entity_group’: ‘PER’, ‘score’: 0.5902563, ‘word’: ‘##tron’, ‘start’: 212, ‘end’: 216}, {‘entity_group’: ‘ORG’, ‘score’: 0.6696913, ‘word’: ‘Decept’, ‘start’: 253, ‘end’: 259}, {‘entity_group’: ‘MISC’, ‘score’: 0.4983487, ‘word’: ‘##icons’, ‘start’: 259, ‘end’: 264}, {‘entity_group’: ‘MISC’, ‘score’: 0.77536064, ‘word’: ‘Megatron’, ‘start’: 350, ‘end’: 358}, {‘entity_group’: ‘MISC’, ‘score’: 0.987854, ‘word’: ‘Optimus Prime’, ‘start’: 367, ‘end’: 380}, {‘entity_group’: ‘PER’, ‘score’: 0.81209683, ‘word’: ‘Bumblebee’, ‘start’: 502, ‘end’: 511}]"
+  },
+  {
+    "objectID": "code/transformers.html#clean-the-output",
+    "href": "code/transformers.html#clean-the-output",
+    "title": "Transformers intro",
+    "section": "Clean the output",
+    "text": "Clean the output\n\nThis isn’t very easy to read, so let’s clean up the outputs a bit:\n\n\nfor entity in entities:\n    print(f\"{entity['word']}: {entity['entity_group']} ({entity['score']:.2f})\")\n\nAmazon: ORG (0.88)  \nOptimus Prime: MISC (0.99)  \nGermany: LOC (1.00)  \nMega: MISC (0.56)  \n##tron: PER (0.59)  \nDecept: ORG (0.67)  \n##icons: MISC (0.50)  \nMegatron: MISC (0.78)  \nOptimus Prime: MISC (0.99)  \nBumblebee: PER (0.81)"
+  },
+  {
+    "objectID": "code/transformers.html#findings",
+    "href": "code/transformers.html#findings",
+    "title": "Transformers intro",
+    "section": "Findings",
+    "text": "Findings\n\nIt seems that the model found most of the named entities but was confused about “Megatron” andn “Decepticons”, which are characters in the transformers franchise.\nThis is no surprise since the original dataset probably did not contain many transformer characters. For this reason it makes sense to further fine-tune a model on your on dataset!"
+  },
+  {
+    "objectID": "code/transformers.html#basics-1",
+    "href": "code/transformers.html#basics-1",
+    "title": "Transformers intro",
+    "section": "Basics",
+    "text": "Basics\n\nIn this task, the model is given a question and a context and needs to find the answer to the question within the context.\nThis problem can be rephrased as a classification problem: For each token the model needs to predict whether it is the start or the end of the answer."
+  },
+  {
+    "objectID": "code/transformers.html#basics-2",
+    "href": "code/transformers.html#basics-2",
+    "title": "Transformers intro",
+    "section": "Basics",
+    "text": "Basics\n\nIn the end we can extract the answer by looking at the span between the token with the highest start probability and highest end probability:"
+  },
+  {
+    "objectID": "code/transformers.html#pipeline-2",
+    "href": "code/transformers.html#pipeline-2",
+    "title": "Transformers intro",
+    "section": "Pipeline",
+    "text": "Pipeline\n\nwe load the model by specifying the task in the pipeline() function:\n\n\nqa_pipeline = pipeline(\"question-answering\")\n\n\nThis default model is trained on the famous SQuAD dataset."
+  },
+  {
+    "objectID": "code/transformers.html#ask-question",
+    "href": "code/transformers.html#ask-question",
+    "title": "Transformers intro",
+    "section": "Ask question",
+    "text": "Ask question\n\nLet’s see if we can ask it what the customer wants:\n\n\nquestion = \"What does the customer want?\"\n\noutputs = qa_pipeline(question=question, context=text)\noutputs\n\n{'score': 0.6312916874885559,\n 'start': 335,\n 'end': 358,\n 'answer': 'an exchange of Megatron'}"
+  },
+  {
+    "objectID": "code/transformers.html#basics-3",
+    "href": "code/transformers.html#basics-3",
+    "title": "Transformers intro",
+    "section": "Basics",
+    "text": "Basics\n\nGeneration is much more computationally demanding since we usually generate one token at a time and need to run this several times.\nAn example for how this process works is shown below:"
+  },
+  {
+    "objectID": "code/transformers.html#pipeline-3",
+    "href": "code/transformers.html#pipeline-3",
+    "title": "Transformers intro",
+    "section": "Pipeline",
+    "text": "Pipeline\n\nA popular task involving generation is summarization\n\n\nsummarization_pipeline = pipeline(\"summarization\")\n\n\nThis model was trained on the CNN/Dailymail dataset to summarize news articles."
+  },
+  {
+    "objectID": "code/transformers.html#output",
+    "href": "code/transformers.html#output",
+    "title": "Transformers intro",
+    "section": "Output",
+    "text": "Output\n\noutputs = summarization_pipeline(text, max_length=80, clean_up_tokenization_spaces=True)\n\nprint(wrapper.fill(outputs[0]['summary_text']))\n\n\nOutput: Bumblebee ordered an Optimus Prime action figure from your online store in Germany. Unfortunately, when I opened the package, I discovered to my horror that I had been sent an action figure of Megatron instead. As a lifelong enemy of the Decepticons, I hope you can understand my dilemma."
+  },
+  {
+    "objectID": "code/transformers.html#basics-4",
+    "href": "code/transformers.html#basics-4",
+    "title": "Transformers intro",
+    "section": "Basics",
+    "text": "Basics\n\nBut what if there is no model in the language of my data?\nYou can still try to translate the text.\nThe Helsinki NLP team has provided over 1,000 language pair models for translation."
+  },
+  {
+    "objectID": "code/transformers.html#pipeline-4",
+    "href": "code/transformers.html#pipeline-4",
+    "title": "Transformers intro",
+    "section": "Pipeline",
+    "text": "Pipeline\n\nTranslate English to German:\n\n\ntranslator = pipeline(\"translation_en_to_de\", model=\"Helsinki-NLP/opus-mt-en-de\")"
+  },
+  {
+    "objectID": "code/transformers.html#output-1",
+    "href": "code/transformers.html#output-1",
+    "title": "Transformers intro",
+    "section": "Output",
+    "text": "Output\n\nLet’s translate our text to German:\n\n\noutputs = translator(text, clean_up_tokenization_spaces=True, min_length=100)\n\nprint(wrapper.fill(outputs[0]['translation_text']))\n\n\nOutput: Sehr geehrter Amazon, letzte Woche habe ich eine Optimus Prime Action Figur aus Ihrem Online-Shop in Deutschland bestellt. Leider, als ich das Paket öffnete, entdeckte ich zu meinem Entsetzen, dass ich stattdessen eine Action Figur von Megatron geschickt worden war! Als lebenslanger Feind der Decepticons, Ich hoffe, Sie können mein Dilemma verstehen. Um das Problem zu lösen, Ich fordere einen Austausch von Megatron für die Optimus Prime Figur habe ich bestellt. Eingeschlossen sind Kopien meiner Aufzeichnungen über diesen Kauf. Ich erwarte, von Ihnen bald zu hören. Aufrichtig, Bumblebee."
+  },
+  {
+    "objectID": "code/transformers.html#findings-1",
+    "href": "code/transformers.html#findings-1",
+    "title": "Transformers intro",
+    "section": "Findings",
+    "text": "Findings\n\nWe can see that the text is clearly not perfectly translated, but the core meaning stays the same.\nAnother application of translation models is data augmentation via backtranslation"
+  },
+  {
+    "objectID": "code/transformers.html#basics-5",
+    "href": "code/transformers.html#basics-5",
+    "title": "Transformers intro",
+    "section": "Basics",
+    "text": "Basics\n\nIn zero-shot classification the model receives a text and a list of candidate labels and determines which labels are compatible with the text.\nInstead of having fixed classes this allows for flexible classification without any labelled data!\nUsually this is a good first baseline!"
+  },
+  {
+    "objectID": "code/transformers.html#pipeline-5",
+    "href": "code/transformers.html#pipeline-5",
+    "title": "Transformers intro",
+    "section": "Pipeline",
+    "text": "Pipeline\n\nzero_shot_classifier = pipeline(\"zero-shot-classification\",\n                                model=\"vicgalle/xlm-roberta-large-xnli-anli\")"
+  },
+  {
+    "objectID": "code/transformers.html#text-input-1",
+    "href": "code/transformers.html#text-input-1",
+    "title": "Transformers intro",
+    "section": "Text input",
+    "text": "Text input\nLet’s have a look at an example:\n\ntext = 'Dieses Tutorial ist großartig! Ich hoffe, dass jemand von Hugging Face meine Hochschule besuchen wird :)'\n\nclasses = ['Treffen', 'Arbeit', 'Digital', 'Reisen']"
+  },
+  {
+    "objectID": "code/transformers.html#pipeline-6",
+    "href": "code/transformers.html#pipeline-6",
+    "title": "Transformers intro",
+    "section": "Pipeline",
+    "text": "Pipeline\n\nzero_shot_classifier(text, classes, multi_label=True)\n\n{'sequence': 'Dieses Tutorial ist großartig! Ich hoffe, dass jemand von Hugging Face meine Hochschule besuchen wird :)',\n 'labels': ['Digital', 'Arbeit', 'Treffen', 'Reisen'],\n 'scores': [0.7426563501358032,\n  0.6590237021446228,\n  0.517701268196106,\n  0.011237525381147861]}\n\nFor longer and more domain specific examples this approach might suffer."
+  },
+  {
+    "objectID": "code/transformers.html#basics-6",
+    "href": "code/transformers.html#basics-6",
+    "title": "Transformers intro",
+    "section": "Basics",
+    "text": "Basics\nThere are many more pipelines that you can experiment with\n\nfrom transformers import pipelines\nfor task in pipelines.SUPPORTED_TASKS:\n    print(task)"
+  },
+  {
+    "objectID": "code/diffusers.html",
+    "href": "code/diffusers.html",
+    "title": "🧨 Diffusers",
+    "section": "",
+    "text": "from diffusers import StableDiffusionPipeline\n\n\n\n\ndiffusers: A Python library maintained at 🤗\nProviding open and responsible access to pre-trained diffusion models.\nDemocratizing the ecosystem of diffusion models by making them easy to use."
+  },
+  {
+    "objectID": "code/diffusers.html#basics",
+    "href": "code/diffusers.html#basics",
+    "title": "🧨 Diffusers",
+    "section": "",
+    "text": "diffusers: A Python library maintained at 🤗\nProviding open and responsible access to pre-trained diffusion models.\nDemocratizing the ecosystem of diffusion models by making them easy to use."
+  },
+  {
+    "objectID": "code/diffusers.html#diffusers-mac-silicon",
+    "href": "code/diffusers.html#diffusers-mac-silicon",
+    "title": "🧨 Diffusers",
+    "section": "Diffusers (Mac silicon)",
+    "text": "Diffusers (Mac silicon)\n\nmodel_id = \"runwayml/stable-diffusion-v1-5\"\n\npipeline = StableDiffusionPipeline.from_pretrained(model_id)\n\npipeline = pipeline.to('mps')\n\n# Recommended if your computer has &lt; 64 GB of RAM\npipeline.enable_attention_slicing()\n\nimage = pipeline(\n    \"An astronaut floating through space while plying the guitar\").images[0]\n\nimage.save(\"../images/diffusion_astronaut.png\")"
+  },
+  {
+    "objectID": "code/diffusers.html#output",
+    "href": "code/diffusers.html#output",
+    "title": "🧨 Diffusers",
+    "section": "Output",
+    "text": "Output"
+  },
+  {
+    "objectID": "code/diffusers.html#diffusers-on-windows-and-mac-intel",
+    "href": "code/diffusers.html#diffusers-on-windows-and-mac-intel",
+    "title": "🧨 Diffusers",
+    "section": "Diffusers on Windows and Mac Intel",
+    "text": "Diffusers on Windows and Mac Intel\n\nmodel_id = \"runwayml/stable-diffusion-v1-5\"\n\npipeline = StableDiffusionPipeline.from_pretrained(model_id)\n\npipeline = pipeline.to(\"cuda\")\n\nimage = pipeline(\"An astronaut riding a tiger\").images[0]\n\nimage.save(\"image.png\")"
+  },
+  {
+    "objectID": "code/generation.html",
+    "href": "code/generation.html",
+    "title": "Text generation",
+    "section": "",
+    "text": "from transformers import pipeline"
+  },
+  {
+    "objectID": "code/generation.html#use-cases",
+    "href": "code/generation.html#use-cases",
+    "title": "Text generation",
+    "section": "Use Cases",
+    "text": "Use Cases\n\nStories Generation\nCode Generation: can help programmers in their repetitive coding tasks."
+  },
+  {
+    "objectID": "code/generation.html#task-variants",
+    "href": "code/generation.html#task-variants",
+    "title": "Text generation",
+    "section": "Task Variants",
+    "text": "Task Variants\n\nCompletion Generation Models\n\nGiven an incomplete sentence, complete it.\nContinue a story given the first sentences.\nProvided a code description, generate the code.\n\nText-to-Text Generation Models\n\nTranslation\nSummarization\nText classification\n\nInference\n\ntakes an incomplete text and returns multiple outputs with which the text can be completed."
+  },
+  {
+    "objectID": "code/generation.html#create-pipeline-with-gpt-2",
+    "href": "code/generation.html#create-pipeline-with-gpt-2",
+    "title": "Text generation",
+    "section": "Create pipeline with GPT-2",
+    "text": "Create pipeline with GPT-2\n\ngenerator = pipeline('text-generation', model='gpt2')"
+  },
+  {
+    "objectID": "code/generation.html#provide-text",
+    "href": "code/generation.html#provide-text",
+    "title": "Text generation",
+    "section": "Provide text",
+    "text": "Provide text\n\nmy_text = \"Hello, I study online media management\""
+  },
+  {
+    "objectID": "code/generation.html#make-inference",
+    "href": "code/generation.html#make-inference",
+    "title": "Text generation",
+    "section": "Make inference",
+    "text": "Make inference\n\ngenerator(my_text, max_length=30, num_return_sequences=3)"
+  },
+  {
+    "objectID": "code/generation.html#output",
+    "href": "code/generation.html#output",
+    "title": "Text generation",
+    "section": "Output",
+    "text": "Output\n\n[{'generated_text': 'Hello, I study online media management, and while most of my courses focus on the business, I specialize in online development.\\n\\nIf you know'},\n\n {'generated_text': 'Hello, I study online media management at a computer-focused high school. One of my favorite exercises is watching and reading my students write things.\\n'},\n\n {'generated_text': 'Hello, I study online media management, so I know that it\\'s not the best idea to be a part of the digital environment yourself.\"\\n\\n'}]"
+  },
+  {
+    "objectID": "code/gradio.html",
+    "href": "code/gradio.html",
+    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
+    "section": "",
+    "text": "Developers can easily present their work to a wide audience\nIncrease reproducibility of machine learning research\nEasily identify and debug failure points of models"
+  },
+  {
+    "objectID": "code/gradio.html#why-demos",
+    "href": "code/gradio.html#why-demos",
+    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
+    "section": "",
+    "text": "Developers can easily present their work to a wide audience\nIncrease reproducibility of machine learning research\nEasily identify and debug failure points of models"
+  },
+  {
+    "objectID": "code/gradio.html#learning-goals",
+    "href": "code/gradio.html#learning-goals",
+    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
+    "section": "Learning goals",
+    "text": "Learning goals\nLearn how to:\n\nBuild a quick demo for your machine learning model in Python using the gradio library\nHost the demos for free with Hugging Face Spaces\nAdd your demo to the Hugging Face org for your class"
+  },
+  {
+    "objectID": "code/gradio.html#keras-org-on-hugging-face",
+    "href": "code/gradio.html#keras-org-on-hugging-face",
+    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
+    "section": "Keras Org on Hugging Face",
+    "text": "Keras Org on Hugging Face\n\nAs a quick example of what we would like to build, check out the Keras Org on Hugging Face\nOpen any Space in your browser to use the model immediately"
+  },
+  {
+    "objectID": "code/gradio.html#gradio-components",
+    "href": "code/gradio.html#gradio-components",
+    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
+    "section": "Gradio components",
+    "text": "Gradio components\n\nGradio comes with a bunch of predefined components for different kinds of machine learning models.\nFor an image classifier, the expected input type is an Image and the output type is a Label.\nFor a speech recognition model, the expected input component is an Microphone (which lets users record from the browser) or Audio (which lets users drag-and-drop audio files), while the output type is Text.\nFor a question answering model, we expect 2 inputs: [Text, Text], one textbox for the paragraph and one for the question, and the output type is a single Text corresponding to the answer.\nFor all of the supported components, see the docs"
+  },
+  {
+    "objectID": "code/gradio.html#gradio-prediction-function",
+    "href": "code/gradio.html#gradio-prediction-function",
+    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
+    "section": "Gradio prediction function",
+    "text": "Gradio prediction function\n\nIn addition to the input and output types, Gradio expects a third parameter, which is the prediction function itself.\nThis parameter can be any regular Python function that takes in parameter(s) corresponding to the input component(s) and returns value(s) corresponding to the output component(s)"
+  },
+  {
+    "objectID": "code/gradio.html#custom-python-function",
+    "href": "code/gradio.html#custom-python-function",
+    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
+    "section": "Custom Python function",
+    "text": "Custom Python function\n\nLet’s create a simple Python function\n\n\ndef sepia(image):\n    sepia_filter = np.array(\n        [[0.393, 0.769, 0.189],\n         [0.349, 0.686, 0.168],\n         [0.272, 0.534, 0.131]]\n    )\n    sepia_img = image.dot(sepia_filter.T)\n    sepia_img /= sepia_img.max()\n    return sepia_img"
+  },
+  {
+    "objectID": "code/gradio.html#gradio-image-app",
+    "href": "code/gradio.html#gradio-image-app",
+    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
+    "section": "Gradio Image App",
+    "text": "Gradio Image App\n\n1gr.Interface(\n2    fn=sepia,\n3    inputs=\"image\",\n4    outputs=\"image\"\n5).launch()\n\n\n1\n\nWe define an Gradio Interface using:\n\n2\n\na function fn\n\n3\n\nInput component: inputs image\n\n4\n\nOutput component: outputs image\n\n5\n\n… and launch the app"
+  },
+  {
+    "objectID": "code/gradio.html#gradio-image-app-interface",
+    "href": "code/gradio.html#gradio-image-app-interface",
+    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
+    "section": "Gradio Image App Interface",
+    "text": "Gradio Image App Interface"
+  },
+  {
+    "objectID": "code/gradio.html#gradio-sound-app-1",
+    "href": "code/gradio.html#gradio-sound-app-1",
+    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
+    "section": "Gradio Sound App",
+    "text": "Gradio Sound App\n\ndef generate_tone(note, octave, duration):\n    sampling_rate = 48000\n    a4_freq, tones_from_a4 = 440, 12 * (octave - 4) + (note - 9)\n    frequency = a4_freq * 2 ** (tones_from_a4 / 12)\n    audio = np.linspace(0, int(duration), int(duration) * sampling_rate)\n    audio = (20000 * np.sin(audio * (2 * np.pi * frequency))).astype(np.int16)\n    return sampling_rate, audio\n\n\ngr.Interface(\n    generate_tone,  # function\n    [\n        gr.Dropdown([\"C\", \"C#\", \"D\", \"D#\", \"E\", \"F\", \"F#\",\n                    \"G\", \"G#\", \"A\", \"A#\", \"B\"], type=\"index\"),\n        gr.Slider(4, 6, step=1),\n        gr.Number(value=1, label=\"Duration in seconds\"),\n    ],\n    \"audio\",\n    title=\"Generate a Musical Tone!\"\n).launch()"
+  },
+  {
+    "objectID": "code/gradio.html#gradio-sound-app-interface",
+    "href": "code/gradio.html#gradio-sound-app-interface",
+    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
+    "section": "Gradio Sound App Interface",
+    "text": "Gradio Sound App Interface"
+  },
+  {
+    "objectID": "code/gradio.html#gradio-text-to-speech-app-interface",
+    "href": "code/gradio.html#gradio-text-to-speech-app-interface",
+    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
+    "section": "Gradio Text to Speech App Interface",
+    "text": "Gradio Text to Speech App Interface"
+  },
+  {
+    "objectID": "code/gradio.html#gradio-gp-j-app-interface",
+    "href": "code/gradio.html#gradio-gp-j-app-interface",
+    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
+    "section": "Gradio GP-J App Interface",
+    "text": "Gradio GP-J App Interface"
+  },
+  {
+    "objectID": "code/gradio.html#workflow-1",
+    "href": "code/gradio.html#workflow-1",
+    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
+    "section": "Workflow, 1",
+    "text": "Workflow, 1\n\nHere are the steps to that (also see GIF in the next slide):\n\n\nFirst, create a Hugging Face account if you do not already have one, by visiting https://huggingface.co/ and clicking “Sign Up”\nOnce you are logged in, click on your profile picture and then click on “New Space” underneath it to get to this page: https://huggingface.co/new-space\nGive your Space a name and a license. Select “Gradio” as the Space SDK, and then choose “Public” if you are fine with everyone accessing your Space and the underlying code\nThen you will find a page that provides you instructions on how to upload your files into the Git repository for that Space. You may also need to add a requirements.txt file to specify any Python package dependencies.\nOnce you have pushed your files, that’s it! Spaces will automatically build your Gradio demo allowing you to share it with anyone, anywhere!"
+  },
+  {
+    "objectID": "code/gradio.html#workflow-in-a-gif",
+    "href": "code/gradio.html#workflow-in-a-gif",
+    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
+    "section": "Workflow in a GIF",
+    "text": "Workflow in a GIF\n\nYou may also choose “public” instead of “private” when you create your space"
+  },
+  {
+    "objectID": "code/gradio.html#share-your-demo",
+    "href": "code/gradio.html#share-your-demo",
+    "title": "Build and Host Machine Learning Demos with Gradio & Hugging Face",
+    "section": "Share your demo",
+    "text": "Share your demo\n\nYou can embed your Gradio demo on any website – in a blog, a portfolio page, or even in a colab notebook,\nExample: Pictionary sketch recognition model below:\n\n\nIFrame(src='https://hf.space/gradioiframe/abidlabs/Draw/+', width=1000, height=800)"
+  },
+  {
+    "objectID": "code/summarization.html",
+    "href": "code/summarization.html",
+    "title": "Text Summarization Hugging Face Pipeline",
+    "section": "",
+    "text": "from transformers import pipeline"
+  },
+  {
+    "objectID": "code/summarization.html#use-cases",
+    "href": "code/summarization.html#use-cases",
+    "title": "Text Summarization Hugging Face Pipeline",
+    "section": "Use Cases",
+    "text": "Use Cases\n\nHelp readers quickly understand the main points.\nLegislative bills, legal and financial documents, patents, and scientific papers …"
+  },
+  {
+    "objectID": "code/summarization.html#two-types-of-summarization",
+    "href": "code/summarization.html#two-types-of-summarization",
+    "title": "Text Summarization Hugging Face Pipeline",
+    "section": "Two types of summarization:",
+    "text": "Two types of summarization:\n\nextractive: identify and extract the most important sentences from the original text.\nabstractive: generate the target summary (which may include new words not in the input document) from the original text"
+  },
+  {
+    "objectID": "code/summarization.html#create-pipeline",
+    "href": "code/summarization.html#create-pipeline",
+    "title": "Text Summarization Hugging Face Pipeline",
+    "section": "Create pipeline",
+    "text": "Create pipeline\n\nsummarizer = pipeline(task=\"summarization\")"
+  },
+  {
+    "objectID": "code/summarization.html#provide-text",
+    "href": "code/summarization.html#provide-text",
+    "title": "Text Summarization Hugging Face Pipeline",
+    "section": "Provide text",
+    "text": "Provide text\n\nParagraph about observational studies and experiments from Introduction to Modern Statistics\n\n\nmy_text = \"When researchers want to evaluate the effect of particular traits, treatments, \\\nor conditions, they conduct an experiment. For instance, we may suspect drinking a \\\nhigh-calorie energy drink will improve performance in a race. To check if there \\\nreally is a causal relationship between the explanatory variable (whether the \\\nrunner drank an energy drink or not) and the response variable (the race time), \\\n researchers identify a sample of individuals and split them into groups. \\\n The individuals in each group are assigned a treatment. When individuals are \\\n randomly assigned to a group, the experiment is called a randomized experiment. \\\n Random assignment organizes the participants in a study into groups that are roughly \\\n equal on all aspects, thus allowing us to control for any confounding variables that \\\n  might affect the outcome (e.g., fitness level, racing experience, etc.). For example, \\\n   each runner in the experiment could be randomly assigned, perhaps by flipping a coin,  \\\ninto one of two groups: the first group receives a placebo (fake treatment, in this case  \\\na no-calorie drink) and the second group receives the high-calorie energy drink.  \\\nSee the case study in Section 1.1 for another example of an experiment, though that  \\\nstudy did not employ a placebo. Researchers perform an observational study when they  \\\ncollect data in a way that does not directly interfere with how the data arise.  \\\nFor instance, researchers may collect information via surveys, review medical or company  \\\nrecords, or follow a cohort of many similar individuals to form hypotheses about why  \\\ncertain diseases might develop. In each of these situations, researchers merely observe  \\\nthe data that arise. In general, observational studies can provide evidence of a naturally  \\\noccurring association between variables, but they cannot by themselves show a causal connection  \\\nas they do not offer a mechanism for controlling for confounding variables.\""
+  },
+  {
+    "objectID": "code/summarization.html#summarizer",
+    "href": "code/summarization.html#summarizer",
+    "title": "Text Summarization Hugging Face Pipeline",
+    "section": "Summarizer",
+    "text": "Summarizer\n\nsummarizer(my_text, min_length=20, max_length=80)"
+  },
+  {
+    "objectID": "code/sentiment.html",
+    "href": "code/sentiment.html",
+    "title": "Sentimant Analysis with Hugging Face",
+    "section": "",
+    "text": "from transformers import pipeline"
+  },
+  {
+    "objectID": "code/sentiment.html#use-cases",
+    "href": "code/sentiment.html#use-cases",
+    "title": "Sentimant Analysis with Hugging Face",
+    "section": "Use Cases",
+    "text": "Use Cases\n\nSentiment Analysis on Customer Reviews\nYou can track the sentiments of your customers from the product reviews using sentiment analysis models.\nThis can help understand churn and retention by grouping reviews by sentiment, to later analyze the text and make strategic decisions based on this knowledge."
+  },
+  {
+    "objectID": "code/sentiment.html#pipeline-example-with-default-model",
+    "href": "code/sentiment.html#pipeline-example-with-default-model",
+    "title": "Sentimant Analysis with Hugging Face",
+    "section": "Pipeline example with default model",
+    "text": "Pipeline example with default model\n\nsentiment_pipeline = pipeline(\"sentiment-analysis\")\n\ndata = [\"I love you\",\n        \"I hate you\"]\n\nsentiment_pipeline(data)\n\n\nOutput:\n\n[{'label': 'POSITIVE', 'score': 0.9998656511306763},\n {'label': 'NEGATIVE', 'score': 0.9991129040718079}]"
+  },
+  {
+    "objectID": "code/sentiment.html#pipeline-example-with-specific-model",
+    "href": "code/sentiment.html#pipeline-example-with-specific-model",
+    "title": "Sentimant Analysis with Hugging Face",
+    "section": "Pipeline example with specific model",
+    "text": "Pipeline example with specific model\n\nspecific_model = pipeline(\n    model=\"finiteautomata/bertweet-base-sentiment-analysis\")\n\n\nspecific_model(data)"
+  },
+  {
+    "objectID": "code/qa.html",
+    "href": "code/qa.html",
+    "title": "Question Answering Hugging Face Pipeline",
+    "section": "",
+    "text": "from transformers import pipeline"
+  },
+  {
+    "objectID": "code/qa.html#use-cases",
+    "href": "code/qa.html#use-cases",
+    "title": "Question Answering Hugging Face Pipeline",
+    "section": "Use Cases",
+    "text": "Use Cases\n\nAutomate the response to Frequently Asked Questions\nChat Bots"
+  },
+  {
+    "objectID": "code/qa.html#common-types",
+    "href": "code/qa.html#common-types",
+    "title": "Question Answering Hugging Face Pipeline",
+    "section": "Common types",
+    "text": "Common types\n\nExtractive QA: The model extracts the answer from the original context.\n\nThe context could be a provided text, a table or even HTML! This is usually solved with BERT-like models.\n\nOpen Generative QA: The model generates free text directly based on the context.\nClosed Generative QA: In this case, no context is provided. The answer is completely generated by a model."
+  },
+  {
+    "objectID": "code/qa.html#closed-domain-vs-open-domain",
+    "href": "code/qa.html#closed-domain-vs-open-domain",
+    "title": "Question Answering Hugging Face Pipeline",
+    "section": "Closed-domain vs open-domain",
+    "text": "Closed-domain vs open-domain\n\nClosed-domain models are restricted to a specific domain (e.g. legal, medical documents).\nOpen-domain models are not restricted to a specific domain."
+  },
+  {
+    "objectID": "code/qa.html#define-pipeline",
+    "href": "code/qa.html#define-pipeline",
+    "title": "Question Answering Hugging Face Pipeline",
+    "section": "Define pipeline",
+    "text": "Define pipeline\n\nDefine the Pipeline1\n\n\nqa_model = pipeline(\"question-answering\")"
+  },
+  {
+    "objectID": "code/qa.html#provide-question-and-context",
+    "href": "code/qa.html#provide-question-and-context",
+    "title": "Question Answering Hugging Face Pipeline",
+    "section": "Provide question and context",
+    "text": "Provide question and context\n\nquestion = \"Where do I live?\"\n\ncontext = \"My name is Jan and I live in Stuttgart.\""
+  },
+  {
+    "objectID": "code/qa.html#return-the-answer",
+    "href": "code/qa.html#return-the-answer",
+    "title": "Question Answering Hugging Face Pipeline",
+    "section": "Return the answer",
+    "text": "Return the answer\n\nqa_model(question=question, context=context)"
+  },
+  {
+    "objectID": "code/qa.html#footnotes",
+    "href": "code/qa.html#footnotes",
+    "title": "Question Answering Hugging Face Pipeline",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nWill be initialized with the default model distilbert-base-cased-distilled-squad↩︎"
+  },
+  {
+    "objectID": "slides/sentiment.html#use-cases",
+    "href": "slides/sentiment.html#use-cases",
+    "title": "Sentiment Analyis",
+    "section": "Use Cases",
+    "text": "Use Cases\n\nSentiment Analysis on Customer Reviews\nYou can track the sentiments of your customers from the product reviews using sentiment analysis models.\nThis can help understand churn and retention by grouping reviews by sentiment, to later analyze the text and make strategic decisions based on this knowledge."
+  },
+  {
+    "objectID": "slides/sentiment.html#pipeline-example-with-default-model",
+    "href": "slides/sentiment.html#pipeline-example-with-default-model",
+    "title": "Sentiment Analyis",
+    "section": "Pipeline example with default model",
+    "text": "Pipeline example with default model\n\nsentiment_pipeline = pipeline(\"sentiment-analysis\")\n\ndata = [\"I love you\",\n        \"I hate you\"]\n\nsentiment_pipeline(data)\n\n\nOutput:\n\n\n[{'label': 'POSITIVE', 'score': 0.9998656511306763},\n {'label': 'NEGATIVE', 'score': 0.9991129040718079}]"
+  },
+  {
+    "objectID": "slides/sentiment.html#pipeline-example-with-specific-model",
+    "href": "slides/sentiment.html#pipeline-example-with-specific-model",
+    "title": "Sentiment Analyis",
+    "section": "Pipeline example with specific model",
+    "text": "Pipeline example with specific model\n\nspecific_model = pipeline(\n    model=\"finiteautomata/bertweet-base-sentiment-analysis\")\n\n\n\nspecific_model(data)\n\n\nOutput:\n\n\n\n[{'label': 'POS', 'score': 0.9916695356369019},\n {'label': 'NEG', 'score': 0.9806600213050842}]"
+  },
+  {
+    "objectID": "slides/hub.html#what-is-the-hub",
+    "href": "slides/hub.html#what-is-the-hub",
+    "title": "Hugging Face Hub 🤗",
+    "section": "What is the Hub?",
+    "text": "What is the Hub?\n\nThe Hub is a free platform where anyone can share and explore models, datasets, and ML demos.\n\n\n\n\n\n\n\n\nHugging Face\n\n\n\nOver 300,000 public models.\nModels for Natural Language Processing, Computer Vision, Audio/Speech, and Reinforcement Learning\nModels for over 180 languages."
+  },
+  {
+    "objectID": "slides/hub.html#learning-goals",
+    "href": "slides/hub.html#learning-goals",
+    "title": "Hugging Face Hub 🤗",
+    "section": "Learning Goals",
+    "text": "Learning Goals\n\n\n\n\n\n\nLearning Goals\n\n\n\nExplore models shared on the Hub.\nFind suitable models and datasets for your task.\nHow to contribute and work collaboratively.\nExplore ML demos created by the community."
+  },
+  {
+    "objectID": "slides/hub.html#exploring-a-model",
+    "href": "slides/hub.html#exploring-a-model",
+    "title": "Hugging Face Hub 🤗",
+    "section": "Exploring a model",
+    "text": "Exploring a model\n\nYou can access over 300,000 models at hf.co/models.\nYou will see gpt2 as one of the models with the most downloads. Let’s click on it.\nThe website will take you to the model card when you click a model."
+  },
+  {
+    "objectID": "slides/hub.html#what-is-the-model-card",
+    "href": "slides/hub.html#what-is-the-model-card",
+    "title": "Hugging Face Hub 🤗",
+    "section": "What is the Model Card?",
+    "text": "What is the Model Card?\n\nA model card is a tool that\n\ndocuments models,\nprovides helpful information about the models\nis essential for discoverability and reproducibility"
+  },
+  {
+    "objectID": "slides/hub.html#tags",
+    "href": "slides/hub.html#tags",
+    "title": "Hugging Face Hub 🤗",
+    "section": "Tags",
+    "text": "Tags\n\n\nAt the top, you can find different tags for things such as the\n\ntask (text generation, image classification, etc.)\nframeworks (PyTorch, TensorFlow, etc.),\nthe model’s language (English, Arabic, etc.),\nand license (e.g. MIT)."
+  },
+  {
+    "objectID": "slides/hub.html#inference-api",
+    "href": "slides/hub.html#inference-api",
+    "title": "Hugging Face Hub 🤗",
+    "section": "Inference API",
+    "text": "Inference API\n\n\nAt the right column, you can play with the model directly in the browser using the Inference API.\nGPT2 is a text generation model, so it will generate additional text given an initial input.\nTry typing something like, “It was a bright and sunny day.”"
+  },
+  {
+    "objectID": "slides/hub.html#model-card-content",
+    "href": "slides/hub.html#model-card-content",
+    "title": "Hugging Face Hub 🤗",
+    "section": "Model Card Content",
+    "text": "Model Card Content\n\n\nIn the middle, you can go through the model card content.\nIt has sections such as Intended uses & limitations, Training procedure, and Citation Info."
+  },
+  {
+    "objectID": "slides/hub.html#where-does-the-data-come-from",
+    "href": "slides/hub.html#where-does-the-data-come-from",
+    "title": "Hugging Face Hub 🤗",
+    "section": "Where does the data come from?",
+    "text": "Where does the data come from?\n\n\nAt Hugging Face, everything is based in Git repositories and is open-sourced.\nYou can click the “Files and Versions” tab, which will allow you to see all the repository files, including the model weights.\nThe model card is a markdown file (README.md) which on top of the content contains metadata such as the tags.\nJust as with GitHub, you can do things such as Git cloning, adding, committing, branching, and pushing."
+  },
+  {
+    "objectID": "slides/hub.html#take-a-look-at-config.json",
+    "href": "slides/hub.html#take-a-look-at-config.json",
+    "title": "Hugging Face Hub 🤗",
+    "section": "Take a look at config.json",
+    "text": "Take a look at config.json\n\nOpen the config.json file of the GPT2 repository.\nThe config file contains hyperparameters as well as useful information for loading the model."
+  },
+  {
+    "objectID": "slides/hub.html#filter",
+    "href": "slides/hub.html#filter",
+    "title": "Hugging Face Hub 🤗",
+    "section": "Filter",
+    "text": "Filter\n\n\nAt the left of https://huggingface.co/models, you can filter for different things:\n\nTasks: Computer Vision, Natural Language Processing, Audio, and more.\nLibraries: You can find models of Keras, PyTorch, spaCy, allenNLP, and more.\nDatasets: The Hub also hosts thousands of datasets, as you’ll find more about later.\nLanguages: Many of the models on the Hub are NLP-related. You can find models for hundreds of languages."
+  },
+  {
+    "objectID": "slides/hub.html#workflow",
+    "href": "slides/hub.html#workflow",
+    "title": "Hugging Face Hub 🤗",
+    "section": "Workflow",
+    "text": "Workflow\n\nGo to huggingface.co/new to create a new model repository.\nYou start with a public repo that has a model card.\nYou can upload your model either by using the Web UI or by doing it with Git.\n\n\nWub UI: You can click Add File and drag and drop the files you want to add.\n\n\n\n\n\n\n\n\nNote\n\n\nTake a look at the appendix to learn how to use Git"
+  },
+  {
+    "objectID": "slides/hub.html#share-and-collaboarate",
+    "href": "slides/hub.html#share-and-collaboarate",
+    "title": "Hugging Face Hub 🤗",
+    "section": "Share and collaboarate",
+    "text": "Share and collaboarate\n\nNow that the model is in the Hub, others can find them!\nYou can also collaborate with others easily by creating an organization.\nHosting through the Hub allows a team to update repositories and do things you might be used to, such as working in branches and working collaboratively.\nThe Hub also enables versioning in your models: if a model checkpoint is suddenly broken, you can always head back to a previous version."
+  },
+  {
+    "objectID": "slides/hub.html#basics",
+    "href": "slides/hub.html#basics",
+    "title": "Hugging Face Hub 🤗",
+    "section": "Basics",
+    "text": "Basics\n\nThe Hub hosts around 3000 datasets that are open-sourced and free to use in multiple domains.\nOn top of it, the open-source datasets library allows the easy use of these datasets\nSimilar to models, you can head to https://hf.co/datasets. At the left, you can find different filters based on the task, license, and size of the dataset."
+  },
+  {
+    "objectID": "slides/hub.html#glue-datset",
+    "href": "slides/hub.html#glue-datset",
+    "title": "Hugging Face Hub 🤗",
+    "section": "GLUE datset",
+    "text": "GLUE datset\n\n\nLet’s explore the GLUE dataset, which is a famous dataset used to test the performance of NLP models.\nSimilar to model repositories, you have a dataset card that documents the dataset. If you scroll down a bit, you will find things such as the summary, the structure, and more."
+  },
+  {
+    "objectID": "slides/hub.html#dataset-slice",
+    "href": "slides/hub.html#dataset-slice",
+    "title": "Hugging Face Hub 🤗",
+    "section": "Dataset slice",
+    "text": "Dataset slice\n\n\nAt the top, you can explore a slice of the dataset directly in the browser.\nThe GLUE dataset is divided into multiple sub-datasets (or subsets) that you can select, such as COLA and QNLI."
+  },
+  {
+    "objectID": "slides/hub.html#models-trained-on-the-dataset",
+    "href": "slides/hub.html#models-trained-on-the-dataset",
+    "title": "Hugging Face Hub 🤗",
+    "section": "Models trained on the dataset",
+    "text": "Models trained on the dataset\n\n\nAt the right of the dataset card, you can see a list of models trained on this dataset."
+  },
+  {
+    "objectID": "slides/hub.html#basics-1",
+    "href": "slides/hub.html#basics-1",
+    "title": "Hugging Face Hub 🤗",
+    "section": "Basics",
+    "text": "Basics\n\nDemos of models are an increasingly important part of the ecosystem.\n\n\n\n\n\n\n\nDemos allow:\n\n\n\nmodel developers to easily present their work to a wide audience\nto increase reproducibility in machine learning by lowering the barrier to test a model\nto share with a non-technical audience the impact of a model"
+  },
+  {
+    "objectID": "slides/hub.html#frameworks",
+    "href": "slides/hub.html#frameworks",
+    "title": "Hugging Face Hub 🤗",
+    "section": "Frameworks",
+    "text": "Frameworks\n\nThere are Open-Source Python frameworks such as Gradio and Streamlit that allow building these demos very easily,\nTools such as Hugging Face Spaces allow to host and share them."
+  },
+  {
+    "objectID": "slides/hub.html#sec-git",
+    "href": "slides/hub.html#sec-git",
+    "title": "Hugging Face Hub 🤗",
+    "section": "Git approach",
+    "text": "Git approach\nIf you want to understand the complete workflow how to upload models, let’s go with the Git approach.\n\nInstall both git and git-lfs on your system.\n\n\nGit: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git\nGit-lfs: https://git-lfs.github.com/. Large files need to be uploaded with Git LFS. Git does not work well once your files are above a few megabytes, which is frequent in ML. ML models can be up to gigabytes or terabytes!\n\n\nClone the repository you just created\n\ngit clone https://huggingface.co/&lt;your-username&gt;/&lt;your-model-id&gt;\n\nGo to the directory and initialize Git LFS"
+  },
+  {
+    "objectID": "slides/hub.html#git-approach-optional",
+    "href": "slides/hub.html#git-approach-optional",
+    "title": "Hugging Face Hub 🤗",
+    "section": "Git approach (optional)",
+    "text": "Git approach (optional)\nHuggingFace already provides a list of common file extensions for the large files in .gitattributes\nIf the files you want to upload are not included in the .gitattributes file, you might need as shown here: You can do so with:\ngit lfs track \"*.your_extension\"\ngit lfs install"
+  },
+  {
+    "objectID": "slides/hub.html#git-approach",
+    "href": "slides/hub.html#git-approach",
+    "title": "Hugging Face Hub 🤗",
+    "section": "Git approach",
+    "text": "Git approach\n\nAdd your files to the repository. The files depend on the framework/libraries you’re using. Overall, what is important is that you provide all artifacts required to load the model. For example:\n\n\nFor TensorFlow, you might want to upload a SavedModel or h5 file.\nFor PyTorch, usually, it’s a pytorch_model.bin.\nFor Scikit-Learn, it’s usually a joblib file.\n\nHere is an example in Python saving a Scikit-Learn model file.\nfrom sklearn import linear_model\nreg = linear_model.LinearRegression()\nreg.fit([[0, 0], [1, 1], [2, 2]], [0, 1, 2]\nfrom joblib import dump, load\ndump(reg, 'model.joblib')"
+  },
+  {
+    "objectID": "slides/hub.html#git-approach-1",
+    "href": "slides/hub.html#git-approach-1",
+    "title": "Hugging Face Hub 🤗",
+    "section": "Git approach",
+    "text": "Git approach\n\nCommit and push your files. (make sure the saved file is within the repository). Use GitHub Desktop or:\n\ngit add .\ngit commit -m \"First model version\"\ngit push\nAnd we’re done! You can check your repository with all the recently added files!\n\nThe UI allows you to explore the model files and commits and to see the diff introduced by each commit.\n\n\nJan Kirenz"
+  },
+  {
+    "objectID": "slides/generation.html#use-cases",
+    "href": "slides/generation.html#use-cases",
+    "title": "Text generation",
+    "section": "Use Cases",
+    "text": "Use Cases\n\nStories Generation\nCode Generation: can help programmers in their repetitive coding tasks."
+  },
+  {
+    "objectID": "slides/generation.html#task-variants",
+    "href": "slides/generation.html#task-variants",
+    "title": "Text generation",
+    "section": "Task Variants",
+    "text": "Task Variants\n\nCompletion Generation Models\n\nGiven an incomplete sentence, complete it.\nContinue a story given the first sentences.\nProvided a code description, generate the code.\n\nText-to-Text Generation Models\n\nTranslation\nSummarization\nText classification\n\nInference\n\ntakes an incomplete text and returns multiple outputs with which the text can be completed."
+  },
+  {
+    "objectID": "slides/generation.html#create-pipeline-with-gpt-2",
+    "href": "slides/generation.html#create-pipeline-with-gpt-2",
+    "title": "Text generation",
+    "section": "Create pipeline with GPT-2",
+    "text": "Create pipeline with GPT-2\n\ngenerator = pipeline('text-generation', model='gpt2')"
+  },
+  {
+    "objectID": "slides/generation.html#provide-text",
+    "href": "slides/generation.html#provide-text",
+    "title": "Text generation",
+    "section": "Provide text",
+    "text": "Provide text\n\nmy_text = \"Hello, I study online media management\""
+  },
+  {
+    "objectID": "slides/generation.html#make-inference",
+    "href": "slides/generation.html#make-inference",
+    "title": "Text generation",
+    "section": "Make inference",
+    "text": "Make inference\n\ngenerator(my_text, max_length=30, num_return_sequences=3)"
+  },
+  {
+    "objectID": "slides/generation.html#output",
+    "href": "slides/generation.html#output",
+    "title": "Text generation",
+    "section": "Output",
+    "text": "Output\n\n[{'generated_text': 'Hello, I study online media management, and while most of my courses focus on the business, I specialize in online development.\\n\\nIf you know'},\n\n {'generated_text': 'Hello, I study online media management at a computer-focused high school. One of my favorite exercises is watching and reading my students write things.\\n'},\n\n {'generated_text': 'Hello, I study online media management, so I know that it\\'s not the best idea to be a part of the digital environment yourself.\"\\n\\n'}]"
+  },
+  {
     "objectID": "slides/transformer_intuition.html#important-architectures",
     "href": "slides/transformer_intuition.html#important-architectures",
     "title": "Transformers intuition",
@@ -1260,227 +1456,31 @@
     "text": "Microsoft JARVIS\n\nhttps://github.com/microsoft/JARVIS"
   },
   {
-    "objectID": "slides/summarization.html#use-cases",
-    "href": "slides/summarization.html#use-cases",
-    "title": "Text summarization",
-    "section": "Use Cases",
-    "text": "Use Cases\n\nHelp readers quickly understand the main points.\nLegislative bills, legal and financial documents, patents, and scientific papers …"
-  },
-  {
-    "objectID": "slides/summarization.html#two-types-of-summarization",
-    "href": "slides/summarization.html#two-types-of-summarization",
-    "title": "Text summarization",
-    "section": "Two types of summarization:",
-    "text": "Two types of summarization:\n\nextractive: identify and extract the most important sentences from the original text.\nabstractive: generate the target summary (which may include new words not in the input document) from the original text"
-  },
-  {
-    "objectID": "slides/summarization.html#create-pipeline",
-    "href": "slides/summarization.html#create-pipeline",
-    "title": "Text summarization",
-    "section": "Create pipeline",
-    "text": "Create pipeline\n\nsummarizer = pipeline(task=\"summarization\")"
-  },
-  {
-    "objectID": "slides/summarization.html#provide-text",
-    "href": "slides/summarization.html#provide-text",
-    "title": "Text summarization",
-    "section": "Provide text",
-    "text": "Provide text\n\nParagraph about observational studies and experiments from Introduction to Modern Statistics\n\n\n\nmy_text = \"When researchers want to evaluate the effect of particular traits, treatments, \\\nor conditions, they conduct an experiment. For instance, we may suspect drinking a \\\nhigh-calorie energy drink will improve performance in a race. To check if there \\\nreally is a causal relationship between the explanatory variable (whether the \\\nrunner drank an energy drink or not) and the response variable (the race time), \\\n researchers identify a sample of individuals and split them into groups. \\\n The individuals in each group are assigned a treatment. When individuals are \\\n randomly assigned to a group, the experiment is called a randomized experiment. \\\n Random assignment organizes the participants in a study into groups that are roughly \\\n equal on all aspects, thus allowing us to control for any confounding variables that \\\n  might affect the outcome (e.g., fitness level, racing experience, etc.). For example, \\\n   each runner in the experiment could be randomly assigned, perhaps by flipping a coin,  \\\ninto one of two groups: the first group receives a placebo (fake treatment, in this case  \\\na no-calorie drink) and the second group receives the high-calorie energy drink.  \\\nSee the case study in Section 1.1 for another example of an experiment, though that  \\\nstudy did not employ a placebo. Researchers perform an observational study when they  \\\ncollect data in a way that does not directly interfere with how the data arise.  \\\nFor instance, researchers may collect information via surveys, review medical or company  \\\nrecords, or follow a cohort of many similar individuals to form hypotheses about why  \\\ncertain diseases might develop. In each of these situations, researchers merely observe  \\\nthe data that arise. In general, observational studies can provide evidence of a naturally  \\\noccurring association between variables, but they cannot by themselves show a causal connection  \\\nas they do not offer a mechanism for controlling for confounding variables.\""
-  },
-  {
-    "objectID": "slides/summarization.html#summarizer",
-    "href": "slides/summarization.html#summarizer",
-    "title": "Text summarization",
-    "section": "Summarizer",
-    "text": "Summarizer\n\nsummarizer(my_text, min_length=20, max_length=80)"
-  },
-  {
-    "objectID": "slides/summarization.html#output",
-    "href": "slides/summarization.html#output",
-    "title": "Text summarization",
-    "section": "Output",
-    "text": "Output\n\nOutput:\n\n\n[{'summary_text': ' When researchers want to evaluate the effect of particular  \\\ntraits, treatments, or conditions, they conduct an experiment . For example, we  \\\nmay suspect drinking a high-calorie energy drink will improve performance in a race .  \\\nResearchers perform an observational study when they collect data in a way that does  \\\nnot directly interfere with how the data arise .'}]"
-  },
-  {
-    "objectID": "code/generation.html",
-    "href": "code/generation.html",
-    "title": "Text generation",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome 👋",
     "section": "",
-    "text": "from transformers import pipeline"
+    "text": "Welcome to the lab “Hugging Face 🤗”\n\nIn this lab you will …\n\n\n\n\n\n\nImportant\n\n\n\nMake sure you meet all the requirements and have read the lecture slides before you start with the assignments\n\n\nWhat you will learn in this lab:\n\nyou’ll get to know the Hugging Face Hub\nlearn how to build and host Machine Learning Demos with Gradio ⚡ & Hugging Face\nhow to use transformers in Hugging Face\nhow to perform sentiment analysis, text summarization, question and answering, text generation & more"
   },
   {
-    "objectID": "code/generation.html#use-cases",
-    "href": "code/generation.html#use-cases",
-    "title": "Text generation",
-    "section": "Use Cases",
-    "text": "Use Cases\n\nStories Generation\nCode Generation: can help programmers in their repetitive coding tasks."
-  },
-  {
-    "objectID": "code/generation.html#task-variants",
-    "href": "code/generation.html#task-variants",
-    "title": "Text generation",
-    "section": "Task Variants",
-    "text": "Task Variants\n\nCompletion Generation Models\n\nGiven an incomplete sentence, complete it.\nContinue a story given the first sentences.\nProvided a code description, generate the code.\n\nText-to-Text Generation Models\n\nTranslation\nSummarization\nText classification\n\nInference\n\ntakes an incomplete text and returns multiple outputs with which the text can be completed."
-  },
-  {
-    "objectID": "code/generation.html#create-pipeline-with-gpt-2",
-    "href": "code/generation.html#create-pipeline-with-gpt-2",
-    "title": "Text generation",
-    "section": "Create pipeline with GPT-2",
-    "text": "Create pipeline with GPT-2\n\ngenerator = pipeline('text-generation', model='gpt2')"
-  },
-  {
-    "objectID": "code/generation.html#provide-text",
-    "href": "code/generation.html#provide-text",
-    "title": "Text generation",
-    "section": "Provide text",
-    "text": "Provide text\n\nmy_text = \"Hello, I study online media management\""
-  },
-  {
-    "objectID": "code/generation.html#make-inference",
-    "href": "code/generation.html#make-inference",
-    "title": "Text generation",
-    "section": "Make inference",
-    "text": "Make inference\n\ngenerator(my_text, max_length=30, num_return_sequences=3)"
-  },
-  {
-    "objectID": "code/generation.html#output",
-    "href": "code/generation.html#output",
-    "title": "Text generation",
-    "section": "Output",
-    "text": "Output\n\n[{'generated_text': 'Hello, I study online media management, and while most of my courses focus on the business, I specialize in online development.\\n\\nIf you know'},\n\n {'generated_text': 'Hello, I study online media management at a computer-focused high school. One of my favorite exercises is watching and reading my students write things.\\n'},\n\n {'generated_text': 'Hello, I study online media management, so I know that it\\'s not the best idea to be a part of the digital environment yourself.\"\\n\\n'}]"
-  },
-  {
-    "objectID": "code/diffusers.html",
-    "href": "code/diffusers.html",
-    "title": "🧨 Diffusers",
+    "objectID": "require.html",
+    "href": "require.html",
+    "title": "Requirements",
     "section": "",
-    "text": "from diffusers import StableDiffusionPipeline\n\n\n\n\ndiffusers: A Python library maintained at 🤗\nProviding open and responsible access to pre-trained diffusion models.\nDemocratizing the ecosystem of diffusion models by making them easy to use."
+    "text": "To start this lab on your local machine, you’ll need:\nTo start this lab, you’ll need the following environments:\n\n\n\n\n\n\nImportant\n\n\n\nVisit the “Programming Toolkit-webpage” to learn how to meet all requirements.\n\n\n\nPython: Anaconda, Anaconda Environment transformers and Visual Studio Code\nEnvironment: A folder on your machine called huggingface and an environment file with your Hugging Face API."
   },
   {
-    "objectID": "code/diffusers.html#basics",
-    "href": "code/diffusers.html#basics",
-    "title": "🧨 Diffusers",
+    "objectID": "require.html#local-development",
+    "href": "require.html#local-development",
+    "title": "Requirements",
     "section": "",
-    "text": "diffusers: A Python library maintained at 🤗\nProviding open and responsible access to pre-trained diffusion models.\nDemocratizing the ecosystem of diffusion models by making them easy to use."
+    "text": "To start this lab on your local machine, you’ll need:\nTo start this lab, you’ll need the following environments:\n\n\n\n\n\n\nImportant\n\n\n\nVisit the “Programming Toolkit-webpage” to learn how to meet all requirements.\n\n\n\nPython: Anaconda, Anaconda Environment transformers and Visual Studio Code\nEnvironment: A folder on your machine called huggingface and an environment file with your Hugging Face API."
   },
   {
-    "objectID": "code/diffusers.html#diffusers-mac-silicon",
-    "href": "code/diffusers.html#diffusers-mac-silicon",
-    "title": "🧨 Diffusers",
-    "section": "Diffusers (Mac silicon)",
-    "text": "Diffusers (Mac silicon)\n\nmodel_id = \"runwayml/stable-diffusion-v1-5\"\n\npipeline = StableDiffusionPipeline.from_pretrained(model_id)\n\npipeline = pipeline.to('mps')\n\n# Recommended if your computer has &lt; 64 GB of RAM\npipeline.enable_attention_slicing()\n\nimage = pipeline(\n    \"An astronaut floating through space while plying the guitar\").images[0]\n\nimage.save(\"../images/diffusion_astronaut.png\")"
-  },
-  {
-    "objectID": "code/diffusers.html#output",
-    "href": "code/diffusers.html#output",
-    "title": "🧨 Diffusers",
-    "section": "Output",
-    "text": "Output"
-  },
-  {
-    "objectID": "code/diffusers.html#diffusers-on-windows-and-mac-intel",
-    "href": "code/diffusers.html#diffusers-on-windows-and-mac-intel",
-    "title": "🧨 Diffusers",
-    "section": "Diffusers on Windows and Mac Intel",
-    "text": "Diffusers on Windows and Mac Intel\n\nmodel_id = \"runwayml/stable-diffusion-v1-5\"\n\npipeline = StableDiffusionPipeline.from_pretrained(model_id)\n\npipeline = pipeline.to(\"cuda\")\n\nimage = pipeline(\"An astronaut riding a tiger\").images[0]\n\nimage.save(\"image.png\")"
-  },
-  {
-    "objectID": "code/summarization.html",
-    "href": "code/summarization.html",
-    "title": "Text Summarization Hugging Face Pipeline",
-    "section": "",
-    "text": "from transformers import pipeline"
-  },
-  {
-    "objectID": "code/summarization.html#use-cases",
-    "href": "code/summarization.html#use-cases",
-    "title": "Text Summarization Hugging Face Pipeline",
-    "section": "Use Cases",
-    "text": "Use Cases\n\nHelp readers quickly understand the main points.\nLegislative bills, legal and financial documents, patents, and scientific papers …"
-  },
-  {
-    "objectID": "code/summarization.html#two-types-of-summarization",
-    "href": "code/summarization.html#two-types-of-summarization",
-    "title": "Text Summarization Hugging Face Pipeline",
-    "section": "Two types of summarization:",
-    "text": "Two types of summarization:\n\nextractive: identify and extract the most important sentences from the original text.\nabstractive: generate the target summary (which may include new words not in the input document) from the original text"
-  },
-  {
-    "objectID": "code/summarization.html#create-pipeline",
-    "href": "code/summarization.html#create-pipeline",
-    "title": "Text Summarization Hugging Face Pipeline",
-    "section": "Create pipeline",
-    "text": "Create pipeline\n\nsummarizer = pipeline(task=\"summarization\")"
-  },
-  {
-    "objectID": "code/summarization.html#provide-text",
-    "href": "code/summarization.html#provide-text",
-    "title": "Text Summarization Hugging Face Pipeline",
-    "section": "Provide text",
-    "text": "Provide text\n\nParagraph about observational studies and experiments from Introduction to Modern Statistics\n\n\nmy_text = \"When researchers want to evaluate the effect of particular traits, treatments, \\\nor conditions, they conduct an experiment. For instance, we may suspect drinking a \\\nhigh-calorie energy drink will improve performance in a race. To check if there \\\nreally is a causal relationship between the explanatory variable (whether the \\\nrunner drank an energy drink or not) and the response variable (the race time), \\\n researchers identify a sample of individuals and split them into groups. \\\n The individuals in each group are assigned a treatment. When individuals are \\\n randomly assigned to a group, the experiment is called a randomized experiment. \\\n Random assignment organizes the participants in a study into groups that are roughly \\\n equal on all aspects, thus allowing us to control for any confounding variables that \\\n  might affect the outcome (e.g., fitness level, racing experience, etc.). For example, \\\n   each runner in the experiment could be randomly assigned, perhaps by flipping a coin,  \\\ninto one of two groups: the first group receives a placebo (fake treatment, in this case  \\\na no-calorie drink) and the second group receives the high-calorie energy drink.  \\\nSee the case study in Section 1.1 for another example of an experiment, though that  \\\nstudy did not employ a placebo. Researchers perform an observational study when they  \\\ncollect data in a way that does not directly interfere with how the data arise.  \\\nFor instance, researchers may collect information via surveys, review medical or company  \\\nrecords, or follow a cohort of many similar individuals to form hypotheses about why  \\\ncertain diseases might develop. In each of these situations, researchers merely observe  \\\nthe data that arise. In general, observational studies can provide evidence of a naturally  \\\noccurring association between variables, but they cannot by themselves show a causal connection  \\\nas they do not offer a mechanism for controlling for confounding variables.\""
-  },
-  {
-    "objectID": "code/summarization.html#summarizer",
-    "href": "code/summarization.html#summarizer",
-    "title": "Text Summarization Hugging Face Pipeline",
-    "section": "Summarizer",
-    "text": "Summarizer\n\nsummarizer(my_text, min_length=20, max_length=80)"
-  },
-  {
-    "objectID": "code/qa.html",
-    "href": "code/qa.html",
-    "title": "Question Answering Hugging Face Pipeline",
-    "section": "",
-    "text": "from transformers import pipeline"
-  },
-  {
-    "objectID": "code/qa.html#use-cases",
-    "href": "code/qa.html#use-cases",
-    "title": "Question Answering Hugging Face Pipeline",
-    "section": "Use Cases",
-    "text": "Use Cases\n\nAutomate the response to Frequently Asked Questions\nChat Bots"
-  },
-  {
-    "objectID": "code/qa.html#common-types",
-    "href": "code/qa.html#common-types",
-    "title": "Question Answering Hugging Face Pipeline",
-    "section": "Common types",
-    "text": "Common types\n\nExtractive QA: The model extracts the answer from the original context.\n\nThe context could be a provided text, a table or even HTML! This is usually solved with BERT-like models.\n\nOpen Generative QA: The model generates free text directly based on the context.\nClosed Generative QA: In this case, no context is provided. The answer is completely generated by a model."
-  },
-  {
-    "objectID": "code/qa.html#closed-domain-vs-open-domain",
-    "href": "code/qa.html#closed-domain-vs-open-domain",
-    "title": "Question Answering Hugging Face Pipeline",
-    "section": "Closed-domain vs open-domain",
-    "text": "Closed-domain vs open-domain\n\nClosed-domain models are restricted to a specific domain (e.g. legal, medical documents).\nOpen-domain models are not restricted to a specific domain."
-  },
-  {
-    "objectID": "code/qa.html#define-pipeline",
-    "href": "code/qa.html#define-pipeline",
-    "title": "Question Answering Hugging Face Pipeline",
-    "section": "Define pipeline",
-    "text": "Define pipeline\n\nDefine the Pipeline1\n\n\nqa_model = pipeline(\"question-answering\")"
-  },
-  {
-    "objectID": "code/qa.html#provide-question-and-context",
-    "href": "code/qa.html#provide-question-and-context",
-    "title": "Question Answering Hugging Face Pipeline",
-    "section": "Provide question and context",
-    "text": "Provide question and context\n\nquestion = \"Where do I live?\"\n\ncontext = \"My name is Jan and I live in Stuttgart.\""
-  },
-  {
-    "objectID": "code/qa.html#return-the-answer",
-    "href": "code/qa.html#return-the-answer",
-    "title": "Question Answering Hugging Face Pipeline",
-    "section": "Return the answer",
-    "text": "Return the answer\n\nqa_model(question=question, context=context)"
-  },
-  {
-    "objectID": "code/qa.html#footnotes",
-    "href": "code/qa.html#footnotes",
-    "title": "Question Answering Hugging Face Pipeline",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nWill be initialized with the default model distilbert-base-cased-distilled-squad↩︎"
+    "objectID": "require.html#cloud-development",
+    "href": "require.html#cloud-development",
+    "title": "Requirements",
+    "section": "Cloud development",
+    "text": "Cloud development\nInstead of local development, you may also work in a fully configured dev environment in the cloud with GitHub Codespaces. Take a look at this site to learn more about the different options."
   }
 ]
